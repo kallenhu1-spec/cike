@@ -1,0 +1,1168 @@
+[
+  {
+    "id": "base-001",
+    "text": "给杯子添一点水，放在不用起身就能拿到的位置。",
+    "period": "morning",
+    "tags": [
+      "热茶",
+      "喝水"
+    ],
+    "topic": "饮品",
+    "action": {
+      "title": "把水放到手边",
+      "duration": "30 秒",
+      "illustration": "water",
+      "closing": "放到顺手的位置就好。",
+      "motionId": "pour-water"
+    }
+  },
+  {
+    "id": "base-002",
+    "text": "把窗帘拉开手掌宽的一条缝，看看外面。",
+    "period": "morning",
+    "tags": [
+      "窗边",
+      "植物"
+    ],
+    "topic": "窗边",
+    "action": {
+      "title": "给窗帘留条缝",
+      "duration": "30 秒",
+      "illustration": "window",
+      "closing": "先看一眼今天的天。",
+      "motionId": "open-curtain"
+    }
+  },
+  {
+    "id": "base-003",
+    "text": "如果准备吃早餐，先拿出一个盘子或碗。",
+    "period": "morning",
+    "tags": [
+      "吃饭"
+    ],
+    "topic": "吃饭",
+    "action": {
+      "title": "摆好早餐的盘子",
+      "duration": "30 秒",
+      "illustration": "meal",
+      "closing": "先摆好这一个。",
+      "motionId": "prepare-meal"
+    }
+  },
+  {
+    "id": "base-004",
+    "text": "把键盘前的一张纸挪到一旁，腾出放手的位置。",
+    "period": "morning",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "让键盘前空一点",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "不用整理整张桌子。",
+      "motionId": "clear-item"
+    }
+  },
+  {
+    "id": "base-005",
+    "text": "新建一个准备使用的文件，先给它起个名字。",
+    "period": "morning",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "先写下文件名",
+      "duration": "1 分钟",
+      "illustration": "desk",
+      "closing": "内容可以从下一步开始。",
+      "motionId": "type-text"
+    }
+  },
+  {
+    "id": "base-006",
+    "text": "在空白页上写一句现在想到的话，不急着修改。",
+    "period": "morning",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "留下一行开头",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "先留住这一句。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-007",
+    "text": "从收藏里选一首歌，听它的开头。",
+    "period": "morning",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "action": {
+      "title": "听一小段熟悉的歌",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "不用重新挑一份歌单。",
+      "motionId": "play-song"
+    }
+  },
+  {
+    "id": "base-008",
+    "text": "轻轻抬一下肩膀，再放回舒服的位置。",
+    "period": "morning",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "action": {
+      "title": "让肩膀落下来",
+      "duration": "30 秒",
+      "illustration": "stretch",
+      "closing": "放下这一下就好。",
+      "motionId": "shrug"
+    }
+  },
+  {
+    "id": "base-009",
+    "text": "翻开本子，写下今天的日期。",
+    "period": "morning",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "给笔记本翻一页",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "先让这一页有个开始。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-010",
+    "text": "把最常用的一件小物挪到顺手的位置。",
+    "period": "morning",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "把常用物放近些",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "这次只挪这一件。",
+      "motionId": "clear-item"
+    }
+  },
+  {
+    "id": "base-011",
+    "text": "给手边的杯子垫一张杯垫或餐巾。",
+    "period": "morning",
+    "tags": [
+      "热茶",
+      "喝水"
+    ],
+    "topic": "饮品",
+    "action": {
+      "title": "给杯子配个垫子",
+      "duration": "30 秒",
+      "illustration": "water",
+      "closing": "一个小位置就够了。",
+      "motionId": "place-cup"
+    }
+  },
+  {
+    "id": "base-012",
+    "text": "看向窗外，找一片轮廓特别的叶子或云。",
+    "period": "morning",
+    "tags": [
+      "窗边",
+      "植物"
+    ],
+    "topic": "窗边",
+    "action": {
+      "title": "看看窗外的形状",
+      "duration": "30 秒",
+      "illustration": "window",
+      "closing": "看见就好，不用拍照。",
+      "motionId": "look-outside"
+    }
+  },
+  {
+    "id": "base-013",
+    "text": "如果想专心开始，把手机挪到键盘旁边以外的位置。",
+    "period": "morning",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "把手机挪开一点",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "先给眼前留点空间。",
+      "motionId": "move-phone"
+    }
+  },
+  {
+    "id": "base-014",
+    "text": "准备吃早餐时，先坐下来，把餐具放好。",
+    "period": "morning",
+    "tags": [
+      "吃饭"
+    ],
+    "topic": "吃饭",
+    "action": {
+      "title": "给早餐一个座位",
+      "duration": "30 秒",
+      "illustration": "meal",
+      "closing": "先坐稳这一会儿。",
+      "motionId": "prepare-meal"
+    }
+  },
+  {
+    "id": "base-015",
+    "text": "双手放到腿上，自然松开手指，再放回来。",
+    "period": "morning",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "action": {
+      "title": "让手离开键盘一下",
+      "duration": "30 秒",
+      "illustration": "stretch",
+      "closing": "按自己的舒服程度来。",
+      "motionId": "relax-hands"
+    }
+  },
+  {
+    "id": "base-016",
+    "text": "打开昨天用过的文档，找到最后写到的一行。",
+    "period": "morning",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "翻到昨天停下的地方",
+      "duration": "1 分钟",
+      "illustration": "desk",
+      "closing": "先找回来，不急着接着写。",
+      "motionId": "type-text"
+    }
+  },
+  {
+    "id": "base-017",
+    "text": "把今天要用的一张便签放到看得见的地方。",
+    "period": "morning",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "把便签翻到正面",
+      "duration": "30 秒",
+      "illustration": "note",
+      "closing": "只放这一张。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-018",
+    "text": "把挡在植物前的一件小东西移开。",
+    "period": "morning",
+    "tags": [
+      "窗边",
+      "植物"
+    ],
+    "topic": "窗边",
+    "action": {
+      "title": "给绿色留个空隙",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "让那片绿露出来就好。",
+      "motionId": "clear-item"
+    }
+  },
+  {
+    "id": "base-019",
+    "text": "不知道从哪开始时，写下此刻最想弄清的一个问题。",
+    "period": "morning",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "先写一个问句",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "这次只写问题。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-020",
+    "text": "把一个喜欢的小物件摆到能看见的位置。",
+    "period": "morning",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "给桌边添点熟悉",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "让它陪今天开个头。",
+      "motionId": "clear-item"
+    }
+  },
+  {
+    "id": "base-021",
+    "text": "如果杯子空了，接一点水，再放回手边。",
+    "period": "afternoon",
+    "tags": [
+      "热茶",
+      "喝水"
+    ],
+    "topic": "饮品",
+    "action": {
+      "title": "顺手添半杯水",
+      "duration": "30 秒",
+      "illustration": "water",
+      "closing": "不用等到想起一整套休息。",
+      "motionId": "pour-water"
+    }
+  },
+  {
+    "id": "base-022",
+    "text": "把杯子周围的一件杂物拿走。",
+    "period": "afternoon",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "清出一个杯子的位置",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "清出这一小圈就好。",
+      "motionId": "clear-item"
+    }
+  },
+  {
+    "id": "base-023",
+    "text": "暂时离开屏幕，看看窗框外最远的那处轮廓。",
+    "period": "afternoon",
+    "tags": [
+      "窗边",
+      "植物"
+    ],
+    "topic": "窗边",
+    "action": {
+      "title": "把视线移到窗边",
+      "duration": "30 秒",
+      "illustration": "window",
+      "closing": "目光走一小段就回来。",
+      "motionId": "look-outside"
+    }
+  },
+  {
+    "id": "base-024",
+    "text": "在便签上写下接下来要做的一个具体动作。",
+    "period": "afternoon",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "给下一步起个名字",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "只写下一步。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-025",
+    "text": "吃过饭的话，把一件用过的餐具送到水槽。",
+    "period": "afternoon",
+    "tags": [
+      "吃饭"
+    ],
+    "topic": "吃饭",
+    "action": {
+      "title": "把用过的餐具收走",
+      "duration": "30 秒",
+      "illustration": "meal",
+      "closing": "先送这一件。",
+      "motionId": "rinse-dish"
+    }
+  },
+  {
+    "id": "base-026",
+    "text": "把暂时不用的一本本子合上，放到桌角。",
+    "period": "afternoon",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "合上一个不用的本子",
+      "duration": "30 秒",
+      "illustration": "note",
+      "closing": "给眼前少一点东西。",
+      "motionId": "close-book"
+    }
+  },
+  {
+    "id": "base-027",
+    "text": "播放一首收藏过的歌，不再继续翻找。",
+    "period": "afternoon",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "action": {
+      "title": "让音乐接住这会儿",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "选好这一首就停。",
+      "motionId": "play-song"
+    }
+  },
+  {
+    "id": "base-028",
+    "text": "手离开鼠标，轻轻伸开五指，再自然放下。",
+    "period": "afternoon",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "action": {
+      "title": "活动一下手指",
+      "duration": "30 秒",
+      "illustration": "stretch",
+      "closing": "不需要用力拉伸。",
+      "motionId": "relax-hands"
+    }
+  },
+  {
+    "id": "base-029",
+    "text": "用纸巾或抹布擦一下杯子下面的位置。",
+    "period": "afternoon",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "擦一小块桌面",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "只擦这一小块。",
+      "motionId": "wipe-desk"
+    }
+  },
+  {
+    "id": "base-030",
+    "text": "读到喜欢的一句话，就在旁边画个小点。",
+    "period": "afternoon",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "给一句话做个记号",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "一个记号就足够。",
+      "motionId": "mark-page"
+    }
+  },
+  {
+    "id": "base-031",
+    "text": "如果正在吃饭，放下手里的屏幕，尝下一口是什么味道。",
+    "period": "afternoon",
+    "tags": [
+      "吃饭"
+    ],
+    "topic": "吃饭",
+    "action": {
+      "title": "尝一口午饭的味道",
+      "duration": "30 秒",
+      "illustration": "meal",
+      "closing": "只专心这一口。",
+      "motionId": "taste-food"
+    }
+  },
+  {
+    "id": "base-032",
+    "text": "植物在旁边的话，挑一片叶子，看看它的纹路。",
+    "period": "afternoon",
+    "tags": [
+      "窗边",
+      "植物"
+    ],
+    "topic": "窗边",
+    "action": {
+      "title": "看一片叶子的纹路",
+      "duration": "30 秒",
+      "illustration": "window",
+      "closing": "不用再做其他事。",
+      "motionId": "inspect-leaf"
+    }
+  },
+  {
+    "id": "base-033",
+    "text": "把手边一个空包装放进垃圾桶。",
+    "period": "afternoon",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "收走一个空包装",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "这次只收这个。",
+      "motionId": "throw-away"
+    }
+  },
+  {
+    "id": "base-034",
+    "text": "把椅子挪到坐着更舒服的位置，再放好双脚。",
+    "period": "afternoon",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "action": {
+      "title": "给椅子调个位置",
+      "duration": "30 秒",
+      "illustration": "stretch",
+      "closing": "舒服了就不用再调。",
+      "motionId": "sit-back"
+    }
+  },
+  {
+    "id": "base-035",
+    "text": "打开卡住的草稿，先写三个能想到的词。",
+    "period": "afternoon",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "给草稿留三个字",
+      "duration": "1 分钟",
+      "illustration": "desk",
+      "closing": "词不完整也可以。",
+      "motionId": "type-text"
+    }
+  },
+  {
+    "id": "base-036",
+    "text": "如果杯边留着用过的茶包，把它收走。",
+    "period": "afternoon",
+    "tags": [
+      "热茶",
+      "喝水"
+    ],
+    "topic": "饮品",
+    "action": {
+      "title": "把茶包收起来",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "给杯子旁边留点清爽。",
+      "motionId": "throw-away"
+    }
+  },
+  {
+    "id": "base-037",
+    "text": "不用耳机时，把它放到固定的一处。",
+    "period": "afternoon",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "action": {
+      "title": "给耳机找个位置",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "下次就不用找了。",
+      "motionId": "put-headphones"
+    }
+  },
+  {
+    "id": "base-038",
+    "text": "把手边两三张散纸叠成一小摞。",
+    "period": "afternoon",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "把散纸叠在一起",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "不必现在分类。",
+      "motionId": "stack-paper"
+    }
+  },
+  {
+    "id": "base-039",
+    "text": "移开视线，在周围找一样绿色的东西。",
+    "period": "afternoon",
+    "tags": [
+      "窗边",
+      "植物"
+    ],
+    "topic": "窗边",
+    "action": {
+      "title": "看看另一种颜色",
+      "duration": "30 秒",
+      "illustration": "window",
+      "closing": "找到一个就够了。",
+      "motionId": "look-outside"
+    }
+  },
+  {
+    "id": "base-040",
+    "text": "在笔记里写一句目前做到哪了。",
+    "period": "afternoon",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "给这一段画个句号",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "留下一句就能停一停。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-041",
+    "text": "准备收工时，在纸上写下下次先打开哪个文件。",
+    "period": "night",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "把明天的入口留好",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "一行就能帮明天接上。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-042",
+    "text": "如果另一盏灯已经够用，关掉暂时不用的那一盏。",
+    "period": "night",
+    "tags": [
+      "灯光"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "把不用的台灯关掉",
+      "duration": "30 秒",
+      "illustration": "lamp",
+      "closing": "留下看得清的光。",
+      "motionId": "switch-light"
+    }
+  },
+  {
+    "id": "base-043",
+    "text": "把桌角的一件东西放回它平常的位置。",
+    "period": "night",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "让桌角归位一件",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "今晚只收这一件。",
+      "motionId": "clear-item"
+    }
+  },
+  {
+    "id": "base-044",
+    "text": "把杯里剩下不想喝的东西倒掉，再冲一下杯子。",
+    "period": "night",
+    "tags": [
+      "热茶",
+      "喝水"
+    ],
+    "topic": "饮品",
+    "action": {
+      "title": "给杯子收个尾",
+      "duration": "30 秒",
+      "illustration": "water",
+      "closing": "做到杯子干净就好。",
+      "motionId": "rinse-cup"
+    }
+  },
+  {
+    "id": "base-045",
+    "text": "把干净的杯子摆到明早顺手的位置。",
+    "period": "night",
+    "tags": [
+      "热茶",
+      "喝水"
+    ],
+    "topic": "饮品",
+    "action": {
+      "title": "给明早留个空杯",
+      "duration": "30 秒",
+      "illustration": "water",
+      "closing": "给明天省一个小动作。",
+      "motionId": "place-cup"
+    }
+  },
+  {
+    "id": "base-046",
+    "text": "准备结束的话，保存当前草稿，确认文件名。",
+    "period": "night",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "先保存这份草稿",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "存好后就能放下一点。",
+      "motionId": "save-file"
+    }
+  },
+  {
+    "id": "base-047",
+    "text": "记下一件今天发生的小事，不用评价好坏。",
+    "period": "night",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "写一句今天的片段",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "一句话就是一个片段。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-048",
+    "text": "写完最后一句后，把本子合上放回原处。",
+    "period": "night",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "把本子放回去",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "今天停在这里也完整。",
+      "motionId": "close-book"
+    }
+  },
+  {
+    "id": "base-049",
+    "text": "准备休息时，把台灯调到仍看得清的柔和亮度。",
+    "period": "night",
+    "tags": [
+      "灯光"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "让房间少一点亮",
+      "duration": "30 秒",
+      "illustration": "lamp",
+      "closing": "不必一下变得很暗。",
+      "motionId": "dim-lamp"
+    }
+  },
+  {
+    "id": "base-050",
+    "text": "把握鼠标的手放到腿上，自然松开一会儿。",
+    "period": "night",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "action": {
+      "title": "给鼠标放个小假",
+      "duration": "30 秒",
+      "illustration": "stretch",
+      "closing": "一小会儿就可以。",
+      "motionId": "relax-hands"
+    }
+  },
+  {
+    "id": "base-051",
+    "text": "把钥匙或门卡放到明早会拿的包旁边。",
+    "period": "night",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "把明早的小物放一起",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "选一件常忘的小物就好。",
+      "motionId": "clear-item"
+    }
+  },
+  {
+    "id": "base-052",
+    "text": "写下今天吃过、还想再吃的一样东西。",
+    "period": "night",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "留住一个好味道",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "只记它的名字。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-053",
+    "text": "如果准备休息，关掉音乐的连续播放。",
+    "period": "night",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "action": {
+      "title": "关掉这一首之后的连播",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "这一首结束就可以安静。",
+      "motionId": "stop-music"
+    }
+  },
+  {
+    "id": "base-054",
+    "text": "把暂时不用的一条线理到桌边。",
+    "period": "night",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "收回一条充电线",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "不必整理所有线。",
+      "motionId": "tidy-cable"
+    }
+  },
+  {
+    "id": "base-055",
+    "text": "如果还要坐一会儿，把靠垫挪到舒服的位置。",
+    "period": "night",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "action": {
+      "title": "把靠垫放舒服",
+      "duration": "30 秒",
+      "illustration": "stretch",
+      "closing": "按你自己的感觉来。",
+      "motionId": "sit-back"
+    }
+  },
+  {
+    "id": "base-056",
+    "text": "在纸上给那件没想完的事写个简短名字。",
+    "period": "night",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "把没想完的事写下来",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "今晚先把它放到纸上。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-057",
+    "text": "把明早要用的碗或杯子拿出来。",
+    "period": "night",
+    "tags": [
+      "吃饭"
+    ],
+    "topic": "吃饭",
+    "action": {
+      "title": "给明天的第一口留个准备",
+      "duration": "30 秒",
+      "illustration": "meal",
+      "closing": "摆好一样就够了。",
+      "motionId": "prepare-meal"
+    }
+  },
+  {
+    "id": "base-058",
+    "text": "准备休息时，放好书签，再合上手里的书。",
+    "period": "night",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "把一本书合好",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "下次还能回到这一页。",
+      "motionId": "close-book"
+    }
+  },
+  {
+    "id": "base-059",
+    "text": "如果音乐比周围安静的声音还响，把音量调低一格。",
+    "period": "night",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "action": {
+      "title": "让耳边轻一点",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "调到听着舒服就停。",
+      "motionId": "lower-volume"
+    }
+  },
+  {
+    "id": "base-060",
+    "text": "准备结束时，关掉一个已经看完的页面。",
+    "period": "night",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "清掉一个小弹窗",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "不要求清空所有窗口。",
+      "motionId": "close-tab"
+    }
+  },
+  {
+    "id": "base-061",
+    "text": "把杯子的把手转到顺手的一侧。",
+    "period": "any",
+    "tags": [
+      "热茶",
+      "喝水"
+    ],
+    "topic": "饮品",
+    "action": {
+      "title": "把杯子转向自己",
+      "duration": "30 秒",
+      "illustration": "water",
+      "closing": "一个小动作就够了。",
+      "motionId": "place-cup"
+    }
+  },
+  {
+    "id": "base-062",
+    "text": "看看周围，找一样你喜欢的颜色。",
+    "period": "any",
+    "tags": [
+      "窗边",
+      "植物"
+    ],
+    "topic": "窗边",
+    "action": {
+      "title": "找一样喜欢的颜色",
+      "duration": "30 秒",
+      "illustration": "window",
+      "closing": "不用拍照或记下来。",
+      "motionId": "look-outside"
+    }
+  },
+  {
+    "id": "base-063",
+    "text": "选手边的一件小东西，把它放回固定位置。",
+    "period": "any",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "action": {
+      "title": "给小物找个家",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "先安顿好这一件。",
+      "motionId": "clear-item"
+    }
+  },
+  {
+    "id": "base-064",
+    "text": "写下脑中刚冒出的一句话，先不修改。",
+    "period": "any",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "纸笔",
+    "action": {
+      "title": "把一句想法留在纸上",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "一句话就能留下来。",
+      "motionId": "write-note"
+    }
+  },
+  {
+    "id": "base-065",
+    "text": "你不用照顾我的心情。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-066",
+    "text": "离开多久，都不用补签。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-067",
+    "text": "不用变得更好，才值得被陪着。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-068",
+    "text": "我在。你忙你的。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-069",
+    "text": "今天也有很多不起眼的可爱。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-070",
+    "text": "没有消息的时候，我也在这里。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-071",
+    "text": "什么都不做，也可以待在一起。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-072",
+    "text": "我给发呆留了一个位置。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-073",
+    "text": "今天想安静一点，也很好。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-074",
+    "text": "你可以随时关掉我，不用道歉。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-075",
+    "text": "不必把每一段空白都填满。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-076",
+    "text": "喜欢的东西，可以只是喜欢。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-077",
+    "text": "此刻没有成绩单。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-078",
+    "text": "我没有在等你的回复。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-079",
+    "text": "我们就这样，轻轻待一会儿。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  },
+  {
+    "id": "base-080",
+    "text": "不用回复我，安心做你的事。",
+    "period": "any",
+    "tags": [
+      "陪伴"
+    ]
+  }
+]

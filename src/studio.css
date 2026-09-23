@@ -1,0 +1,157 @@
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  background: #faf7ef;
+  color: #554d40;
+  font-size: 13px;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+main {
+  max-width: 1120px;
+  margin: auto;
+  padding: 32px;
+}
+h1 {
+  font-size: 29px;
+  letter-spacing: 1px;
+  margin: 10px 0;
+}
+h2 {
+  font-size: 18px;
+  margin: 13px 0 8px;
+}
+p {
+  color: #7d7464;
+  line-height: 1.85;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  color: #8a816d;
+}
+.concepts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 25px;
+}
+.concepts article {
+  padding: 13px;
+  background: #fffdf8;
+  border: 1px solid #e3dccf;
+  border-radius: 20px;
+}
+.concepts img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  border-radius: 13px;
+}
+.concepts h2,
+.concepts p {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+.notice {
+  font-size: 11px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: #eee9dd;
+}
+.production {
+  margin-top: 25px;
+  padding: 8px 22px;
+  background: #eaf0e2;
+  border-radius: 16px;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.action-section {
+  margin-top: 35px;
+}
+.filters {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 18px 0;
+  gap: 15px;
+}
+select,
+button {
+  font: inherit;
+  color: inherit;
+  border: 1px solid #d8d2c3;
+  background: #fffdf7;
+  padding: 8px 12px;
+  border-radius: 9px;
+}
+select {
+  margin-left: 9px;
+}
+button {
+  cursor: pointer;
+}
+button:hover {
+  background: #eaf0e2;
+}
+button:focus-visible,
+select:focus-visible,
+input:focus-visible {
+  outline: 2px solid #829569;
+  outline-offset: 3px;
+}
+#status {
+  color: #697e55;
+  font-size: 12px;
+}
+#actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+}
+.action {
+  padding: 14px;
+  border: 1px solid #e1dacb;
+  background: #fffdf8;
+  border-radius: 17px;
+}
+.action img {
+  width: 100%;
+  aspect-ratio: 600/320;
+  display: block;
+}
+.action h3 {
+  font-size: 14px;
+  margin: 8px 0;
+}
+.action p {
+  min-height: 50px;
+  font-size: 12px;
+}
+.action footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.action small {
+  color: #8e846f;
+  font-size: 10px;
+}
+@media (max-width: 850px) {
+  main {
+    padding: 22px;
+  }
+  #actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .concepts {
+    gap: 12px;
+  }
+}

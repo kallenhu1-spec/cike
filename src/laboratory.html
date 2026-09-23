@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'"
+    />
+    <title>此刻 · 可爱实验室</title>
+    <link rel="stylesheet" href="laboratory.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <span class="eyebrow">此刻 / 一起练习看见喜欢</span>
+          <h1>可爱，不用一次说清楚。</h1>
+          <p>先选一个直觉喜欢的，再一次只改一个地方。</p>
+        </div>
+        <span class="tag">所有尝试都可撤回</span>
+      </header>
+      <section class="presets" aria-label="三个设计起点">
+        <button data-preset="paper">
+          <img id="preset-paper" alt="小纸团" /><span
+            ><b>01 · 小纸团</b><small>不规则轮廓，有一点笨拙</small></span
+          >
+        </button>
+        <button data-preset="round">
+          <img id="preset-round" alt="圆团子" /><span
+            ><b>02 · 圆团子</b><small>轮廓饱满，五官偏下</small></span
+          >
+        </button>
+        <button data-preset="bean">
+          <img id="preset-bean" alt="软豆子" /><span
+            ><b>03 · 软豆子</b><small>不对称身体，眯起眼睛</small></span
+          >
+        </button>
+      </section>
+      <div class="workspace">
+        <section class="comparison">
+          <div class="section-top">
+            <h2>放在一起，才看得出。</h2>
+            <button id="baseline">把右边设为对照</button>
+          </div>
+          <div class="pair">
+            <article>
+              <span class="eyebrow">A / 固定对照</span>
+              <div class="portrait"><img id="before" alt="对照形象" /></div>
+              <p id="before-note">原来的小纸团</p>
+            </article>
+            <article class="candidate">
+              <span class="eyebrow">B / 正在尝试</span>
+              <div class="portrait"><img id="after" alt="调整后的形象" /></div>
+              <p id="after-note"></p>
+            </article>
+          </div>
+          <section class="wardrobe" aria-labelledby="wardrobe-title">
+            <span class="eyebrow">今天，想穿哪一件？</span>
+            <h2 id="wardrobe-title">小衣橱</h2>
+            <p>点一下试穿。皮肤、花纹和小表情都会保留。</p>
+            <div id="outfits" class="outfits"></div>
+            <div class="clothing-colors">
+              <div class="section-top"><b>给衣服挑个颜色</b><span id="outfit-color-value"></span></div>
+              <div class="swatches" aria-label="衣服常用颜色">
+                <button class="swatch blue" data-clothing-color="#a9bdc5" aria-label="雾蓝" title="雾蓝">雾蓝</button>
+                <button class="swatch sage" data-clothing-color="#a9b995" aria-label="鼠尾草绿" title="鼠尾草绿">叶绿</button>
+                <button class="swatch rose" data-clothing-color="#d6aaa3" aria-label="浅玫瑰" title="浅玫瑰">浅玫瑰</button>
+                <button class="swatch honey" data-clothing-color="#ddc28f" aria-label="蜂蜜黄" title="蜂蜜黄">蜂蜜黄</button>
+                <button class="swatch lilac" data-clothing-color="#b9aecb" aria-label="淡紫" title="淡紫">淡紫</button>
+              </div>
+              <label class="color-label">自己挑颜色 <input id="outfitColor" type="color" value="#a9bdc5" /></label>
+            </div>
+          </section>
+          <div class="desktop">
+            <div class="section-top">
+              <span class="eyebrow">回到桌面 / 实际显示宽度 308 px</span
+              ><label class="night"
+                ><input type="checkbox" id="night" /> 夜晚</label
+              >
+            </div>
+            <img id="scene" alt="调整后的角色置于喝水场景" />
+            <p>先喝两口水<span>拿起手边的杯子，喝两口，再放回去。</span></p>
+          </div>
+        </section>
+        <aside>
+          <span class="eyebrow">一次只动一个开关</span>
+          <h2>你喜欢的差别在哪里？</h2>
+          <label
+            >身体轮廓<select id="shape">
+              <option value="paper">小纸团 · 不规则</option>
+              <option value="round">圆团子 · 圆润</option>
+              <option value="bean">软豆子 · 不对称</option>
+            </select></label
+          >
+          <label
+            >五官高低 <output id="face-value"></output
+            ><input id="face" type="range" min="-2" max="2" step="1" /><small
+              >向左让眼睛往上，向右往下。穿衣时五官整体上移，给衣服留出更多空间。</small
+            ></label
+          >
+          <label
+            >眼睛大小 <output id="eyes-value"></output
+            ><input id="eyes" type="range" min="0" max="2" step="1" /><small
+              >越大不一定越可爱。缩回桌面尺寸再判断。</small
+            ></label
+          >
+          <label
+            >表情<select id="expression">
+              <option value="smile">轻轻笑 · 点点眼</option>
+              <option value="happy">开心 · 弯弯眼</option>
+              <option value="sleepy">眯眼 · 慢悠悠</option>
+            </select></label
+          >
+          <section class="skin-controls" aria-labelledby="skin-title">
+            <h2 id="skin-title">小纸团的皮肤</h2>
+            <div class="color-row"><label class="color-label">底色 <input id="skinColor" type="color" value="#fff9e8" /></label><label class="color-label">花纹色 <input id="patternColor" type="color" value="#b5bfa3" /></label></div>
+            <label>花纹<select id="pattern"><option value="none">素素的 · 无花纹</option><option value="dots">点点</option><option value="stripes">短条纹</option><option value="flowers">小花</option></select></label>
+            <label>花纹大小<input id="patternSize" type="range" min="0" max="2" step="1" /></label>
+            <label>花纹疏密<input id="patternDensity" type="range" min="0" max="2" step="1" /></label>
+          </section>
+          <div class="lesson">
+            <b>一个 3 分钟的小练习</b>
+            <ol>
+              <li>选一个起点，设成 A 对照。</li>
+              <li>只改五官位置，来回看两次。</li>
+              <li>缩回场景：还看得出表情吗？</li>
+              <li>用一句话记住：我喜欢＿＿，因为它看起来＿＿。</li>
+            </ol>
+            <p>
+              不必用“高级、治愈”这样的词。“圆一点、脸低一点、像捧着杯子发呆”就很有用了。
+            </p>
+          </div>
+        </aside>
+      </div>
+      <footer>
+        <div>
+          <b>喜欢，就让它住到桌面上。</b>
+          <p>应用后会使用内置角色；皮肤、衣服和微调参数都保存在本机，重启后仍保留。</p>
+        </div>
+        <div class="actions">
+          <button id="restore">恢复原来的小纸团</button
+          ><button id="apply" class="primary">把这个用到桌面</button>
+        </div>
+        <p id="status" role="status" aria-live="polite"></p>
+      </footer>
+    </main>
+    <script src="appearance.js"></script>
+    <script src="laboratory.js"></script>
+  </body>
+</html>

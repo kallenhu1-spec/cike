@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; media-src 'self' data:"
+    />
+    <title>此刻</title>
+    <link rel="stylesheet" href="pet.css" />
+  </head>
+  <body>
+    <main>
+      <section id="bubble" aria-label="此刻的小动作">
+        <div class="bubble-meta">
+          <span id="bubble-label">此刻</span><span id="bubble-duration"></span>
+        </div>
+        <div role="status" aria-live="polite">
+          <h1 id="bubble-title" hidden></h1>
+          <p id="bubble-text"></p>
+          <p id="bubble-closing" hidden></p>
+        </div>
+        <div class="bubble-controls">
+          <button id="complete">完成了，击掌</button><button id="hold" aria-pressed="false">留在桌边</button
+          ><button id="block-current">不再出现</button><button id="dismiss" aria-label="收起这张卡片">收起</button>
+        </div>
+      </section>
+      <div
+        id="pet"
+        tabindex="0"
+        role="button"
+        title="点一下：给我一个小动作 · 拖动：移动 · 右键：设置"
+        aria-label="此刻小场景，点击或按回车获得小动作，拖动移动，右键打开菜单"
+      >
+        <span id="spark">✧</span
+        ><img
+          id="creature"
+          src="../assets/creature.svg"
+          alt="安静的小纸团"
+        /><span id="caption">我在，你忙你的。</span>
+      </div>
+      <button id="high-five" hidden aria-label="完成一件事，和此刻击掌" title="完成一件事，击个掌">✋</button>
+      <span id="five-status" role="status" aria-live="polite"></span>
+    </main>
+    <script src="appearance.js"></script>
+    <script src="voice-audio.js"></script>
+    <script src="pet.js"></script>
+  </body>
+</html>

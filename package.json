@@ -1,0 +1,63 @@
+{
+  "name": "cike-companion",
+  "version": "0.8.1",
+  "description": "此刻 · 安静待在桌面的小生命",
+  "author": "此刻",
+  "private": true,
+  "main": "src/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.cjs",
+    "test:smoke": "node scripts/smoke.cjs",
+    "pack": "electron-builder --dir",
+    "dist:mac": "electron-builder --mac zip dmg",
+    "dist:win": "electron-builder --win nsis",
+    "test:visual": "node scripts/action-visual.cjs",
+    "build:scenes": "node scripts/build-scenes.cjs",
+    "test:lab": "node scripts/scene-lab-smoke.cjs",
+    "test:motion": "node scripts/motion-smoke.cjs",
+    "test:voice": "node scripts/voice-smoke.cjs",
+    "voice:setup": "node scripts/setup-voice.cjs"
+  },
+  "devDependencies": {
+    "electron": "^41.0.0",
+    "electron-builder": "^26.0.12",
+    "playwright": "^1.58.0"
+  },
+  "build": {
+    "appId": "studio.cike.companion",
+    "productName": "此刻",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.lifestyle",
+      "target": [
+        "zip",
+        "dmg"
+      ],
+      "icon": "assets/icon.icns",
+      "extendInfo": {
+        "NSMicrophoneUsageDescription": "让孩子和家长在小小配音室录制台词，录音仅保存在本机。"
+      }
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "asarUnpack": [
+      "src/voice_worker.py"
+    ]
+  }
+}

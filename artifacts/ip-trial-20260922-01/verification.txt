@@ -1,0 +1,1 @@
+PASS: fixed app 0.8.1; isolated temporary profile; all three image overrides saved and rendered against their exact existing action IDs. Default user profile untouched. Static ivory-background images, not transparent or animated.
