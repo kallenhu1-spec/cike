@@ -1,0 +1,17 @@
+{
+  "trial": "ip-trial-20260922-01",
+  "appVersion": "0.8.1",
+  "status": "awaiting-review",
+  "files": {
+    "water.png": "4c50afa407c6ff50a6e5bdf3e6b5135c154e36cb93044b4b348a47eabbbca22f",
+    "book.png": "14ecdc82daa0b50eaab557b0077203066688239e3cfec792da5554f0f5d1893c",
+    "lamp.png": "70705a3738e0eebcc59de72da62ebf2d52dac5c95bc7e6de516fa97d5084c19d",
+    "prompts.json": "b0cf788b2eff2f2a59dcaea6ecf2e3d9e6c4d827fe4a6045c6cbfc784b20674d",
+    "mapping.json": "0c4ee6f5cd07ed6fa0e757cfa6644a1a7aacb769bfa01960e8eddd9e8b0fa69d",
+    "verification.txt": "2fccbd717307a2db140d9e3b50517c28f86087ef274fc266bf982bccf571514a",
+    "water-app.png": "93e479ca2ab134f908977561e52c658888930b9b970b59718348dc06ed6d06e2",
+    "book-app.png": "8d4f538525d7dc226a463e8cf6de1413728dfba6a288bbccb24122782b523dce",
+    "lamp-app.png": "b7e05fb5e6a56afda58e3769a35bac7a7940cd63bd86c3133667d9547b6bde7e",
+    "index.html": "684d16a89c050a42e5d8884f8c01ecff7982623c439ae2eecfb4ace1a42e34cb"
+  }
+}

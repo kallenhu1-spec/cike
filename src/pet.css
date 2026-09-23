@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  width: 340px;
+  height: 560px;
+  overflow: hidden;
+  background: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  color: #655c4d;
+  user-select: none;
+}
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#pet {
+  position: absolute;
+  width: 170px;
+  height: 180px;
+  bottom: 12px;
+  left: 85px;
+  cursor: grab;
+  outline: none;
+}
+#pet:focus-visible {
+  outline: 2px dashed #879570;
+  border-radius: 48%;
+}
+#creature {
+  width: 170px;
+  height: 163px;
+  object-fit: contain;
+  animation: none;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 7px #4034220b);
+}
+#caption {
+  display: block;
+  text-align: center;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: #877c68;
+  opacity: 0.85;
+}
+#spark {
+  position: absolute;
+  right: 7px;
+  top: 19px;
+  color: #a3ad88;
+  font-size: 24px;
+  z-index: 1;
+}
+#bubble {
+  visibility: hidden;
+  overflow-wrap: anywhere;
+  position: absolute;
+  bottom: 208px;
+  left: 16px;
+  width: 308px;
+  padding: 16px 18px;
+  background: #fffcf2;
+  border: 1px solid #d7ceba;
+  border-radius: 20px 20px 8px 20px;
+  box-shadow: 0 4px 14px #4c423014;
+  font-size: 14px;
+  line-height: 1.8;
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 0.8s,
+    transform 0.8s;
+  pointer-events: none;
+}
+#bubble.visible {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+body[data-mood="night"] #creature {
+  filter: brightness(0.88) saturate(0.6);
+}
+body[data-mood="quiet"] #creature {
+  animation-duration: 10s;
+}
+body[data-mood="happy"] #creature {
+  animation: none;
+}
+body.reduced * {
+  animation: none !important;
+  transition: none !important;
+}
+@keyframes breathe {
+  50% {
+    transform: translateY(-3px) rotate(1deg);
+  }
+}
+@keyframes happy {
+  50% {
+    transform: translateY(-7px) rotate(-3deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+#bubble.visible {
+  pointer-events: auto;
+}
+.bubble-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  line-height: 1.4;
+  color: #8a806c;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+#bubble-duration {
+  color: #69774c;
+  background: #edf0df;
+  padding: 3px 7px;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+#bubble-duration:empty {
+  display: none;
+}
+#bubble-title {
+  font:
+    600 20px/1.4 "Songti SC",
+    Georgia,
+    serif;
+  margin: 0 0 8px;
+  color: #514c3e;
+  letter-spacing: 1px;
+}
+#bubble-text {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+#bubble-closing {
+  margin: 10px 0 0;
+  color: #748059;
+  font-size: 11px;
+  line-height: 1.7;
+}
+#bubble-closing::before {
+  content: "— ";
+}
+.bubble-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 12px;
+  padding-top: 9px;
+  border-top: 1px solid #e9e1d1;
+}
+.bubble-controls button {
+  background: none;
+  border: 0;
+  padding: 2px 0;
+  font:
+    11px/1.5 -apple-system,
+    BlinkMacSystemFont,
+    "PingFang SC",
+    sans-serif;
+  color: #847a65;
+  cursor: pointer;
+}
+.bubble-controls button:hover,
+.bubble-controls button[aria-pressed="true"] {
+  color: #53623c;
+}
+.bubble-controls button:focus-visible {
+  outline: 2px solid #879570;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+#pet.scene {
+  width: 308px;
+  height: 190px;
+  left: 16px;
+}
+#pet.scene #creature {
+  width: 308px;
+  height: 165px;
+  animation: none;
+  filter: none;
+}
+#pet.scene #spark {
+  display: none;
+}
+#pet.scene #caption {
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+
+#high-five { position:absolute; bottom:53px; right:35px; width:42px; height:42px; border:1px solid #c8cfb5; border-radius:50%; background:#fff9e8; color:#655c4d; font-size:23px; cursor:pointer; z-index:3; }
+#high-five:focus-visible { outline:2px solid #879570; outline-offset:3px; }
+#high-five[data-phase="ready"] { background:#e6edda; box-shadow:0 0 0 5px #e6edda66; }
+#high-five[data-phase="done"] { background:#f8e7bd; }
+#five-status { position:absolute; bottom:199px; left:16px; width:308px; text-align:center; font-size:13px; color:#655c4d; }
+#complete { margin-right:auto; color:#53623c; }
+
+#pet.scene ~ #high-five[data-phase="ready"],
+#pet.scene ~ #high-five[data-phase="done"] { right:76px; bottom:116px; background:transparent; border:1px dashed #a7b78d; color:transparent; box-shadow:0 0 0 5px #e6edda44; }

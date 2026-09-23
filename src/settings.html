@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'"
+    />
+    <title>此刻 · 陪伴偏好</title>
+    <link rel="stylesheet" href="settings.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <span class="eyebrow">此刻 / A LITTLE COMPANY</span>
+          <h1>按你的节奏陪伴。</h1>
+          <p>不用介绍得很完整。留白，也是一种偏好。</p>
+        </div>
+        <img src="../assets/creature.svg" alt="小纸团" />
+      </header>
+      <section class="moment-card" aria-labelledby="moment-title">
+        <div class="moment-heading">
+          <span class="eyebrow">随着一天，慢慢变化</span
+          ><span id="moment-now"></span>
+        </div>
+        <h2 id="moment-title">把这一刻，变成一件小小的事。</h2>
+        <div class="moment-controls">
+          <label
+            >想听哪个时刻<select id="preview-time">
+              <option value="now">跟随现在</option>
+              <option value="08:00">08:00 · 早晨</option>
+              <option value="10:30">10:30 · 上午</option>
+              <option value="12:15">12:15 · 午饭前后</option>
+              <option value="15:30">15:30 · 午后</option>
+              <option value="18:30">18:30 · 傍晚</option>
+              <option value="22:30">22:30 · 睡前</option>
+              <option value="00:30">00:30 · 深夜</option>
+            </select></label
+          ><button id="preview" class="primary">看看这一刻</button>
+        </div>
+        <article id="preview-sample">
+          <img
+            id="preview-illustration"
+            src="../assets/scenes/water.svg"
+            alt="小纸团捧着杯子"
+          />
+          <div class="preview-copy">
+            <span id="preview-duration">约 20 秒</span>
+            <h3 id="preview-title">先喝两口水</h3>
+            <p id="preview-text" aria-live="polite">
+              拿起手边的杯子，喝两口，再放回去。
+            </p>
+            <p id="preview-closing">两口就好，不用喝完。</p>
+          </div>
+        </article>
+        <p id="preview-reason" class="hint">
+          示例卡片 · 选一个时刻，看看适合那时的小动作。
+        </p>
+        <p class="hint">
+          按已保存的偏好试听，不占每天的次数。每次只给一个小动作，不打卡、不记录完成情况。平时会自己出现。
+        </p>
+      </section>
+      <section>
+        <h2>让它更像你喜欢的小生命</h2>
+        <p class="hint">
+          桌面上一直保留小场景，随时间变化。点一下拿到小动作，拖动可以挪位置；主动点击不占自动提醒次数。
+        </p>
+        <button id="laboratory">衣橱与外观</button>
+        <button id="studio" hidden>灵感与动作工作台</button>
+        <button id="voice-room">小小配音室</button>
+        <p class="hint">
+          不用先说清“哪里不够可爱”。比较轮廓、五官位置和表情，再把喜欢的版本用到桌面。
+        </p>
+      </section>
+      <form id="form">
+        <section>
+          <h2><span>01</span> 想让我记住的</h2>
+          <div class="grid">
+            <label
+              >怎么称呼你<input
+                name="nickname"
+                maxlength="24"
+                placeholder="可以不填" /></label
+            ><label
+              >你喜欢的小事<input
+                name="joys"
+                maxlength="160"
+                placeholder="热茶、窗边、植物" /></label
+            ><label
+              >通常起床—准备休息<input
+                name="rhythm"
+                maxlength="160"
+                placeholder="09:00–23:00" /></label
+            ><label
+              >舒服的说话方式<select name="tone">
+                <option>轻轻陪着</option>
+                <option>带一点俏皮</option>
+                <option>简短留白</option>
+              </select></label
+            >
+          </div>
+          <label
+            >不想被提起的事<input
+              name="avoid"
+              maxlength="160"
+              placeholder="用顿号分隔，例如：身材、效率评价"
+          /></label>
+          <p class="hint">
+            按“09:00–23:00”填写：起床后 90 分钟和休息前 60
+            分钟会用更合适的句子。安静时段仍优先。
+          </p>
+          <p id="rhythm-info" class="hint"></p>
+        </section>
+        <section>
+          <h2><span>02</span> 按你的节奏</h2>
+          <div class="grid">
+            <label
+              >两句话至少相隔<select name="interval">
+                <option value="45">45 分钟</option>
+                <option value="90">90 分钟</option>
+                <option value="150">150 分钟</option>
+                <option value="240">240 分钟</option>
+              </select></label
+            ><label
+              >一天最多几句<input
+                name="dailyMax"
+                type="number"
+                min="1"
+                max="8" /></label
+            ><label
+              >安静开始（小时）<input
+                name="quietStart"
+                type="number"
+                min="0"
+                max="23" /></label
+            ><label
+              >安静结束（小时）<input
+                name="quietEnd"
+                type="number"
+                min="0"
+                max="23"
+            /></label>
+          </div>
+          <p class="hint">
+            次数会分散到不安静的时间里，每段最多一句，错过不补发。开始与结束相同表示不设安静时段；电脑闲置
+            5 分钟后不冒话。
+          </p>
+          <div class="checks">
+            <label
+              ><input type="checkbox" name="enabled" /> 偶尔轻轻说一句</label
+            ><label
+              ><input type="checkbox" name="reducedMotion" /> 减少动画</label
+            >
+          </div>
+          <button class="primary" type="submit">就这样，慢慢认识</button
+          ><span id="status" role="status"></span>
+        </section>
+      </form>
+      <section>
+        <details><summary>高级：批量导入专属内容</summary><h2>属于你的句子</h2>
+        <p class="hint">
+          先保存档案，再复制提示词到你选择的 AI。检查生成的 100 条 JSON
+          后导入。应用本身不联网、不保存 API 密钥。
+        </p>
+        <div class="actions">
+          <button id="prompt">生成提示词</button
+          ><button id="import">导入 100 条</button
+          ><button id="clear-custom">恢复内置 136 条</button>
+        </div>
+        <textarea
+          id="prompt-text"
+          readonly
+          hidden
+          aria-label="AI 提示词"
+        ></textarea>
+        <p id="library" class="hint"></p></details>
+      </section>
+      <footer>
+        <span>偏好与记忆，只留在这台电脑。</span>
+        <div class="actions">
+          <button id="export">导出记忆</button
+          ><button id="reset">清除所有记忆</button>
+        </div>
+        <p>关闭设置后，我还在桌边。退出请右键小纸团。</p>
+      </footer>
+    </main>
+    <script src="settings.js"></script>
+  </body>
+</html>

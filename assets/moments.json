@@ -1,0 +1,1321 @@
+[
+  {
+    "id": "moment-wake-01",
+    "text": "拿起手边的水，喝两口。杯子空了，就先接一点。",
+    "period": "any",
+    "tags": [
+      "喝水"
+    ],
+    "topic": "饮品",
+    "scenes": [
+      "wake"
+    ],
+    "action": {
+      "title": "先喝两口水",
+      "duration": "20 秒",
+      "illustration": "water",
+      "closing": "两口就好，不用喝完。",
+      "motionId": "sip"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：拿起手边的水，喝两口。杯子空了，就先接一点。",
+      "简短留白": "拿起手边的水，喝两口。"
+    }
+  },
+  {
+    "id": "moment-wake-02",
+    "text": "把窗帘拉开一小截，让光落到桌边。",
+    "period": "any",
+    "tags": [
+      "窗边"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "wake"
+    ],
+    "action": {
+      "title": "让桌边亮一点",
+      "duration": "20 秒",
+      "illustration": "window",
+      "closing": "只拉开一点点也行。",
+      "motionId": "open-curtain"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把窗帘拉开一小截，让光落到桌边。",
+      "简短留白": "把窗帘拉开一小截，让光落到桌边。"
+    }
+  },
+  {
+    "id": "moment-wake-03",
+    "text": "把桌上一个不用的东西放回原处。",
+    "period": "any",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "wake"
+    ],
+    "action": {
+      "title": "给早晨腾个位置",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "今天先收这一件。",
+      "motionId": "clear-item"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把桌上一个不用的东西放回原处。",
+      "简短留白": "把桌上一个不用的东西放回原处。"
+    }
+  },
+  {
+    "id": "moment-wake-04",
+    "text": "还没吃早餐的话，先把想吃的那一样拿出来。",
+    "period": "any",
+    "tags": [
+      "早餐"
+    ],
+    "topic": "吃饭",
+    "scenes": [
+      "wake"
+    ],
+    "action": {
+      "title": "给早餐一个开头",
+      "duration": "1 分钟",
+      "illustration": "meal",
+      "closing": "从现成、喜欢的开始。",
+      "motionId": "prepare-meal"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：还没吃早餐的话，先把想吃的那一样拿出来。",
+      "简短留白": "还没吃早餐的话，先把想吃的那一样拿出来。"
+    }
+  },
+  {
+    "id": "moment-wake-05",
+    "text": "走到植物旁，看看有没有一片新叶子。",
+    "period": "any",
+    "tags": [
+      "植物"
+    ],
+    "topic": "植物",
+    "scenes": [
+      "wake"
+    ],
+    "action": {
+      "title": "看看那片小叶子",
+      "duration": "30 秒",
+      "illustration": "window",
+      "closing": "看一眼就算见过面。",
+      "motionId": "inspect-leaf"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：走到植物旁，看看有没有一片新叶子。",
+      "简短留白": "走到植物旁，看看有没有一片新叶子。"
+    }
+  },
+  {
+    "id": "moment-wake-06",
+    "text": "双手轻轻张开，再自然合拢，重复三次。",
+    "period": "any",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "scenes": [
+      "wake"
+    ],
+    "action": {
+      "title": "让手指醒醒",
+      "duration": "20 秒",
+      "illustration": "stretch",
+      "closing": "按舒服的幅度就好。",
+      "motionId": "relax-hands"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：双手轻轻张开，再自然合拢，重复三次。",
+      "简短留白": "双手轻轻张开，再自然合拢，重复三次。"
+    }
+  },
+  {
+    "id": "moment-wake-07",
+    "text": "挑一首喜欢的歌，给早晨按下播放。",
+    "period": "any",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "scenes": [
+      "wake"
+    ],
+    "action": {
+      "title": "周末先选一首歌",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "只选一首，不必做歌单。",
+      "motionId": "play-song"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：挑一首喜欢的歌，给早晨按下播放。",
+      "简短留白": "挑一首喜欢的歌，给早晨按下播放。"
+    },
+    "weekdays": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "moment-wake-08",
+    "text": "在纸上写下今天最想先做的一件小事。",
+    "period": "any",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "启动",
+    "scenes": [
+      "wake"
+    ],
+    "action": {
+      "title": "周一只写第一件",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "一句话就够了。",
+      "motionId": "write-note"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：在纸上写下今天最想先做的一件小事。",
+      "简短留白": "在纸上写下今天最想先做的一件小事。"
+    },
+    "weekdays": [
+      1
+    ]
+  },
+  {
+    "id": "moment-morning-01",
+    "text": "打开准备处理的文档，先写一个标题。",
+    "period": "any",
+    "tags": [
+      "写作"
+    ],
+    "topic": "启动",
+    "scenes": [
+      "morning"
+    ],
+    "action": {
+      "title": "只打开那一页",
+      "duration": "1 分钟",
+      "illustration": "desk",
+      "closing": "正文可以下一步再写。",
+      "motionId": "type-text"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：打开准备处理的文档，先写一个标题。",
+      "简短留白": "打开准备处理的文档，先写一个标题。"
+    }
+  },
+  {
+    "id": "moment-morning-02",
+    "text": "把杯子放到顺手的位置，喝一小口。",
+    "period": "any",
+    "tags": [
+      "热茶"
+    ],
+    "topic": "饮品",
+    "scenes": [
+      "morning"
+    ],
+    "action": {
+      "title": "让杯子靠近一点",
+      "duration": "20 秒",
+      "illustration": "water",
+      "closing": "给桌边留个熟悉的位置。",
+      "motionId": "sip"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把杯子放到顺手的位置，喝一小口。",
+      "简短留白": "把杯子放到顺手的位置，喝一小口。"
+    }
+  },
+  {
+    "id": "moment-morning-03",
+    "text": "挑桌上的一支笔，把它放回笔筒或抽屉。",
+    "period": "any",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "morning"
+    ],
+    "action": {
+      "title": "先收好一支笔",
+      "duration": "20 秒",
+      "illustration": "desk",
+      "closing": "收这一支就可以了。",
+      "motionId": "store-pen"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：挑桌上的一支笔，把它放回笔筒或抽屉。",
+      "简短留白": "挑桌上的一支笔，把它放回笔筒或抽屉。"
+    }
+  },
+  {
+    "id": "moment-morning-04",
+    "text": "离开屏幕，看窗外，找一块绿色。",
+    "period": "any",
+    "tags": [
+      "窗边"
+    ],
+    "topic": "窗边",
+    "scenes": [
+      "morning"
+    ],
+    "action": {
+      "title": "目光去窗外走走",
+      "duration": "20 秒",
+      "illustration": "window",
+      "closing": "找到就好，不用做记录。",
+      "motionId": "look-outside"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：离开屏幕，看窗外，找一块绿色。",
+      "简短留白": "离开屏幕，看窗外，找一块绿色。"
+    }
+  },
+  {
+    "id": "moment-morning-05",
+    "text": "把正卡住的事写成一个小动作，比如打开文件。",
+    "period": "any",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "启动",
+    "scenes": [
+      "morning"
+    ],
+    "action": {
+      "title": "卡住时，缩小一步",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "先写第一步，不列长清单。",
+      "motionId": "write-note"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把正卡住的事写成一个小动作，比如打开文件。",
+      "简短留白": "把正卡住的事写成一个小动作，比如打开文件。"
+    }
+  },
+  {
+    "id": "moment-morning-06",
+    "text": "植物在手边的话，用软布轻轻擦一片叶子。",
+    "period": "any",
+    "tags": [
+      "植物"
+    ],
+    "topic": "植物",
+    "scenes": [
+      "morning"
+    ],
+    "action": {
+      "title": "给小叶子除点灰",
+      "duration": "1 分钟",
+      "illustration": "window",
+      "closing": "先照顾这一片。",
+      "motionId": "wipe-leaf"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：植物在手边的话，用软布轻轻擦一片叶子。",
+      "简短留白": "植物在手边的话，用软布轻轻擦一片叶子。"
+    }
+  },
+  {
+    "id": "moment-morning-07",
+    "text": "把一个杯垫摆好，给喜欢的杯子留个位置。",
+    "period": "any",
+    "tags": [
+      "热茶"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "morning"
+    ],
+    "action": {
+      "title": "周末收一个桌角",
+      "duration": "30 秒",
+      "illustration": "water",
+      "closing": "小小一角就很清爽。",
+      "motionId": "place-cup"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把一个杯垫摆好，给喜欢的杯子留个位置。",
+      "简短留白": "把一个杯垫摆好，给喜欢的杯子留个位置。"
+    },
+    "weekdays": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "moment-morning-08",
+    "text": "播放一首熟悉的歌，把音量调到舒服的大小。",
+    "period": "any",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "scenes": [
+      "morning"
+    ],
+    "action": {
+      "title": "让一首歌开始",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "不用找最合适的那首。",
+      "motionId": "play-song"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：播放一首熟悉的歌，把音量调到舒服的大小。",
+      "简短留白": "播放一首熟悉的歌，把音量调到舒服的大小。"
+    }
+  },
+  {
+    "id": "moment-lunch-01",
+    "text": "还没吃午饭的话，先选一道想吃的，不必配齐整桌。",
+    "period": "any",
+    "tags": [
+      "午饭"
+    ],
+    "topic": "吃饭",
+    "scenes": [
+      "lunch"
+    ],
+    "action": {
+      "title": "先把午饭选好",
+      "duration": "1 分钟",
+      "illustration": "meal",
+      "closing": "先有一个喜欢的味道。",
+      "motionId": "prepare-meal"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：还没吃午饭的话，先选一道想吃的，不必配齐整桌。",
+      "简短留白": "还没吃午饭的话，先选一道想吃的，不必配齐整桌。"
+    }
+  },
+  {
+    "id": "moment-lunch-02",
+    "text": "挪开桌上的一件东西，给餐盘或饭盒留出位置。",
+    "period": "any",
+    "tags": [
+      "午饭"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "lunch"
+    ],
+    "action": {
+      "title": "给午饭腾个地方",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "只腾出吃饭的位置。",
+      "motionId": "clear-item"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：挪开桌上的一件东西，给餐盘或饭盒留出位置。",
+      "简短留白": "挪开桌上的一件东西，给餐盘或饭盒留出位置。"
+    }
+  },
+  {
+    "id": "moment-lunch-03",
+    "text": "如果正在吃饭，把手机翻面，专心尝下一口。",
+    "period": "any",
+    "tags": [
+      "午饭"
+    ],
+    "topic": "吃饭",
+    "scenes": [
+      "lunch"
+    ],
+    "action": {
+      "title": "吃饭时，放下手机",
+      "duration": "20 秒",
+      "illustration": "meal",
+      "closing": "只试这一口。",
+      "motionId": "taste-food"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：如果正在吃饭，把手机翻面，专心尝下一口。",
+      "简短留白": "如果正在吃饭，把手机翻面，专心尝下一口。"
+    }
+  },
+  {
+    "id": "moment-lunch-04",
+    "text": "把空杯子拿去冲一冲，再放回桌边。",
+    "period": "any",
+    "tags": [
+      "喝水"
+    ],
+    "topic": "饮品",
+    "scenes": [
+      "lunch"
+    ],
+    "action": {
+      "title": "顺手洗一下杯子",
+      "duration": "1 分钟",
+      "illustration": "water",
+      "closing": "不顺便增加别的家务。",
+      "motionId": "rinse-cup"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把空杯子拿去冲一冲，再放回桌边。",
+      "简短留白": "把空杯子拿去冲一冲，再放回桌边。"
+    }
+  },
+  {
+    "id": "moment-lunch-05",
+    "text": "把目光从屏幕移到窗外，找一个远一点的东西。",
+    "period": "any",
+    "tags": [
+      "窗边"
+    ],
+    "topic": "窗边",
+    "scenes": [
+      "lunch"
+    ],
+    "action": {
+      "title": "午间看一眼远处",
+      "duration": "20 秒",
+      "illustration": "window",
+      "closing": "树、屋顶、云都可以。",
+      "motionId": "look-outside"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把目光从屏幕移到窗外，找一个远一点的东西。",
+      "简短留白": "把目光从屏幕移到窗外，找一个远一点的东西。"
+    }
+  },
+  {
+    "id": "moment-lunch-06",
+    "text": "轻轻抬起肩膀，再放下来，做两次。",
+    "period": "any",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "scenes": [
+      "lunch"
+    ],
+    "action": {
+      "title": "午间动一动肩膀",
+      "duration": "20 秒",
+      "illustration": "stretch",
+      "closing": "舒服就好，不用用力。",
+      "motionId": "shrug"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：轻轻抬起肩膀，再放下来，做两次。",
+      "简短留白": "轻轻抬起肩膀，再放下来，做两次。"
+    }
+  },
+  {
+    "id": "moment-lunch-07",
+    "text": "吃饭前，拿出一只喜欢的碗，把午饭盛进去。",
+    "period": "any",
+    "tags": [
+      "午饭"
+    ],
+    "topic": "吃饭",
+    "scenes": [
+      "lunch"
+    ],
+    "action": {
+      "title": "周末挑一只喜欢的碗",
+      "duration": "1 分钟",
+      "illustration": "meal",
+      "closing": "普通的一餐，也有小仪式。",
+      "motionId": "prepare-meal"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：吃饭前，拿出一只喜欢的碗，把午饭盛进去。",
+      "简短留白": "吃饭前，拿出一只喜欢的碗，把午饭盛进去。"
+    },
+    "weekdays": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "moment-lunch-08",
+    "text": "饭后挑一首喜欢的歌，按下播放，再回到手边的事。",
+    "period": "any",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "scenes": [
+      "lunch"
+    ],
+    "action": {
+      "title": "用一首歌换换气氛",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "先听开头这一小段。",
+      "motionId": "play-song"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：饭后挑一首喜欢的歌，按下播放，再回到手边的事。",
+      "简短留白": "饭后挑一首喜欢的歌，按下播放，再回到手边的事。"
+    }
+  },
+  {
+    "id": "moment-afternoon-01",
+    "text": "拿起手边的杯子，喝两口水，再放回去。",
+    "period": "any",
+    "tags": [
+      "热茶"
+    ],
+    "topic": "饮品",
+    "scenes": [
+      "afternoon"
+    ],
+    "action": {
+      "title": "喝两口，再继续",
+      "duration": "20 秒",
+      "illustration": "water",
+      "closing": "不用等一个完整的休息。",
+      "motionId": "sip"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：拿起手边的杯子，喝两口水，再放回去。",
+      "简短留白": "拿起手边的杯子，喝两口水，再放回去。"
+    }
+  },
+  {
+    "id": "moment-afternoon-02",
+    "text": "把离你最近的一件杂物放回原处。",
+    "period": "any",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "afternoon"
+    ],
+    "action": {
+      "title": "给桌角腾一点空",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "只收这一件，不大扫除。",
+      "motionId": "clear-item"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把离你最近的一件杂物放回原处。",
+      "简短留白": "把离你最近的一件杂物放回原处。"
+    }
+  },
+  {
+    "id": "moment-afternoon-03",
+    "text": "看向窗外，找出两种不同的颜色。",
+    "period": "any",
+    "tags": [
+      "窗边"
+    ],
+    "topic": "窗边",
+    "scenes": [
+      "afternoon"
+    ],
+    "action": {
+      "title": "给目光换个画面",
+      "duration": "20 秒",
+      "illustration": "window",
+      "closing": "看到就好，不用记下来。",
+      "motionId": "look-outside"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：看向窗外，找出两种不同的颜色。",
+      "简短留白": "看向窗外，找出两种不同的颜色。"
+    }
+  },
+  {
+    "id": "moment-afternoon-04",
+    "text": "双手离开键盘，张开手指，再轻轻放松。",
+    "period": "any",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "scenes": [
+      "afternoon"
+    ],
+    "action": {
+      "title": "先松一下手",
+      "duration": "20 秒",
+      "illustration": "stretch",
+      "closing": "找一个舒服的幅度。",
+      "motionId": "relax-hands"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：双手离开键盘，张开手指，再轻轻放松。",
+      "简短留白": "双手离开键盘，张开手指，再轻轻放松。"
+    }
+  },
+  {
+    "id": "moment-afternoon-05",
+    "text": "打开那份文档，写一句不必完美的开头。",
+    "period": "any",
+    "tags": [
+      "写作"
+    ],
+    "topic": "启动",
+    "scenes": [
+      "afternoon"
+    ],
+    "action": {
+      "title": "给卡住的事写个开头",
+      "duration": "1 分钟",
+      "illustration": "desk",
+      "closing": "先有一句，再说下一句。",
+      "motionId": "type-text"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：打开那份文档，写一句不必完美的开头。",
+      "简短留白": "打开那份文档，写一句不必完美的开头。"
+    }
+  },
+  {
+    "id": "moment-afternoon-06",
+    "text": "把植物旁的一件杂物移开，给绿色留点空间。",
+    "period": "any",
+    "tags": [
+      "植物"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "afternoon"
+    ],
+    "action": {
+      "title": "看看植物旁边",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "清出一个小角落就好。",
+      "motionId": "clear-item"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把植物旁的一件杂物移开，给绿色留点空间。",
+      "简短留白": "把植物旁的一件杂物移开，给绿色留点空间。"
+    }
+  },
+  {
+    "id": "moment-afternoon-07",
+    "text": "拿起手边想读的书，翻开，只读一段。",
+    "period": "any",
+    "tags": [
+      "阅读"
+    ],
+    "topic": "日常",
+    "scenes": [
+      "afternoon"
+    ],
+    "action": {
+      "title": "周末翻开喜欢的一页",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "一段也算和喜欢碰面。",
+      "motionId": "read-book"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：拿起手边想读的书，翻开，只读一段。",
+      "简短留白": "拿起手边想读的书，翻开，只读一段。"
+    },
+    "weekdays": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "moment-afternoon-08",
+    "text": "播放一首喜欢的歌，听完开头再决定要不要继续。",
+    "period": "any",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "scenes": [
+      "afternoon"
+    ],
+    "action": {
+      "title": "给下午换一首歌",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "这次不用选很久。",
+      "motionId": "play-song"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：播放一首喜欢的歌，听完开头再决定要不要继续。",
+      "简短留白": "播放一首喜欢的歌，听完开头再决定要不要继续。"
+    }
+  },
+  {
+    "id": "moment-evening-01",
+    "text": "如果还没吃晚饭，先确定一道想吃的食物。",
+    "period": "any",
+    "tags": [
+      "晚饭"
+    ],
+    "topic": "吃饭",
+    "scenes": [
+      "evening"
+    ],
+    "action": {
+      "title": "给晚饭一个答案",
+      "duration": "1 分钟",
+      "illustration": "meal",
+      "closing": "有一个答案就可以出发。",
+      "motionId": "prepare-meal"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：如果还没吃晚饭，先确定一道想吃的食物。",
+      "简短留白": "如果还没吃晚饭，先确定一道想吃的食物。"
+    }
+  },
+  {
+    "id": "moment-evening-02",
+    "text": "把用过的杯子冲洗一下，放回固定的位置。",
+    "period": "any",
+    "tags": [
+      "热茶"
+    ],
+    "topic": "饮品",
+    "scenes": [
+      "evening"
+    ],
+    "action": {
+      "title": "把杯子洗好归位",
+      "duration": "1 分钟",
+      "illustration": "water",
+      "closing": "桌边就少一件挂念。",
+      "motionId": "rinse-cup"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把用过的杯子冲洗一下，放回固定的位置。",
+      "简短留白": "把用过的杯子冲洗一下，放回固定的位置。"
+    }
+  },
+  {
+    "id": "moment-evening-03",
+    "text": "准备收工的话，记下下次从哪里接着做。",
+    "period": "any",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "收尾",
+    "scenes": [
+      "evening"
+    ],
+    "action": {
+      "title": "收工前留一句话",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "一行就够，不写复盘。",
+      "motionId": "write-note"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：准备收工的话，记下下次从哪里接着做。",
+      "简短留白": "准备收工的话，记下下次从哪里接着做。"
+    }
+  },
+  {
+    "id": "moment-evening-04",
+    "text": "把一个已经不用的物件收起来。",
+    "period": "any",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "evening"
+    ],
+    "action": {
+      "title": "让桌面少一件东西",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "留下一小块清爽。",
+      "motionId": "clear-item"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把一个已经不用的物件收起来。",
+      "简短留白": "把一个已经不用的物件收起来。"
+    }
+  },
+  {
+    "id": "moment-evening-05",
+    "text": "找一首喜欢的歌，按下播放，再做手边的小事。",
+    "period": "any",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "scenes": [
+      "evening"
+    ],
+    "action": {
+      "title": "给傍晚一首歌",
+      "duration": "30 秒",
+      "illustration": "music",
+      "closing": "让熟悉的旋律先到。",
+      "motionId": "play-song"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：找一首喜欢的歌，按下播放，再做手边的小事。",
+      "简短留白": "找一首喜欢的歌，按下播放，再做手边的小事。"
+    }
+  },
+  {
+    "id": "moment-evening-06",
+    "text": "双手离开桌面，靠稳椅背，把脚放到舒服的位置。",
+    "period": "any",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "scenes": [
+      "evening"
+    ],
+    "action": {
+      "title": "换个舒服的姿势",
+      "duration": "20 秒",
+      "illustration": "stretch",
+      "closing": "舒服了就停在这里。",
+      "motionId": "sit-back"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：双手离开桌面，靠稳椅背，把脚放到舒服的位置。",
+      "简短留白": "双手离开桌面，靠稳椅背，把脚放到舒服的位置。"
+    }
+  },
+  {
+    "id": "moment-evening-07",
+    "text": "在纸上写下今天一件喜欢的小事，比如一顿好吃的饭。",
+    "period": "any",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "日常",
+    "scenes": [
+      "evening"
+    ],
+    "action": {
+      "title": "周末留住一个小瞬间",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "只写一件，不凑三件。",
+      "motionId": "write-note"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：在纸上写下今天一件喜欢的小事，比如一顿好吃的饭。",
+      "简短留白": "在纸上写下今天一件喜欢的小事，比如一顿好吃的饭。"
+    },
+    "weekdays": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "moment-evening-08",
+    "text": "如果灯光刺眼，把台灯调柔和一档。",
+    "period": "any",
+    "tags": [
+      "灯光"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "evening"
+    ],
+    "action": {
+      "title": "给灯光换个档位",
+      "duration": "20 秒",
+      "illustration": "lamp",
+      "closing": "一档就好，仍要看得清。",
+      "motionId": "dim-lamp"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：如果灯光刺眼，把台灯调柔和一档。",
+      "简短留白": "如果灯光刺眼，把台灯调柔和一档。"
+    }
+  },
+  {
+    "id": "moment-winddown-01",
+    "text": "在纸上写下明天第一件要做的小事，然后合上本子。",
+    "period": "any",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "收尾",
+    "scenes": [
+      "winddown"
+    ],
+    "action": {
+      "title": "给明天留一行字",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "今晚就记这一件。",
+      "motionId": "write-note"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：在纸上写下明天第一件要做的小事，然后合上本子。",
+      "简短留白": "在纸上写下明天第一件要做的小事，然后合上本子。"
+    }
+  },
+  {
+    "id": "moment-winddown-02",
+    "text": "准备休息的话，把台灯调柔和一档。",
+    "period": "any",
+    "tags": [
+      "灯光"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "winddown"
+    ],
+    "action": {
+      "title": "把灯光调柔一点",
+      "duration": "20 秒",
+      "illustration": "lamp",
+      "closing": "保留走动时看得清的光。",
+      "motionId": "dim-lamp"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：准备休息的话，把台灯调柔和一档。",
+      "简短留白": "准备休息的话，把台灯调柔和一档。"
+    }
+  },
+  {
+    "id": "moment-winddown-03",
+    "text": "把桌上的杯子放回固定的位置，给今天收个小尾。",
+    "period": "any",
+    "tags": [
+      "热茶"
+    ],
+    "topic": "收尾",
+    "scenes": [
+      "winddown"
+    ],
+    "action": {
+      "title": "把杯子送回去",
+      "duration": "30 秒",
+      "illustration": "water",
+      "closing": "收好杯子就停手。",
+      "motionId": "place-cup"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把桌上的杯子放回固定的位置，给今天收个小尾。",
+      "简短留白": "把桌上的杯子放回固定的位置，给今天收个小尾。"
+    }
+  },
+  {
+    "id": "moment-winddown-04",
+    "text": "准备放下手机的话，把它放到伸手够不到的位置。",
+    "period": "any",
+    "tags": [
+      "安静"
+    ],
+    "topic": "收尾",
+    "scenes": [
+      "winddown"
+    ],
+    "action": {
+      "title": "给手机找个停靠点",
+      "duration": "20 秒",
+      "illustration": "desk",
+      "closing": "先放这一会儿。",
+      "motionId": "move-phone"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：准备放下手机的话，把它放到伸手够不到的位置。",
+      "简短留白": "准备放下手机的话，把它放到伸手够不到的位置。"
+    }
+  },
+  {
+    "id": "moment-winddown-05",
+    "text": "写一句今天让你觉得还不错的小事。",
+    "period": "any",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "日常",
+    "scenes": [
+      "winddown"
+    ],
+    "action": {
+      "title": "留下一件顺心的小事",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "吃到喜欢的东西也算。",
+      "motionId": "write-note"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：写一句今天让你觉得还不错的小事。",
+      "简短留白": "写一句今天让你觉得还不错的小事。"
+    }
+  },
+  {
+    "id": "moment-winddown-06",
+    "text": "准备收尾的话，关掉一个已经不用的网页标签。",
+    "period": "any",
+    "tags": [
+      "安静"
+    ],
+    "topic": "收尾",
+    "scenes": [
+      "winddown"
+    ],
+    "action": {
+      "title": "关掉一个不用的页面",
+      "duration": "20 秒",
+      "illustration": "desk",
+      "closing": "只关一个，不清空所有。",
+      "motionId": "close-tab"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：准备收尾的话，关掉一个已经不用的网页标签。",
+      "简短留白": "准备收尾的话，关掉一个已经不用的网页标签。"
+    }
+  },
+  {
+    "id": "moment-winddown-07",
+    "text": "把明早想用的杯子，放到顺手的位置。",
+    "period": "any",
+    "tags": [
+      "热茶"
+    ],
+    "topic": "日常",
+    "scenes": [
+      "winddown"
+    ],
+    "action": {
+      "title": "周末摆好明早的杯子",
+      "duration": "30 秒",
+      "illustration": "water",
+      "closing": "给明天留一点方便。",
+      "motionId": "place-cup"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把明早想用的杯子，放到顺手的位置。",
+      "简短留白": "把明早想用的杯子，放到顺手的位置。"
+    },
+    "weekdays": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "moment-winddown-08",
+    "text": "准备休息的话，把明早要带的钥匙放到包旁边。",
+    "period": "any",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "收尾",
+    "scenes": [
+      "winddown"
+    ],
+    "action": {
+      "title": "把要用的东西放一起",
+      "duration": "30 秒",
+      "illustration": "desk",
+      "closing": "只安置这一件小东西。",
+      "motionId": "clear-item"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：准备休息的话，把明早要带的钥匙放到包旁边。",
+      "简短留白": "准备休息的话，把明早要带的钥匙放到包旁边。"
+    }
+  },
+  {
+    "id": "moment-late-01",
+    "text": "把手从鼠标上移开，轻轻张开，再自然放下。",
+    "period": "any",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "scenes": [
+      "late"
+    ],
+    "action": {
+      "title": "先松开握鼠标的手",
+      "duration": "20 秒",
+      "illustration": "stretch",
+      "closing": "做到舒服就停。",
+      "motionId": "relax-hands"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把手从鼠标上移开，轻轻张开，再自然放下。",
+      "简短留白": "把手从鼠标上移开，轻轻张开，再自然放下。"
+    }
+  },
+  {
+    "id": "moment-late-02",
+    "text": "如果屏幕晃眼，把亮度调低一档，保持文字看得清。",
+    "period": "any",
+    "tags": [
+      "灯光"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "late"
+    ],
+    "action": {
+      "title": "调低一档屏幕亮度",
+      "duration": "20 秒",
+      "illustration": "desk",
+      "closing": "只调整到舒服的程度。",
+      "motionId": "screen-dim"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：如果屏幕晃眼，把亮度调低一档，保持文字看得清。",
+      "简短留白": "如果屏幕晃眼，把亮度调低一档，保持文字看得清。"
+    }
+  },
+  {
+    "id": "moment-late-03",
+    "text": "把脑子里没想完的事写成几个字，留在纸上。",
+    "period": "any",
+    "tags": [
+      "纸笔"
+    ],
+    "topic": "收尾",
+    "scenes": [
+      "late"
+    ],
+    "action": {
+      "title": "给没想完的事留个名字",
+      "duration": "1 分钟",
+      "illustration": "note",
+      "closing": "先留个名字，不急着解答。",
+      "motionId": "write-note"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把脑子里没想完的事写成几个字，留在纸上。",
+      "简短留白": "把脑子里没想完的事写成几个字，留在纸上。"
+    }
+  },
+  {
+    "id": "moment-late-04",
+    "text": "如果准备离开电脑，先保存正在编辑的文件。",
+    "period": "any",
+    "tags": [
+      "安静"
+    ],
+    "topic": "收尾",
+    "scenes": [
+      "late"
+    ],
+    "action": {
+      "title": "准备结束，就先保存",
+      "duration": "20 秒",
+      "illustration": "desk",
+      "closing": "存好这一份，再慢慢收尾。",
+      "motionId": "save-file"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：如果准备离开电脑，先保存正在编辑的文件。",
+      "简短留白": "如果准备离开电脑，先保存正在编辑的文件。"
+    }
+  },
+  {
+    "id": "moment-late-05",
+    "text": "如果正戴着耳机，把音量调低一小格。",
+    "period": "any",
+    "tags": [
+      "音乐"
+    ],
+    "topic": "音乐",
+    "scenes": [
+      "late"
+    ],
+    "action": {
+      "title": "把耳机音量放轻一点",
+      "duration": "10 秒",
+      "illustration": "music",
+      "closing": "留在听得舒服的位置。",
+      "motionId": "lower-volume"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：如果正戴着耳机，把音量调低一小格。",
+      "简短留白": "如果正戴着耳机，把音量调低一小格。"
+    }
+  },
+  {
+    "id": "moment-late-06",
+    "text": "手离开键盘，靠稳椅背，找个舒服的坐姿。",
+    "period": "any",
+    "tags": [
+      "舒服"
+    ],
+    "topic": "身体",
+    "scenes": [
+      "late"
+    ],
+    "action": {
+      "title": "让椅背接住这一会儿",
+      "duration": "20 秒",
+      "illustration": "stretch",
+      "closing": "舒服了，就停在这里。",
+      "motionId": "sit-back"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：手离开键盘，靠稳椅背，找个舒服的坐姿。",
+      "简短留白": "手离开键盘，靠稳椅背，找个舒服的坐姿。"
+    }
+  },
+  {
+    "id": "moment-late-07",
+    "text": "把桌上一个空包装放进垃圾桶。",
+    "period": "any",
+    "tags": [
+      "整洁"
+    ],
+    "topic": "环境",
+    "scenes": [
+      "late"
+    ],
+    "action": {
+      "title": "周末的夜，收好一件",
+      "duration": "20 秒",
+      "illustration": "desk",
+      "closing": "只收这个，其他明天再说。",
+      "motionId": "throw-away"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：把桌上一个空包装放进垃圾桶。",
+      "简短留白": "把桌上一个空包装放进垃圾桶。"
+    },
+    "weekdays": [
+      0,
+      6
+    ]
+  },
+  {
+    "id": "moment-late-08",
+    "text": "准备休息的话，合上手边的本子，放回固定位置。",
+    "period": "any",
+    "tags": [
+      "安静"
+    ],
+    "topic": "收尾",
+    "scenes": [
+      "late"
+    ],
+    "action": {
+      "title": "给今天合上一页",
+      "duration": "20 秒",
+      "illustration": "note",
+      "closing": "今晚就到这一页。",
+      "motionId": "close-book"
+    },
+    "variants": {
+      "带一点俏皮": "和小纸团一起：准备休息的话，合上手边的本子，放回固定位置。",
+      "简短留白": "准备休息的话，合上手边的本子，放回固定位置。"
+    }
+  }
+]

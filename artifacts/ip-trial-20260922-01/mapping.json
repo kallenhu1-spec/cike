@@ -1,0 +1,20 @@
+[
+  {
+    "asset": "water.png",
+    "id": "moment-afternoon-01",
+    "title": "喝两口，再继续",
+    "text": "拿起手边的杯子，喝两口水，再放回去。"
+  },
+  {
+    "asset": "book.png",
+    "id": "base-026",
+    "title": "合上一个不用的本子",
+    "text": "把暂时不用的一本本子合上，放到桌角。"
+  },
+  {
+    "asset": "lamp.png",
+    "id": "moment-winddown-02",
+    "title": "把灯光调柔一点",
+    "text": "准备休息的话，把台灯调柔和一档。"
+  }
+]

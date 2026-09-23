@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'"
+    />
+    <title>此刻 · 灵感与动作工作台</title>
+    <link rel="stylesheet" href="studio.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <span class="eyebrow">此刻 / ART & LITTLE ACTIONS</span>
+        <h1>先找到喜欢，再让它动一下。</h1>
+        <p>
+          质感方向和动作机制分开比较：喜欢哪种画面，哪些动作才像文案说的那样。
+        </p>
+      </header>
+      <section class="concepts">
+        <article>
+          <img
+            src="../assets/concepts/handpainted-sprout.png"
+            alt="手绘纸感叶芽小生命的四个日常动作"
+          />
+          <h2>A · 纸上的小生命</h2>
+          <p>
+            色铅笔、纸张颗粒、轻微不规则。看的是手作感和角色接触物件的方式。
+          </p>
+        </article>
+        <article>
+          <img
+            src="../assets/concepts/felt-sprout.png"
+            alt="同一叶芽小生命的羊毛毡材质对照"
+          />
+          <h2>B · 像能摸到的小生命</h2>
+          <p>
+            羊毛纤维、柔软体积、微缩道具。保持角色和动作相近，主要比较材质。
+          </p>
+        </article>
+      </section>
+      <p class="notice">
+        以上是 AI
+        生成的原创方向草图，未替换桌面形象；不是动画素材。收藏笔记的深读尚未完成，不代表已确认你的审美偏好。
+      </p>
+      <section class="production">
+        <h2>把一致性放在制作流程里</h2>
+        <p>
+          固定母版角色 → 单独确认动作关键帧 → 静态图验收 → 只做一次的短动作 →
+          配到对应文案。
+        </p>
+        <p>
+          不靠每次重新描述“一个可爱角色”。轮廓、五官比例、叶芽、材质保持一致；只改变姿势与必要的道具。
+        </p>
+      </section>
+      <section class="action-section">
+        <div class="heading">
+          <div>
+            <span class="eyebrow">动作样机 / 共 35 种</span>
+            <h2>同是杯子，也要做不同的事。</h2>
+          </div>
+          <label><input type="checkbox" id="night" /> 夜色预览</label>
+        </div>
+        <p>
+          下面是现有矢量角色的动作验证，不是上面两张草图的动画。每次只播放约 3
+          秒，然后停住。减少动画开启时只显示静态。
+        </p>
+        <div class="filters">
+          <label
+            >筛选场景<select id="filter">
+              <option value="all">全部动作</option>
+              <option value="water">杯子</option>
+              <option value="window">窗边与植物</option>
+              <option value="desk">桌面与电脑</option>
+              <option value="note">纸笔与书</option>
+              <option value="meal">吃饭</option>
+              <option value="music">音乐</option>
+              <option value="stretch">身体</option>
+              <option value="lamp">灯光</option>
+            </select></label
+          ><span id="status" role="status" aria-live="polite"></span>
+        </div>
+        <div id="actions"></div>
+      </section>
+    </main>
+    <script src="motions.js"></script>
+    <script src="appearance.js"></script>
+    <script src="studio.js"></script>
+  </body>
+</html>

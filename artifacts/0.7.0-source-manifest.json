@@ -1,0 +1,118 @@
+{
+  "version": "0.7.0",
+  "verified": "packaged src matches working src",
+  "files": [
+    {
+      "file": "src/appearance.js",
+      "sha256": "0ebb1ce620f653b1acdbf15b24e46343f62d42b74985459095ad1e25f25040f5"
+    },
+    {
+      "file": "src/art.cjs",
+      "sha256": "d2fc912d4a4e51f12594d77ac0697f0c6ac263559d60a7d68f2b30b001207460"
+    },
+    {
+      "file": "src/core.cjs",
+      "sha256": "0a117302cfc2360dc83e923f4831a498541212085d98a52b7cc07b2c38b079c5"
+    },
+    {
+      "file": "src/laboratory.css",
+      "sha256": "f649e6c3dae9dc498b465450b38c0f9f8604d1141dcc6eb3a06e87f8efaf6b48"
+    },
+    {
+      "file": "src/laboratory.html",
+      "sha256": "db3599ab73714168eb47920059fb04030c34d40e1dd58df07072893a43f68bd1"
+    },
+    {
+      "file": "src/laboratory.js",
+      "sha256": "b43995182ca2e06573142be24be2b0753656413ce0e3c39684254cd72aa523d6"
+    },
+    {
+      "file": "src/main.cjs",
+      "sha256": "62a6c54937f92844fdfec79388e003b725f1dfe42c952b21990f68a9728c8ece"
+    },
+    {
+      "file": "src/moments.cjs",
+      "sha256": "67aa29bcb5ae978004dd55e1dfda968d4594dd54ff6aa88faf3be2b9b5fd463c"
+    },
+    {
+      "file": "src/motion-art.cjs",
+      "sha256": "cc70a9d4d9603a889786776cd9b7e7f7d55a4c902de3cc55a09f2f5e4b22c26d"
+    },
+    {
+      "file": "src/motions.js",
+      "sha256": "d694fe800f67f9876677c1f25c6e2dbe602c74da658eedd3815a2ea96f3db51a"
+    },
+    {
+      "file": "src/pet.css",
+      "sha256": "8519c5340bd7321227fdd1c71e1d9689e5d1f963967fe8d28c6f1bce3a1d6fb4"
+    },
+    {
+      "file": "src/pet.html",
+      "sha256": "9a4dded47f20e2c00a6b2ccd3993fe02b643312850e6a460549179bcefcb1d44"
+    },
+    {
+      "file": "src/pet.js",
+      "sha256": "b56828e99c6f2539ca31e071c8988d020c119412af5d69db60639f0040af0c1a"
+    },
+    {
+      "file": "src/preload.cjs",
+      "sha256": "19ce7abea84a0bec92ec3aa17c5321ec8120ce5b3bda1870bd5a99bea4179584"
+    },
+    {
+      "file": "src/prompt.cjs",
+      "sha256": "c35f3c66dc1e83ec15e6be4e7a4f8b41c1b0b4e4bba1852f2f5f4b2f1a01cfb2"
+    },
+    {
+      "file": "src/settings.css",
+      "sha256": "c0b2ba18929e14cf09d78f031a79693ee2401de493824c3eda347d60580cd42e"
+    },
+    {
+      "file": "src/settings.html",
+      "sha256": "0f2a4b652f45e6e1cc9c8e57475fecc0a06d029f9c3a72a1b0022196d1eecf16"
+    },
+    {
+      "file": "src/settings.js",
+      "sha256": "ea8d41c36b02531d1c5fee4a9c42c37be163071ba63a6efdb6e842e961cbe4c8"
+    },
+    {
+      "file": "src/studio.css",
+      "sha256": "ba39f4abcb58e87436a85a6635386889166708c5efa3b09bdce5e5e975ae8707"
+    },
+    {
+      "file": "src/studio.html",
+      "sha256": "cd261265a560e8a913920e2e72b8614b3b1e9ba92d816a214a9f2dfd04890985"
+    },
+    {
+      "file": "src/studio.js",
+      "sha256": "2c3b39c08ccbecebb69886152e705fcf96167c6d688b01330fac40e192a96487"
+    },
+    {
+      "file": "src/voice-ai.cjs",
+      "sha256": "008099464bc80fb725d50bcdeab818453c4e8bc42dc88cf0d93254848ea7b065"
+    },
+    {
+      "file": "src/voice-audio.js",
+      "sha256": "119bb3746b58b905731f9300895cd3caf885e53d24c3e8e6ef7d5c85b676fa2b"
+    },
+    {
+      "file": "src/voice-store.cjs",
+      "sha256": "6d92a1e2f5f196b2c409a98111614a1cc9c75c4b37a20588ee6cdca342ade366"
+    },
+    {
+      "file": "src/voice.css",
+      "sha256": "453df265bc1ab17212dc189c2277eabde4e4d154ebf28a6b137ddfe73acab90e"
+    },
+    {
+      "file": "src/voice.html",
+      "sha256": "587dc4896d2395893b0b0b1a4caae7819995b9b9769545143bf535a3b5f60a87"
+    },
+    {
+      "file": "src/voice.js",
+      "sha256": "e8ab5554d8b0d06c1861380b91bb9335ebe641625e528298375d8e126af70990"
+    },
+    {
+      "file": "src/voice_worker.py",
+      "sha256": "d770cf52c3835a944238645df9d2637c79bb3dd763717618ee15bc720e1e3fc7"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "source": "macOS Tingting system synthetic voice, not daughter",
+  "target": "耶，击掌！这件事完成啦。",
+  "elapsedSeconds": 36.178,
+  "duration": 3.36,
+  "model": "Qwen3-TTS-12Hz-0.6B-Base-bf16",
+  "offline": true,
+  "approved": false
+}

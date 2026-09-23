@@ -1,0 +1,18 @@
+const {_electron:electron}=require('playwright');
+const fs=require('node:fs'),os=require('node:os'),path=require('node:path'),assert=require('node:assert/strict');
+(async()=>{const dir=fs.mkdtempSync(path.join(os.tmpdir(),'cike-material-trial-'));let app;try{
+app=await electron.launch({args:[path.resolve(__dirname,'..')],env:{...process.env,CIKE_TEST_DIR:dir}});
+await app.evaluate(({powerMonitor})=>powerMonitor.getSystemIdleTime=()=>600);
+const pending=app.waitForEvent('window');await app.evaluate(({BrowserWindow},file)=>{const w=new BrowserWindow({width:1120,height:1080,show:false,webPreferences:{contextIsolation:true,nodeIntegration:false}});w.loadFile(file);},path.resolve('artifacts/双材质动作试映.html'));
+const page=await pending,errors=[];page.on('pageerror',e=>errors.push(e.message));await page.emulateMedia({reducedMotion:'no-preference'});await page.waitForFunction(()=>[...document.images].length===2&&[...document.images].every(i=>i.complete&&i.naturalWidth===1254));
+await page.locator('#play').click();await page.waitForFunction(()=>[...document.querySelectorAll('.compare article')].every(c=>c.dataset.frame==='1'));await page.waitForFunction(()=>[...document.querySelectorAll('.compare article')].every(c=>c.dataset.playing==='false'&&c.dataset.frame==='2'));
+const before=await page.locator('.compare').screenshot();await page.waitForTimeout(500);assert.deepEqual(before,await page.locator('.compare').screenshot());
+for(const value of ['0','1','2']){await page.locator('#action').selectOption(value);for(const n of ['0','1','2']){await page.locator(`button[data-frame="${n}"]`).click();assert.deepEqual(await page.locator('.compare article').evaluateAll(cs=>cs.map(c=>c.dataset.frame)),[n,n]);}}
+await page.locator('#action').selectOption('0');await page.locator('#play').click();await page.locator('#action').selectOption('1');await page.waitForTimeout(3200);assert.deepEqual(await page.locator('.compare article').evaluateAll(cs=>cs.map(c=>c.dataset.frame)),['0','0']);
+await page.locator('#reduce').check();await page.locator('#play').click();assert.deepEqual(await page.locator('.compare article').evaluateAll(cs=>cs.map(c=>[c.dataset.frame,c.dataset.playing])),[['2','false'],['2','false']]);await page.locator('#reduce').uncheck();
+await page.emulateMedia({reducedMotion:'reduce'});await page.locator('#play').click();assert.equal(await page.locator('[data-style="paper"]').getAttribute('data-playing'),'false');await page.emulateMedia({reducedMotion:'no-preference'});
+await page.locator('#later').click();await page.waitForFunction(()=>document.querySelector('#later').textContent==='取消这次提醒');await page.locator('#later').click();assert.equal(await page.locator('#later').textContent(),'10 秒后提醒一次');
+await page.locator('#later').click();await page.waitForFunction(()=>document.querySelector('[data-style="paper"]').dataset.playing==='true',null,{timeout:15000});await page.waitForFunction(()=>document.querySelector('[data-style="paper"]').dataset.playing==='false');assert.equal(await page.locator('#later').textContent(),'10 秒后提醒一次');
+await page.locator('#action').selectOption('0');await page.locator('button[data-frame="1"]').click();await page.screenshot({path:'artifacts/双材质试映截图.png',fullPage:true});
+await page.setViewportSize({width:390,height:844});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.screenshot({path:'artifacts/双材质试映窄屏.png',fullPage:true});assert.deepEqual(errors,[]);console.log('PASS: 两图解码、三动作逐帧切换、单次播放后像素稳定、换动作取消旧计时器、系统/手动减少动画、定时触发与取消、窄屏无溢出、无页面错误。');
+}finally{if(app)await app.close();fs.rmSync(dir,{recursive:true,force:true});}})().catch(e=>{console.error(e);process.exitCode=1});

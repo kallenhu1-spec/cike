@@ -1,0 +1,278 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #f7f3e9;
+  color: #514b40;
+  font:
+    14px/1.65 -apple-system,
+    BlinkMacSystemFont,
+    "PingFang SC",
+    sans-serif;
+}
+main {
+  max-width: 690px;
+  margin: auto;
+  padding: 34px 38px;
+}
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #dfd8c9;
+  padding-bottom: 22px;
+}
+header img {
+  width: 120px;
+}
+h1 {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 32px;
+  font-weight: 500;
+  margin: 10px 0 7px;
+  letter-spacing: 2px;
+}
+p {
+  margin: 6px 0;
+}
+.eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #858a70;
+}
+header p,
+.hint {
+  color: #8b8478;
+  font-size: 12px;
+}
+section {
+  padding: 22px 0;
+  border-bottom: 1px solid #dfd8c9;
+}
+h2 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0 0 17px;
+}
+h2 span {
+  font: 11px Georgia;
+  color: #98a07d;
+  margin-right: 10px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+}
+label {
+  display: block;
+  font-size: 12px;
+  color: #736c5e;
+  margin-bottom: 10px;
+}
+input:not([type="checkbox"]),
+select,
+textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid #ddd6c6;
+  background: #fffcf5;
+  border-radius: 9px;
+  color: #575446;
+  font: 13px inherit;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus-visible {
+  outline: 2px solid #8f9a75;
+  outline-offset: 2px;
+}
+.checks {
+  display: flex;
+  gap: 25px;
+  margin: 16px 0;
+}
+input[type="checkbox"] {
+  accent-color: #8a9673;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+button {
+  border: 1px solid #d8d3c5;
+  background: #fcfaf4;
+  color: #69644f;
+  padding: 9px 13px;
+  border-radius: 8px;
+  cursor: pointer;
+  font: 12px inherit;
+}
+button:hover {
+  background: #efeadb;
+}
+.primary {
+  background: #828e6c;
+  color: white;
+  border: 0;
+  padding: 12px 20px;
+}
+.primary:hover {
+  background: #6f7b5b;
+}
+#status {
+  display: block;
+  font-size: 12px;
+  margin-top: 8px;
+  color: #657449;
+  white-space: pre-wrap;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+textarea {
+  height: 200px;
+  resize: vertical;
+}
+textarea[hidden] {
+  display: none;
+}
+footer {
+  padding-top: 24px;
+  font-size: 11px;
+  color: #938b7c;
+}
+footer .actions {
+  margin-top: 12px;
+}
+@media (max-width: 560px) {
+  main {
+    padding: 24px;
+  }
+  .grid {
+    gap: 8px 14px;
+  }
+  header img {
+    width: 90px;
+  }
+  h1 {
+    font-size: 27px;
+  }
+}
+
+.moment-card {
+  margin: 24px 0 2px;
+  padding: 22px;
+  border: 1px solid #dedfcf;
+  border-radius: 18px;
+  background: #f0f1e6;
+}
+.moment-heading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+#moment-now {
+  font-size: 11px;
+  color: #747f5e;
+}
+.moment-card h2 {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+.moment-controls {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+.moment-controls label {
+  flex: 1;
+  margin: 0;
+}
+.moment-controls button {
+  min-height: 40px;
+  white-space: nowrap;
+}
+#preview-text {
+  margin: 20px 0 10px;
+  padding: 16px 18px;
+  border-left: 2px solid #b0ba94;
+  border-radius: 0 10px 10px 0;
+  background: #fffcf2;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #5e624d;
+}
+#preview-reason {
+  color: #728059;
+  margin-bottom: 12px;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+#preview-sample {
+  margin: 18px 0 12px;
+  background: #fffcf2;
+  border: 1px solid #e3dccb;
+  border-radius: 14px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+#preview-illustration {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  padding: 8px 0 8px 8px;
+}
+.preview-copy {
+  padding: 18px 18px 18px 12px;
+}
+#preview-duration {
+  color: #7a8760;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+#preview-title {
+  font-family: Georgia, "Songti SC", serif;
+  font-size: 21px;
+  line-height: 1.45;
+  font-weight: 600;
+  margin: 7px 0;
+}
+#preview-text {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  background: none;
+  font-size: 13px;
+  line-height: 1.8;
+}
+#preview-closing {
+  color: #7a8760;
+  font-size: 11px;
+  margin-top: 9px;
+}
+@media (max-width: 560px) {
+  #preview-sample {
+    grid-template-columns: 1fr;
+  }
+  #preview-illustration {
+    max-height: 180px;
+    padding: 10px 24px 0;
+  }
+  .preview-copy {
+    padding: 0 20px 20px;
+  }
+}
