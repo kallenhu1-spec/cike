@@ -2,7 +2,7 @@ const { contextBridge, ipcRenderer } = require("electron");
 const allowed = [
   "get", "customizer", "preferences", "image-pick", "image-apply", "content-list", "content-save", "content-toggle", "content-remove", "content-preview", "block-current", "data-location", "restore-data", "voice-selection",
   "voice-silent", "voice-reference-text", "voice-room", "voice-summary", "voice-engine", "voice-lines", "voice-settings", "voice-preview", "voice-play", "voice-save", "voice-approve", "voice-delete", "voice-generate", "voice-cancel", "voice-microphone", "voice-clear",
-  "request",
+  "request", "image-generate", "image-service-status",
   "art",
   "appearance",
   "laboratory",

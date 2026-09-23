@@ -313,6 +313,8 @@ else {
       if(url.length>4000000)throw Error('图片内容过大，请换一张较小的图片');return url;
     });
     handle("image-apply", image => {if(image!==null)core.validateLibrary([{id:'image',text:'检查图片内容',period:'any',tags:[],image}]);state.image=image;persist();send();});
+    handle("image-service-status", () => require("./seedream.cjs").status());
+    handle("image-generate", input => require("./seedream.cjs").generate(input));
     handle("content-list", () => [...builtin,...state.custom].map(row=>({...state.overrides[row.id]||row,builtin:builtin.some(b=>b.id===row.id),edited:!!state.overrides[row.id],enabled:!state.memory.blocked.includes(row.id)})));
     handle("content-save", input => {
       const row=core.validateLibrary([input])[0];
