@@ -39,7 +39,7 @@
   const definitions = Object.fromEntries(
     rows.map(([id, label, illustration]) => [
       id,
-      { id, label, illustration, durationMs: 3200 },
+      { id, label, illustration, durationMs: id === "sip" ? 5200 : 3200 },
     ]),
   );
   const api = { definitions, ids: Object.keys(definitions) };

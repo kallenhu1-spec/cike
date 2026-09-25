@@ -13,6 +13,7 @@ const {
 } = require("electron");
 const path = require("node:path"),
   fs = require("node:fs"),
+  { pathToFileURL } = require("node:url"),
   core = require("./core.cjs");
 if (process.env.CIKE_TEST_DIR)
   app.setPath("userData", process.env.CIKE_TEST_DIR);
@@ -24,6 +25,7 @@ let pet,
   voiceRoom,
   voices,
   voiceAI,
+  characterAI,
   tray,
   state,
   file,
@@ -31,7 +33,9 @@ let pet,
   locked = false,
   resumeAfter = 0,
   drag = null,
-  cardPinned = false;
+  cardPinned = false,
+  transparentPreviewFile = "";
+const transparentPreview = { available: false, enabled: false, size: "medium", url: "" };
 const builtin = core.validateLibrary([
   ...require("../assets/suggestions.json"),
   ...require("../assets/moments.json"),
@@ -51,6 +55,7 @@ function snapshot() {
     appVersion: app.getVersion(),
     libraryInfo: { builtin: builtin.length },
     moment: core.context(state.profile, new Date()),
+    transparentPreview: { ...transparentPreview },
   };
 }
 function send() {
@@ -215,14 +220,59 @@ async function changeImage() {
   persist();
   send();
 }
+function refreshTrayMenu() {
+  if (tray && !tray.isDestroyed()) tray.setContextMenu(menu());
+}
+function setTransparentPreviewEnabled(value) {
+  if (typeof value !== "boolean") throw Error("无效的试映设置");
+  if (value && !transparentPreview.available) throw Error("请先选择透明 WebM 动作");
+  transparentPreview.enabled = value;
+  refreshTrayMenu();
+  send();
+  return { ...transparentPreview };
+}
+function setTransparentPreviewSize(value) {
+  if (!["small", "medium", "large"].includes(value)) throw Error("无效的试映尺寸");
+  transparentPreview.size = value;
+  refreshTrayMenu();
+  send();
+  return { ...transparentPreview };
+}
+function installTransparentPreview(source) {
+  if (typeof source !== "string" || path.extname(source).toLowerCase() !== ".webm")
+    throw Error("请选择 WebM 文件");
+  const info = fs.statSync(source);
+  if (!info.isFile() || info.size < 1024) throw Error("WebM 文件无法读取");
+  if (info.size > 80 * 1024 * 1024) throw Error("WebM 不能超过 80 MB");
+  fs.mkdirSync(path.dirname(transparentPreviewFile), { recursive: true });
+  if (path.resolve(source) !== path.resolve(transparentPreviewFile)) {
+    const temporary = transparentPreviewFile + ".copying";
+    fs.copyFileSync(source, temporary);
+    fs.renameSync(temporary, transparentPreviewFile);
+  }
+  transparentPreview.available = true;
+  transparentPreview.enabled = true;
+  transparentPreview.url = pathToFileURL(transparentPreviewFile).href;
+  refreshTrayMenu();
+  send();
+  return { ...transparentPreview };
+}
+async function pickTransparentPreview() {
+  const result = await dialog.showOpenDialog(pet, {
+    title: "选择透明背景的 WebM 动作",
+    filters: [{ name: "透明 WebM 动作", extensions: ["webm"] }],
+    properties: ["openFile"],
+  });
+  if (result.canceled) return null;
+  return installTransparentPreview(result.filePaths[0]);
+}
 function menu() {
   return Menu.buildFromTemplate([
-    {label:'给我一个小动作',click:requestReminder},
-    {label:'暂停自动提醒',type:'checkbox',checked:!state.settings.enabled,click:()=>{state.settings.enabled=!state.settings.enabled;persist();send();pet.webContents.send('hide-bubble');}},
+    {label:'换一个治愈小事',click:requestReminder},
     {label:'播放声音',type:'checkbox',checked:voices.data.enabled,click:item=>{voices.settings({...voices.data,enabled:item.checked});voiceChanged();}},
     {type:'separator'},
     {label:'设置与定制…',click:showCustomizer},
-    {label:'回到屏幕角落',click:resetPosition},
+    {label:'回到角落',click:resetPosition},
     {label:'退出此刻',click:()=>app.quit()}
   ]);
 }
@@ -255,10 +305,21 @@ else {
   });
   app.whenReady().then(() => {
     file = path.join(app.getPath("userData"), "companion.json");
+    transparentPreviewFile = path.join(app.getPath("userData"), "preview-assets", "transparent-action.webm");
+    if (fs.existsSync(transparentPreviewFile)) {
+      transparentPreview.available = true;
+      transparentPreview.url = pathToFileURL(transparentPreviewFile).href;
+    }
+    if (process.env.CIKE_TRANSPARENT_PREVIEW_SOURCE)
+      installTransparentPreview(process.env.CIKE_TRANSPARENT_PREVIEW_SOURCE);
     state = core.read(file);
     state.memory.visits++;
     persist();
     voices = new (require("./voice-store.cjs").VoiceStore)(path.join(app.getPath("userData"), "voices"));
+    const transparentScript = app.isPackaged
+      ? path.join(process.resourcesPath, "app.asar.unpacked", "skills/cike-character-studio/scripts/transparent_video.py")
+      : path.join(__dirname, "../skills/cike-character-studio/scripts/transparent_video.py");
+    characterAI = new (require("./ark-character-ai.cjs").ArkCharacterAI)({ userData: app.getPath("userData"), transparentScript });
     const runtime = process.env.CIKE_VOICE_RUNTIME || (app.isPackaged
       ? ([path.join(app.getPath("userData"), "voice-runtime"), path.resolve(process.resourcesPath, "../../../../voice-runtime")].find(p => fs.existsSync(path.join(p, "ready.json"))) || path.join(app.getPath("userData"), "voice-runtime"))
       : path.join(__dirname, "../.private/voice-runtime"));
@@ -295,7 +356,7 @@ else {
       .resize({ width: 20, height: 20 });
     tray = new Tray(icon);
     tray.setTitle("此刻");
-    tray.setToolTip("此刻 · 我在，你忙你的");
+    tray.setToolTip("此刻 · 桌搭团子");
     tray.setContextMenu(menu());
     tray.on("right-click", () => tray.setContextMenu(menu()));
     tray.on("click", showCustomizer);
@@ -313,8 +374,27 @@ else {
       if(url.length>4000000)throw Error('图片内容过大，请换一张较小的图片');return url;
     });
     handle("image-apply", image => {if(image!==null)core.validateLibrary([{id:'image',text:'检查图片内容',period:'any',tags:[],image}]);state.image=image;persist();send();});
-    handle("image-service-status", () => require("./seedream.cjs").status());
-    handle("image-generate", input => require("./seedream.cjs").generate(input));
+    handle("character-status", () => characterAI.status());
+    handle("character-candidate", async input => {
+      if (!input || !Number.isInteger(input.index) || input.index < 0 || input.index > 5) throw Error("候选编号无效");
+      if (input.authorizationConfirmed !== true) throw Error("请先确认图片授权");
+      return characterAI.candidate(input.portrait, input.style, input.index);
+    });
+    handle("character-video", async input => {
+      if (!input || typeof input.character !== "string") throw Error("请先选定角色母版");
+      const progress = value => {
+        if (customizer && !customizer.isDestroyed()) customizer.webContents.send("character-progress", value);
+        if (pet && !pet.isDestroyed()) pet.webContents.send("character-progress", value);
+      };
+      try {
+        const result = await characterAI.actionVideo(input, progress);
+        const preview = installTransparentPreview(result.webm);
+        return { ...result, webm: preview.url };
+      } catch (error) {
+        progress({ stage: "error", text: `动作生成失败：${error.message}` });
+        throw error;
+      }
+    });
     handle("content-list", () => [...builtin,...state.custom].map(row=>({...state.overrides[row.id]||row,builtin:builtin.some(b=>b.id===row.id),edited:!!state.overrides[row.id],enabled:!state.memory.blocked.includes(row.id)})));
     handle("content-save", input => {
       const row=core.validateLibrary([input])[0];
@@ -398,6 +478,9 @@ else {
       return snapshot();
     });
     handle("moment", () => core.context(state.profile, new Date()));
+    handle("transparent-preview-pick", pickTransparentPreview);
+    handle("transparent-preview-enable", setTransparentPreviewEnabled);
+    handle("transparent-preview-size", setTransparentPreviewSize);
     handle("preview", (time) => speak(true, core.previewDate(time), [], time !== "now"));
     handle("menu", () => menu().popup({ window: pet }));
     handle("save", (input) => {

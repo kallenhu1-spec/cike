@@ -3,8 +3,8 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' data: blob:; style-src 'self'; script-src 'self'; connect-src 'none'">
 <title>此刻 · 小小配音室</title><link rel="stylesheet" href="voice.css"></head>
 <body><main>
-<header><div><span class="eyebrow">此刻 0.8.1 / 小小配音室</span><h1>把喜欢的声音，<br>留在小纸团身边。</h1><p>一句一句慢慢来。今天想说哪一句？</p></div><img src="../assets/scenes/water.svg" alt="捧着水杯的小纸团"></header>
-<div class="privacy">只在这台电脑保存与生成 · 不上传录音 · AI 结果试听后启用</div>
+<header><div><span class="eyebrow">此刻 0.8.2 / 小小配音室</span><h1>把喜欢的声音，<br>留在小纸团身边。</h1><p>一句一句慢慢来。今天想说哪一句？</p></div><img src="../assets/scenes/water.svg" alt="捧着水杯的小纸团"></header>
+<div class="privacy">只在这台电脑保存 · 不上传录音 · 0.12 先使用亲录和导入声音</div>
 <section class="sound-settings" aria-label="声音设置"><label><input id="enabled" type="checkbox"> 开启声音</label><label><input id="effects" type="checkbox"> 击掌音效</label><label>音量 <input id="volume" type="range" min="0" max="100" value="45"></label><button id="clap">✋ 试试击掌</button></section>
 <div id="activity" role="status" aria-live="polite"><span id="status">准备好，就从一句“你好呀”开始。</span><button id="stop" hidden>停止</button></div>
 <p id="coverage" class="privacy" role="status"></p>
@@ -14,17 +14,17 @@
 <div class="buttons"><button id="record-reference" class="primary">● 录声音样本</button><button id="import-reference">导入录音</button></div>
 <p id="reference-status" class="hint">还没有声音样本。亲录台词不需要先录样本。</p>
 <div class="buttons"><button id="listen-reference" disabled>听听样本</button><button id="delete-reference" disabled>删除样本</button><button id="save-reference-text" disabled>保存样本文字</button></div>
-<div class="engine"><span id="engine-status">正在检查本机 AI…</span><p>本机生成新台词，通常需要稍等。替换样本后，只影响之后生成的声音。</p><button id="engine-help">查看准备方法</button></div>
+<div class="engine" hidden><span id="engine-status">AI 配音暂不开放</span></div>
 </section>
 <section class="lines"><span class="eyebrow">02 / 给一句话配音</span><h2>让小纸团说这句。</h2><label for="line-select">台词本 · 当前语气</label><select id="line-select"></select><blockquote id="line-text"></blockquote>
 <label><input id="silent-line" type="checkbox"> 这句不配音，只显示文字</label>
 <p id="clip-status" class="chip">还没有配音</p>
-<div class="buttons"><button id="record-line" class="primary">● 她来录这句</button><button id="generate">用样本 AI 配这句</button><button id="import-line">导入这句</button></div>
+<div class="buttons"><button id="record-line" class="primary">● 录这句</button><button id="generate" hidden>用样本 AI 配这句</button><button id="import-line">导入这句</button></div>
 <div class="review"><p>先听一听，喜欢了再让它说。</p><div class="buttons"><button id="listen-line" disabled>▶ 试听配音</button><button id="approve" disabled>用这版声音</button><button id="delete-line" disabled>删除这句</button></div></div>
-<p class="hint">亲录与 AI 配音都会先保存为待试听。未启用的句子只显示文字；不会用别人的声音代替。</p>
-<div class="batch"><button id="batch">AI 配前 5 条未配台词</button><p class="hint">跳过“不配音”的句子和仅试听句，逐句生成，不覆盖已有录音。生成后仍需分别试听启用。</p></div>
+<p class="hint">亲录或导入的声音会先保存为待试听。未启用的句子只显示文字；不会用别人的声音代替。</p>
+<div class="batch" hidden><button id="batch">AI 配前 5 条未配台词</button></div>
 </section></div>
-<footer><span>原声是她亲自说的，AI 配音是根据样本合成的。</span><button id="clear">清除全部声音资料</button></footer>
+<footer><span>声音资料只保存在这台电脑。</span><button id="clear">清除全部声音资料</button></footer>
 <input id="file" type="file" accept="audio/*" hidden>
 <dialog id="help"><h2>准备本机 AI</h2><p>此版本使用 Qwen3-TTS 和 MLX Audio，在 Apple Silicon Mac 上本机运行。初次需要下载模型；之后生成不联网、不上传录音。</p><p id="runtime-help"></p><p>安装步骤见项目文档《小小配音室》。麦克风被拒绝时，在系统设置 → 隐私与安全性 → 麦克风中允许此刻，然后重开应用。也可以直接导入录音。</p><button id="close-help">知道了</button></dialog>
 <script src="voice-audio.js"></script><script src="voice.js"></script></main></body></html>

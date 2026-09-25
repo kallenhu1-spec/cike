@@ -20,14 +20,22 @@ module.exports = function art(input) {
     const done = input.gesture === "done";
     const actor = appearance.inner({ ...a, expression: done ? "happy" : "smile" })
       .replace('<path d="M51 126Q36 116 34 129M180 128Q195 117 195 130" fill="none"/>', "");
-    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320">
+    const animated = input.animate === true;
+    const handMotion = animated && !done
+      ? '<animateTransform attributeName="transform" type="translate" values="0 35;0 -4;0 0" keyTimes="0;.72;1" calcMode="spline" keySplines=".2 .9 .25 1;.2 .9 .25 1" dur=".55s" repeatCount="1" fill="freeze"/>'
+      : '';
+    const bounce = animated && done
+      ? '<animateTransform attributeName="transform" type="translate" values="0 0;0 -11;0 0" keyTimes="0;.45;1" calcMode="spline" keySplines=".2 .9 .25 1;.2 .9 .25 1" dur=".42s" repeatCount="1" fill="freeze"/>'
+      : '';
+    const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320" data-instance="${Number.isInteger(input.instance) ? input.instance : 0}">
       <ellipse cx="302" cy="279" rx="185" ry="14" fill="#d9dfc8" opacity=".5"/>
-      <g transform="translate(170 24) scale(1.2)">${actor}
+      <g>${bounce}<g transform="translate(170 24) scale(1.2)">${actor}
       <g fill="${a.skinColor}" stroke="#756a55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+      <g>${handMotion}
       <path d="M179 131Q210 128 210 96L208 75Q208 69 212 70L216 83L216 61Q218 56 221 61L223 80L225 58Q228 54 231 60L231 80L235 64Q239 61 240 67L238 88Q246 76 250 82L239 108Q230 120 217 115" />
-      <path d="M52 129Q38 115 33 128" fill="none"/></g>
+      </g><path d="M52 129Q38 115 33 128" fill="none"/></g>
       ${done ? '<g stroke="#c9a254" stroke-width="3" stroke-linecap="round"><path d="M250 49L258 39M260 67L275 64M247 101L260 109"/></g>' : ""}
-      </g></svg>`;
+      </g></g></svg>`;
     return "data:image/svg+xml;base64," + Buffer.from(svg).toString("base64");
   }
   if (input.motionId !== undefined) {

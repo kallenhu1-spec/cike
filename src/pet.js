@@ -68,21 +68,23 @@ function mood() {
     morning: "✧",
     afternoon: "◌",
   }[document.body.dataset.mood];
-  document.querySelector("#caption").textContent = activeItem?.action
+  const caption = document.querySelector("#caption");
+  if (!caption) return;
+  caption.textContent = activeItem?.action
     ? "一起做件小小的事。"
     : sleeping() && !activeItem && !fivePhase
       ? "晚安，明天见。"
       : !state?.settings.enabled
       ? "安静待着，也很好。"
       : {
-          wake: "慢慢醒来，我在。",
-          morning: "你忙你的，我在。",
-          lunch: "午间，慢一点也好。",
-          afternoon: "陪你松一小口气。",
-          evening: "傍晚，轻轻待着。",
-          winddown: "今天，慢慢收尾。",
-          late: "夜里，我轻轻的。",
-        }[currentMoment?.scene] || "我在，你忙你的。";
+          wake: "慢慢来。",
+          morning: "你忙你的。",
+          lunch: "慢一点也好。",
+          afternoon: "松一小口气。",
+          evening: "轻轻待着。",
+          winddown: "慢慢收尾。",
+          late: "我在这里。",
+        }[currentMoment?.scene] || "我在这里。";
 }
 async function refreshMoment() {
   const next = await api.call("moment");
@@ -102,18 +104,61 @@ function render(s) {
   if (activeItem && !activeItem.preview && activeItem.moment?.scene !== currentMoment?.scene) {
     hideCard();
   }
+  renderTransparentPreview();
   renderArt();
   document.body.classList.toggle("reduced", s.settings.reducedMotion);
   mood();
 }
+function renderTransparentPreview() {
+  const preview = state?.transparentPreview;
+  const video = document.querySelector("#action-preview");
+  const active = !!(preview?.available && preview.enabled && preview.url);
+  pet.classList.toggle("transparent-preview", active);
+  if (active) pet.classList.remove("scene");
+  pet.dataset.previewSize = preview?.size || "medium";
+  document.querySelector("#creature").hidden = active;
+  const caption = document.querySelector("#caption");
+  if (caption) caption.hidden = active;
+  document.querySelector("#spark").hidden = active;
+  video.hidden = !active;
+  if (active) {
+    document.querySelector("#generation-status").hidden = true;
+    if (video.src !== preview.url) video.src = preview.url;
+    video.play().catch(() => {});
+  } else {
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+  }
+}
+api.on("character-progress", (progress) => {
+  const status = document.querySelector("#generation-status");
+  const step = document.querySelector("#generation-step");
+  if (!progress?.text) return;
+  if (progress.stage === "complete") {
+    status.hidden = true;
+    return;
+  }
+  step.textContent = progress.text;
+  status.hidden = false;
+  if (progress.stage === "error") {
+    status.querySelector("b").textContent = "动作没有生成";
+    window.setTimeout(() => {
+      status.hidden = true;
+      status.querySelector("b").textContent = "正在制作桌宠动作";
+    }, 6000);
+  }
+});
 api.call("get").then(render);
 api.on("state", render);
 let artRevision = 0,
   motionTimer,
-  motionConsumed = false;
+  motionConsumed = false,
+  lastGesture = "";
 const motionPreference = matchMedia("(prefers-reduced-motion: reduce)");
 motionPreference.addEventListener("change", () => renderArt());
 async function renderArt() {
+  if (state?.transparentPreview?.enabled) return;
   const revision = ++artRevision;
   const asleep = sleeping() && !activeItem && !fivePhase;
   pet.dataset.sleeping = String(sleeping());
@@ -161,11 +206,15 @@ async function renderArt() {
         !state.settings.reducedMotion &&
         !motionPreference.matches;
       if (motionId) motionConsumed = true;
+      const gestureAnimate = !!fivePhase && fivePhase !== lastGesture &&
+        !state.settings.reducedMotion && !motionPreference.matches;
+      lastGesture = fivePhase;
       const input = {
         illustration,
         night: asleep || currentMoment?.mood === "night",
+        instance: revision,
         appearance: { ...state.appearance, ...(asleep ? { expression: "sleepy" } : !activeItem && idleStep ? { expression: idleStep === 1 ? "happy" : "sleepy" } : {}) },
-        ...(fivePhase ? { gesture: fivePhase } : {}),
+        ...(fivePhase ? { gesture: fivePhase, animate: gestureAnimate } : {}),
         ...(motionId ? { motionId, animate } : {}),
       };
       const src = await api.call("art", input);
@@ -173,18 +222,13 @@ async function renderArt() {
       img.src = src;
       pet.dataset.motion = motionId || "";
       pet.dataset.playing = String(animate);
-      if (animate)
-        motionTimer = setTimeout(async () => {
-          try {
-            const still = await api.call("art", { ...input, animate: false });
-            if (revision === artRevision) {
-              img.src = still;
-              pet.dataset.playing = "false";
-            }
-          } catch {
-            if (revision === artRevision) pet.dataset.playing = "false";
-          }
-        }, 3400);
+      if (animate) {
+        const duration = window.CikeMotions?.definitions?.[motionId]?.durationMs ||
+          (motionId === "sip" ? 5200 : 3200);
+        motionTimer = setTimeout(() => {
+          if (revision === artRevision) pet.dataset.playing = "false";
+        }, duration + 120);
+      }
     } catch {
       /* The bundled original scene is already displayed. */
     }
@@ -272,6 +316,12 @@ pet.addEventListener("keydown", (e) => {
 let startPointer,
   moved = false,
   requesting = false;
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Tab") document.body.classList.add("keyboard-nav");
+});
+document.addEventListener("pointerdown", () => {
+  document.body.classList.remove("keyboard-nav");
+}, true);
 async function requestCard() {
   if (requesting) return;
   requesting = true;

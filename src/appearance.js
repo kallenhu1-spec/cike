@@ -5,7 +5,7 @@
     face: 0,
     eyes: 0,
     expression: "smile",
-    skinColor: "#fff9e8", pattern: "none", patternColor: "#b5bfa3",
+    skinColor: "#fff9e8", leafColor: "#b7c5a0", pattern: "none", patternColor: "#b5bfa3",
     patternSize: 1, patternDensity: 1, outfit: "none", outfitColor: "#a9bdc5",
   });
   const presets = {
@@ -27,7 +27,7 @@
     )
       throw Error("形象参数无效");
     const extra = {};
-    for (const key of ["skinColor", "patternColor", "outfitColor"]) {
+    for (const key of ["skinColor", "leafColor", "patternColor", "outfitColor"]) {
       extra[key] = a[key] === undefined ? defaults()[key] : a[key];
       if (typeof extra[key] !== "string" || !/^#[0-9a-f]{6}$/i.test(extra[key])) throw Error("颜色参数无效");
       extra[key] = extra[key].toLowerCase();
@@ -88,7 +88,7 @@
         : a.expression === "happy"
           ? `<path d="M${82 - eye} ${y}q${eye + 4} -9 ${eye * 2 + 8} 0M${129 - eye} ${y}q${eye + 4} -9 ${eye * 2 + 8} 0" fill="none"/>`
           : `<ellipse cx="86" cy="${y}" rx="${eye}" ry="${eye + 1}" fill="#756a55" stroke="none"/><ellipse cx="137" cy="${y}" rx="${eye}" ry="${eye + 1}" fill="#756a55" stroke="none"/>`;
-    return `<ellipse cx="110" cy="191" rx="55" ry="8" fill="#645d48" opacity=".10"/><g stroke="#756a55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="${bodies[a.shape]}" fill="${a.skinColor}"/>${skin}${outfit}${a.shape === "paper" ? '<path d="M66 56L81 64M151 51L145 61M49 123L59 120M169 145L176 148" opacity=".24"/>' : ""}<path d="M72 165Q66 185 83 181M145 168Q152 185 163 176" fill="${a.skinColor}"/><path d="M51 126Q36 116 34 129M180 128Q195 117 195 130" fill="none"/>${eyes}<path d="M105 ${y + 11}Q111 ${y + 17} 117 ${y + 11}" fill="none"/><path d="M95 38Q109 17 128 28Q117 44 95 38Z" fill="#b7c5a0"/><path d="M99 36L116 30" stroke-width="1.3"/></g><ellipse cx="73" cy="${y + 11}" rx="10" ry="5" fill="#eac0b0" opacity=".65"/><ellipse cx="150" cy="${y + 11}" rx="10" ry="5" fill="#eac0b0" opacity=".65"/>`;
+    return `<ellipse cx="110" cy="191" rx="55" ry="8" fill="#645d48" opacity=".10"/><g stroke="#756a55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="${bodies[a.shape]}" fill="${a.skinColor}"/>${skin}${outfit}${a.shape === "paper" ? '<path d="M66 56L81 64M151 51L145 61M49 123L59 120M169 145L176 148" opacity=".24"/>' : ""}<path d="M72 165Q66 185 83 181M145 168Q152 185 163 176" fill="${a.skinColor}"/><path d="M51 126Q36 116 34 129M180 128Q195 117 195 130" fill="none"/>${eyes}<path d="M105 ${y + 11}Q111 ${y + 17} 117 ${y + 11}" fill="none"/><path data-leaf="true" d="M95 38Q109 17 128 28Q117 44 95 38Z" fill="${a.leafColor}"/><path d="M99 36L116 30" stroke-width="1.3"/></g><ellipse cx="73" cy="${y + 11}" rx="10" ry="5" fill="#eac0b0" opacity=".65"/><ellipse cx="150" cy="${y + 11}" rx="10" ry="5" fill="#eac0b0" opacity=".65"/>`;
   }
   function svg(a) {
     return `<svg xmlns="http://www.w3.org/2000/svg" width="220" height="210" viewBox="0 0 220 210">${inner(a)}</svg>`;
