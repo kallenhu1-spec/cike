@@ -66,10 +66,24 @@ function secure(win) {
   win.webContents.setWindowOpenHandler(() => ({ action: "deny" }));
   win.webContents.on("will-navigate", (e) => e.preventDefault());
 }
-function showCustomizer() {
-  if (customizer && !customizer.isDestroyed()) {customizer.show();return;}
+function showCustomizer(tabName = "actions") {
+  if (customizer && !customizer.isDestroyed()) {
+    customizer.show();
+    const destination = tabName === "about" ? "about" : "actions";
+    if (customizer.webContents.isLoadingMainFrame())
+      customizer.webContents.once("did-finish-load", () => {
+        if (!customizer.isDestroyed()) customizer.webContents.send("customizer-tab", destination);
+      });
+    else customizer.webContents.send("customizer-tab", destination);
+    return;
+  }
   customizer = new BrowserWindow({width:1080,height:820,minWidth:720,minHeight:620,title:'此刻 · 设置与定制',backgroundColor:'#f7f3e9',webPreferences:prefs});
-  secure(customizer);customizer.loadFile(path.join(__dirname,'customize.html'));
+  secure(customizer);
+  customizer.loadFile(path.join(__dirname,'customize.html'));
+  customizer.webContents.once("did-finish-load", () => {
+    if (!customizer.isDestroyed())
+      customizer.webContents.send("customizer-tab", tabName === "about" ? "about" : "actions");
+  });
 }
 function showSettings() {
   if (settings && !settings.isDestroyed()) {
@@ -88,9 +102,15 @@ function showSettings() {
   secure(settings);
   settings.loadFile(path.join(__dirname, "settings.html"));
 }
-function showLaboratory() {
+function showLaboratory(tabName = "dango") {
   if (laboratory && !laboratory.isDestroyed()) {
     laboratory.show();
+    const destination = tabName === "personal" ? "personal" : "dango";
+    if (laboratory.webContents.isLoadingMainFrame())
+      laboratory.webContents.once("did-finish-load", () => {
+        if (!laboratory.isDestroyed()) laboratory.webContents.send("laboratory-tab", destination);
+      });
+    else laboratory.webContents.send("laboratory-tab", destination);
     return;
   }
   laboratory = new BrowserWindow({
@@ -104,6 +124,10 @@ function showLaboratory() {
   });
   secure(laboratory);
   laboratory.loadFile(path.join(__dirname, "laboratory.html"));
+  laboratory.webContents.once("did-finish-load", () => {
+    if (!laboratory.isDestroyed())
+      laboratory.webContents.send("laboratory-tab", tabName === "personal" ? "personal" : "dango");
+  });
 }
 let voiceSelection = "";
 const manualRecent = [];
@@ -361,7 +385,7 @@ else {
     tray.on("right-click", () => tray.setContextMenu(menu()));
     tray.on("click", showCustomizer);
     handle("get", () => snapshot());
-    handle("customizer", showCustomizer);
+    handle("customizer", tabName => showCustomizer(tabName));
     handle("preferences", showSettings);
     handle("voice-selection", () => voiceSelection);
     handle("image-pick", async () => {
@@ -465,7 +489,7 @@ else {
       if (typeof value !== "boolean") throw Error("无效的停留设置");
       cardPinned = value;
     });
-    handle("laboratory", showLaboratory);
+    handle("laboratory", tabName => showLaboratory(tabName));
     handle("studio", showStudio);
     handle("motion-library", () => builtin.filter((x) => x.action?.motionId));
     handle("request", requestReminder);

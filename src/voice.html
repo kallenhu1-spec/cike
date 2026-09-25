@@ -1,22 +1,22 @@
 <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; media-src 'self' data: blob:; style-src 'self'; script-src 'self'; connect-src 'none'">
-<title>此刻 · 小小配音室</title><link rel="stylesheet" href="voice.css"></head>
+<title>此刻 · 我的配音室</title><link rel="stylesheet" href="voice.css"></head>
 <body><main>
-<header><div><span class="eyebrow">此刻 0.8.2 / 小小配音室</span><h1>把喜欢的声音，<br>留在小纸团身边。</h1><p>一句一句慢慢来。今天想说哪一句？</p></div><img src="../assets/scenes/water.svg" alt="捧着水杯的小纸团"></header>
-<div class="privacy">只在这台电脑保存 · 不上传录音 · 0.12 先使用亲录和导入声音</div>
+<header><div><span class="eyebrow">此刻 0.12.1 / 我的配音室</span><h1>把喜欢的声音，<br>留在桌搭团子身边。</h1><p>亲自录下或导入声音，试听喜欢后再启用。</p></div><img src="../assets/scenes/water.svg" alt="捧着水杯的桌搭团子"></header>
+<div class="privacy">只在这台电脑保存 · 不上传录音 · 0.12.1 暂不开放 AI 配音</div>
 <section class="sound-settings" aria-label="声音设置"><label><input id="enabled" type="checkbox"> 开启声音</label><label><input id="effects" type="checkbox"> 击掌音效</label><label>音量 <input id="volume" type="range" min="0" max="100" value="45"></label><button id="clap">✋ 试试击掌</button></section>
 <div id="activity" role="status" aria-live="polite"><span id="status">准备好，就从一句“你好呀”开始。</span><button id="stop" hidden>停止</button></div>
 <p id="coverage" class="privacy" role="status"></p>
-<div class="columns"><section class="sample"><span class="eyebrow">01 / 认识你的声音</span><h2>录一小段，自然地说。</h2><p class="hint">录 5–20 秒。安静的房间里，用平时说话的声音就好。</p>
+<div class="columns"><section class="sample" hidden><span class="eyebrow">01 / 认识你的声音</span><h2>录一小段，自然地说。</h2><p class="hint">录 5–20 秒。安静的房间里，用平时说话的声音就好。</p>
 <label for="reference-text">她实际说的话（可修改）</label><textarea id="reference-text" maxlength="240" rows="4">你好呀，我是你的小纸团。你忙你的，我在这里陪着你。我们一起喝口水，再来击个掌吧。</textarea>
 <label class="consent"><input id="consent" type="checkbox"> 声音属于我或已获本人同意；如为儿童声音，已获监护人同意且孩子愿意参与。</label>
 <div class="buttons"><button id="record-reference" class="primary">● 录声音样本</button><button id="import-reference">导入录音</button></div>
 <p id="reference-status" class="hint">还没有声音样本。亲录台词不需要先录样本。</p>
 <div class="buttons"><button id="listen-reference" disabled>听听样本</button><button id="delete-reference" disabled>删除样本</button><button id="save-reference-text" disabled>保存样本文字</button></div>
-<div class="engine" hidden><span id="engine-status">AI 配音暂不开放</span></div>
+<div class="engine" hidden><span id="engine-status">AI 配音暂不开放</span><button id="engine-help" hidden>查看准备方法</button></div>
 </section>
-<section class="lines"><span class="eyebrow">02 / 给一句话配音</span><h2>让小纸团说这句。</h2><label for="line-select">台词本 · 当前语气</label><select id="line-select"></select><blockquote id="line-text"></blockquote>
+<section class="lines"><span class="eyebrow">给一句话配音</span><h2>让团子说这句。</h2><label for="line-select">台词本 · 当前语气</label><select id="line-select"></select><blockquote id="line-text"></blockquote>
 <label><input id="silent-line" type="checkbox"> 这句不配音，只显示文字</label>
 <p id="clip-status" class="chip">还没有配音</p>
 <div class="buttons"><button id="record-line" class="primary">● 录这句</button><button id="generate" hidden>用样本 AI 配这句</button><button id="import-line">导入这句</button></div>

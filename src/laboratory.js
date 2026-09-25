@@ -1,6 +1,19 @@
 const design = window.CikeAppearance,
   api = window.cike;
 const $ = (id) => document.getElementById(id);
+function showTab(name) {
+  const personal = name === "personal";
+  $("dango-tab").hidden = personal;
+  $("personal-tab").hidden = !personal;
+  document.querySelectorAll("[data-lab-tab]").forEach((button) =>
+    button.setAttribute("aria-pressed", String(button.dataset.labTab === (personal ? "personal" : "dango"))),
+  );
+}
+document.querySelectorAll("[data-lab-tab]").forEach((button) =>
+  button.addEventListener("click", () => showTab(button.dataset.labTab)),
+);
+api.on("laboratory-tab", showTab);
+$("return-to-moments").addEventListener("click", () => api.call("customizer", "actions"));
 let current = design.defaults(),
   baseline = design.defaults(),
   saved = design.defaults(),

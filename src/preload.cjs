@@ -34,7 +34,7 @@ contextBridge.exposeInMainWorld("cike", {
     return r.value;
   },
   on: (name, fn) => {
-    if (!["state", "speak", "hide-bubble", "voice-changed", "voice-select", "character-progress"].includes(name)) return;
+    if (!["state", "speak", "hide-bubble", "voice-changed", "voice-select", "character-progress", "laboratory-tab", "customizer-tab"].includes(name)) return;
     const listener = (_event, value) => fn(value);
     ipcRenderer.on(name, listener);
     return () => ipcRenderer.removeListener(name, listener);

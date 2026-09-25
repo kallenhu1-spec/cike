@@ -12,6 +12,17 @@
   </head>
   <body>
     <main>
+      <nav class="lab-tabs" aria-label="桌搭形象类型">
+        <button type="button" data-lab-tab="dango" aria-pressed="true">团子形象</button>
+        <button type="button" data-lab-tab="personal" aria-pressed="false">定制形象</button>
+      </nav>
+      <section id="personal-tab" class="personal-tab" hidden>
+        <span class="eyebrow">定制形象 / DEVELOPMENT</span>
+        <h1>自己的定制形象正在开发中。</h1>
+        <p>照片角色资产母版还没有准备好。当前治愈小事继续使用你设置好的团子形象；等角色母版可以确认后，就能带回“安排治愈小事”中使用。</p>
+        <button id="return-to-moments" class="primary" type="button">返回安排治愈小事</button>
+      </section>
+      <div id="dango-tab">
       <header>
         <div>
           <span class="eyebrow">此刻 / 一起练习看见喜欢</span>
@@ -144,6 +155,7 @@
         </div>
         <p id="status" role="status" aria-live="polite"></p>
       </footer>
+      </div>
     </main>
     <script src="appearance.js"></script>
     <script src="laboratory.js"></script>
