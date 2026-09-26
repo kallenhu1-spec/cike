@@ -6,6 +6,8 @@
 
 0.12.1 可双击入口：`/Users/huxiaoyan/Documents/ChatGPT/此刻/dist/0.12.1/mac-arm64/此刻.app`。0.12.0 固定包保留不变。最终固定包 Electron 导航 smoke 通过；实际截图、隔离源码快照和 SHA-256 校验见 `artifacts/0.12.1/`。完整单测 49/50，唯一失败是未改动的动作时间线断言，详见 `docs/验收记录.md`。Mac arm64 包未签名公证；两版均待用户评审，不标为认可版。
 
+0.12.1 源码提交 `53249c1` 已推送至 GitHub 分支 `kallenhu1-spec-publish-to-github`（仓库 `kallenhu1-spec/cike`）；本机 `.app` 未上传为仓库二进制或 GitHub Release。
+
 下一步：双击 0.12.1 固定包评审设置入口与页面跳转；反馈前不标记为用户认可。真实 Seedream/Seedance、角色母版和跨机器安装不属于本轮验证范围。
 
 ## 历史背景和路线记录（不属于 0.12.1 验收）

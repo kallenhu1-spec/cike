@@ -6,6 +6,12 @@
   "platform": "macOS arm64",
   "application": "/Users/huxiaoyan/Documents/ChatGPT/此刻/dist/0.12.1/mac-arm64/此刻.app",
   "codeSigning": "unsigned and not notarized",
+  "github": {
+    "repository": "kallenhu1-spec/cike",
+    "branch": "kallenhu1-spec-publish-to-github",
+    "implementationCommit": "53249c1",
+    "binaryRelease": false
+  },
   "verified": "Source and final-package Electron navigation smoke passed; full unit suite 49 passed, 1 unrelated motion timeline assertion failed.",
   "sourceArchiveExcludes": [
     ".git",
@@ -19,7 +25,7 @@
     ".git": "2004ee266f3d92d2f12da80274e4997c82c14468123c24d5cdc2a9dd75cee3e1",
     ".gitignore": "0a4e348df7c43e9ded535f4f43123142e8c66bc35ee228f4a0d0f0600d83214a",
     "AGENTS.md": "0a72060f873c38f30bc7316126702a03b67c028e4956275905a53ae639d4c49a",
-    "README.md": "eecc091bb6679c876b932bc13a1f14193f2e1a1d6d350775f549d2a1563f3b94",
+    "README.md": "bfb3c6676a4d9da5d7bc9c20ed99c5f963e8e8f84fbbd34977bf42dd691c1248",
     "electron-builder.yml": "0e6e32de2ea86e7c9cbed59d2b8a54c55a4d765c9b7b8cdbdb1c7a327368d781",
     "package-lock.json": "60c1924a648b77f1e25a48377aba5bc2411251f84e91597cb521a2edd1a32bcb",
     "package.json": "7d11851b3cf4be330929d7f586335c717dec26bfa1207631a397a0ccbe9d0219",
@@ -60,7 +66,7 @@
     "docs/桌宠设计借鉴-2026-09-22.md": "843686f3e9033c51e619dfd8556a4d72b108ae72079675002b4a3024eceab7fb",
     "docs/桌面小场景与可爱练习.md": "03faf44d750f89a4b1b4bf9d70f4dd3444f1d64ccfeaaa78f24fb22ec6068a1a",
     "docs/此刻-0.8.0-使用说明.md": "e0f42b95670cb35649a6fc561674e130f374248baffce8891211e85a117cb3b1",
-    "docs/版本索引.md": "c77009d83c12f95a8c588f2d71ddce16c6bc12fa06de786986eaec3c74170a40",
+    "docs/版本索引.md": "ddbd74d9f72eff6ae0728b0533d4cfc2991144084806ad4ba891d335cac35aee",
     "docs/行动陪伴说明.md": "9a8c0a7c4848d83c5f2449db8a815bcaba3508aa6836f4033214a5a1b4875aad",
     "docs/销售页完整文案.md": "6d8ca050ac124f543f64a78a5a1fcffc7e483f0bfbac2ea0c15d77c968f6e9b7",
     "docs/验收记录.md": "4afb2b5898f0d10faab661da58a0db992b6a18213c0ca560831d7ab9f27aa92f",
@@ -139,8 +145,8 @@
     "test/wardrobe.test.cjs": "1a13fa6fab04d18f9d0ba6d6ade4ca778ae67e88b1fd7aeb31fbf0d9af0db929"
   },
   "outputs": {
-    "artifacts/0.12.1/source.tar.gz": "2f01d592097ed171667b8511a5387eac1963d6c1829d9103c1f997f90b971647",
-    "artifacts/0.12.1/治愈小事-形象选择.png": "7575891a450dfc56cd367f4e0d5b3cb5fe741adb535bdfe71da4985a87eb1506",
+    "artifacts/0.12.1/source.tar.gz": "bf403e31df0572f04bb0396a80486df04c77e9a9a9b97f59913f651a0da42e1f",
+    "artifacts/0.12.1/治愈小事-形象选择.png": "93b708bb23ea7abfc3bb3a4c279f3e54e0c68db7be201ad1f822e172287de8d8",
     "artifacts/0.12.1/定制桌搭形象-团子.png": "b9acb9f43256046f98584fd1eb5b925b7cc34cea9e550d5cec413674b6ef7ded",
     "artifacts/0.12.1/定制形象-开发中.png": "28a614de97ec0f9d86b52ff693eb9000089096d48589b0cebe7932ca60bac8e2",
     "artifacts/0.12.1/我的配音室.png": "c14fcd5f972324b2824ca42628c49816ad0f50c1621ba6261693e37cd972a14e",
