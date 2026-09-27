@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; media-src 'self' data:"
+      content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'none'; media-src 'self' data: file:"
     />
     <title>此刻</title>
     <link rel="stylesheet" href="pet.css" />
@@ -29,20 +29,24 @@
         id="pet"
         tabindex="0"
         role="button"
-        title="点一下：给我一个小动作 · 拖动：移动 · 右键：设置"
-        aria-label="此刻小场景，点击或按回车获得小动作，拖动移动，右键打开菜单"
+        title="点一下：换一个治愈小事 · 拖动：移动 · 右键：设置"
+        aria-label="此刻小场景，点击或按回车换一个治愈小事，拖动移动，右键打开菜单"
       >
         <span id="spark">✧</span
         ><img
           id="creature"
           src="../assets/creature.svg"
           alt="安静的小纸团"
-        /><span id="caption">我在，你忙你的。</span>
+        /><video id="action-preview" muted autoplay loop playsinline hidden aria-label="透明动作素材预览"></video>
+      </div>
+      <div id="generation-status" hidden role="status" aria-live="polite">
+        <b>正在制作桌宠动作</b><span id="generation-step"></span>
       </div>
       <button id="high-five" hidden aria-label="完成一件事，和此刻击掌" title="完成一件事，击个掌">✋</button>
       <span id="five-status" role="status" aria-live="polite"></span>
     </main>
     <script src="appearance.js"></script>
+    <script src="motions.js"></script>
     <script src="voice-audio.js"></script>
     <script src="pet.js"></script>
   </body>

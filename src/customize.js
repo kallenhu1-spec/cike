@@ -1,10 +1,24 @@
 const $=id=>document.getElementById(id),api=window.cike;
-let state,rows=[],selectedId=null,draftImage=null,lookDraft=null,dirty=false,motions={};
+let state,rows=[],selectedId=null,draftImage=null,dirty=false,motions={};
 function message(text){$('status').textContent=text;$('editor-status').textContent=text;}
 async function run(fn){try{return await fn();}catch(e){message(e.message);return null;}}
-function tab(name){document.querySelectorAll('.panel').forEach(p=>p.hidden=p.id!==name);document.querySelectorAll('[data-tab]').forEach(b=>{if(b.dataset.tab===name)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');});window.scrollTo(0,0);}
-document.querySelectorAll('[data-tab],[data-go]').forEach(b=>b.onclick=()=>tab(b.dataset.tab||b.dataset.go));
-async function refresh(){state=await api.call('get');rows=await api.call('content-list');$('version').textContent=state.appVersion+' · 小动作画廊';const art=state.image||await api.call('art',{illustration:'window',appearance:state.appearance,night:false});$('home-image').src=art;if(lookDraft===null)$('look-image').src=art;list();const v=await api.call('voice-summary');$('sound-summary').textContent=`声音${v.enabled?'已开启':'已关闭'} · 已保存 ${v.clips.length} 句配音。`;}
+function tab(name){document.querySelectorAll('.panel').forEach(p=>p.hidden=p.id!==name);document.querySelectorAll('[data-tab],[data-command]').forEach(b=>b.removeAttribute('aria-current'));document.querySelector(`[data-tab="${name}"]`)?.setAttribute('aria-current','page');window.scrollTo(0,0);}
+document.querySelectorAll('[data-tab]').forEach(button=>button.addEventListener('click',()=>tab(button.dataset.tab)));
+api.on('customizer-tab',name=>tab(name==='about'?'about':'actions'));
+document.querySelectorAll('[data-command]').forEach(button=>button.addEventListener('click',()=>run(async()=>{
+  document.querySelectorAll('[data-command],[data-tab]').forEach(item=>item.removeAttribute('aria-current'));
+  button.setAttribute('aria-current','page');
+  const command={appearance:()=>api.call('laboratory','dango'),voice:()=>api.call('voice-room'),preferences:()=>api.call('preferences')}[button.dataset.command];
+  if(command)await command();
+})));
+async function refresh(){
+  state=await api.call('get');
+  rows=await api.call('content-list');
+  $('version').textContent=state.appVersion+' · 桌搭团子';
+  const appearance=window.CikeAppearance.validate(state.appearance||window.CikeAppearance.defaults());
+  $('dango-choice-image').src=`data:image/svg+xml;charset=utf-8,${encodeURIComponent(window.CikeAppearance.svg(appearance))}`;
+  list();
+}
 const artCache=new Map();
 function rowArt(r){
   if(r.image)return Promise.resolve(r.image);
@@ -48,7 +62,6 @@ $('search').oninput=list;$('filter').onchange=list;
 $('new-action').onclick=()=>{if(dirty&&!confirm('放弃尚未保存的修改，新建一条？'))return;select({id:'mine-'+crypto.randomUUID(),text:'',period:'any',tags:[],enabled:true});$('title').value='';$('action-details').open=false;$('edit-dialog').showModal();$('title').focus();};
 $('editor').oninput=()=>dirty=true;$('illustration').onchange=()=>{motionOptions();imagePreview();dirty=true;};
 $('pick-action-image').onclick=()=>run(async()=>{const image=await api.call('image-pick');if(image){draftImage=image;dirty=true;imagePreview();}});
-$('generate-action-image').onclick=()=>run(async()=>{const reference=state.image;if(!reference)throw Error('请先在“形象与衣橱”中应用一个 AI 形象。');const image=await api.call('image-generate',{referenceImage:reference,purpose:'action',style:$('ai-style')?.value||'彩绘风',action:$('title').value||$('text').value});draftImage=image;dirty=true;imagePreview();message('小动作配图已生成，保存小动作后才会保留。');});
 $('motion').onchange=()=>{dirty=true;imagePreview();};
 $('clear-action-image').onclick=()=>{draftImage=null;dirty=true;imagePreview();};
 async function save(){if(!$('editor').reportValidity())return false;const old=rows.find(r=>r.id===selectedId);const row={id:selectedId,text:$('text').value.trim(),period:'any',tags:old?.tags||[],...(old?.weekdays?{weekdays:old.weekdays}:{}),...(old?.topic?{topic:old.topic}:{}),...(draftImage?{image:draftImage}:{}),action:{title:$('title').value.trim(),duration:$('duration').value.trim(),closing:$('closing').value.trim(),illustration:$('illustration').value,...(!draftImage&&$('motion').value?{motionId:$('motion').value}:{})}};if($('scene').value==='preserve'){row.period=old?.period||'any';if(old?.scenes)row.scenes=old.scenes;}else if($('scene').value!=='any')row.scenes=[$('scene').value];await api.call('content-save',row);await api.call('content-toggle',{id:row.id,enabled:$('row-enabled').checked});dirty=false;await refresh();select(rows.find(r=>r.id===row.id));message('已保存到本机。可以在桌面试一下，或给这句话配音。');return true;}
@@ -56,12 +69,8 @@ $('editor').onsubmit=e=>{e.preventDefault();run(async()=>{if(await save())$('edi
 $('preview-action').onclick=()=>run(async()=>{if((!dirty&&rows.some(r=>r.id===selectedId))||await save()){await api.call('content-preview',selectedId);message('已在桌面显示这条小动作；这次预览不占提醒次数。');}});
 $('voice-action').onclick=()=>run(async()=>{if((!dirty&&rows.some(r=>r.id===selectedId))||await save())await api.call('voice-room',$('text').value.trim());});
 $('remove-action').onclick=()=>run(async()=>{if(await api.call('content-remove',selectedId)){dirty=false;await refresh();select(rows.find(r=>r.id===selectedId)||rows[0]);message('已经更新，原配音仍保留在本机。');}});
-$('pick-image').onclick=()=>run(async()=>{const image=await api.call('image-pick');if(image){lookDraft=image;$('look-image').src=image;$('look-label').textContent='预览 · 尚未应用';$('apply-image').disabled=false;}});
-$('apply-image').onclick=()=>run(async()=>{if(!lookDraft)return;await api.call('image-apply',lookDraft);lookDraft=null;$('apply-image').disabled=true;$('look-label').textContent='当前形象';await refresh();message('自己的形象已应用，重启仍保留。');});
-$('restore-image').onclick=()=>run(async()=>{await api.call('image-apply',null);lookDraft=null;$('apply-image').disabled=true;$('look-label').textContent='当前形象';await refresh();message('已使用小纸团，原来的衣橱搭配保留。');});
-async function refreshImageService(){const s=await api.call('image-service-status');$('ai-status').value=s.configured?`${s.provider} · ${s.model}`:'未配置';$('ai-generate').disabled=!s.configured;}
-$('ai-generate').onclick=()=>run(async()=>{const reference=lookDraft||state.image;if(!reference)throw Error('请先选择一张照片。');const button=$('ai-generate'),results=$('ai-results');button.disabled=true;results.replaceChildren();for(let i=0;i<6;i++){message(`正在生成第 ${i+1}/6 个形象候选…`);const image=await api.call('image-generate',{referenceImage:reference,purpose:'character',style:$('ai-style').value});const card=document.createElement('button');card.className='ai-result';card.type='button';const preview=document.createElement('img');preview.src=image;preview.alt=`形象候选 ${i+1}`;card.append(preview,document.createTextNode(`使用候选 ${i+1}`));card.onclick=()=>{lookDraft=image;$('look-image').src=image;$('look-label').textContent=`预览 · 形象候选 ${i+1}`;$('apply-image').disabled=false;message('已选中候选，点击“应用到桌面”确认。');};results.append(card);}button.disabled=false;message('6 个形象候选已生成，请先选择并确认一个。');});
-for(const [id,call]of [['open-lab','laboratory'],['open-voice','voice-room'],['open-preferences','preferences'],['export-data','export'],['restore-data','restore-data']])$(id).onclick=()=>run(async()=>{const r=await api.call(call);if(typeof r==='string')message(r);});
+$('choose-dango').onclick=()=>{ $('choose-dango').classList.add('selected');$('choose-dango').setAttribute('aria-pressed','true');$('choose-personal').classList.remove('selected');$('choose-personal').setAttribute('aria-pressed','false');message('治愈小事将使用当前保存的团子形象。'); };
+$('choose-personal').onclick=()=>{message('定制角色资产母版还未确认，当前治愈小事仍使用团子形象。');run(()=>api.call('laboratory','personal'));};
 api.on('state',()=>run(refresh));api.on('voice-changed',()=>run(refresh));
 window.onbeforeunload=e=>{if(dirty&&!confirm('有尚未保存的小动作修改，确定关闭？')){e.preventDefault();e.returnValue=false;}};
-run(async()=>{motions=Object.fromEntries((await api.call('motion-library')).filter(r=>r.action?.motionId).map(r=>[r.action.motionId,{id:r.action.motionId,label:r.action.title,illustration:r.action.illustration}]));await refresh();await refreshImageService();select(rows[0]);$('data-path').textContent=await api.call('data-location');});
+run(async()=>{motions=Object.fromEntries((await api.call('motion-library')).filter(r=>r.action?.motionId).map(r=>[r.action.motionId,{id:r.action.motionId,label:r.action.title,illustration:r.action.illustration}]));await refresh();select(rows[0]);});

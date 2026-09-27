@@ -1,11 +1,24 @@
 const design = window.CikeAppearance,
   api = window.cike;
 const $ = (id) => document.getElementById(id);
+function showTab(name) {
+  const personal = name === "personal";
+  $("dango-tab").hidden = personal;
+  $("personal-tab").hidden = !personal;
+  document.querySelectorAll("[data-lab-tab]").forEach((button) =>
+    button.setAttribute("aria-pressed", String(button.dataset.labTab === (personal ? "personal" : "dango"))),
+  );
+}
+document.querySelectorAll("[data-lab-tab]").forEach((button) =>
+  button.addEventListener("click", () => showTab(button.dataset.labTab)),
+);
+api.on("laboratory-tab", showTab);
+$("return-to-moments").addEventListener("click", () => api.call("customizer", "actions"));
 let current = design.defaults(),
   baseline = design.defaults(),
   saved = design.defaults(),
   revision = 0;
-const fields = ["shape", "face", "eyes", "expression", "skinColor", "pattern", "patternColor", "patternSize", "patternDensity", "outfitColor"];
+const fields = ["shape", "face", "eyes", "expression", "skinColor", "leafColor", "pattern", "patternColor", "patternSize", "patternDensity", "outfitColor"];
 const faceNames = { "-2": "上移两格", "-1": "上移一格", "0": "推荐位置", "1": "下移一点", "2": "再下移一点" };
 const outfitNames = { none: "不穿衣服", overalls: "背带裤", sweater: "宽松毛衣", apron: "小围裙", pajamas: "睡衣" };
 for (const [key, name] of Object.entries(outfitNames)) {

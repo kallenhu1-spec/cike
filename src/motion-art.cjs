@@ -12,17 +12,29 @@ module.exports = function motionArt(input) {
     throw Error("动作参数无效");
   const a = design.validate(input.appearance),
     animate = input.animate,
-    id = def.id;
+    id = def.id,
+    duration = `${def.durationMs / 1000}s`;
   const line =
     'stroke="#796f5e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"';
+  function timing(values) {
+    const count = values.length;
+    const keyTimes = Array.from({ length: count }, (_, i) =>
+      (i / (count - 1)).toFixed(4).replace(/0+$/, "").replace(/\.$/, ""),
+    ).join(";");
+    const keySplines = Array.from(
+      { length: count - 1 },
+      () => "0.22 1 0.36 1",
+    ).join(";");
+    return `keyTimes="${keyTimes}" calcMode="spline" keySplines="${keySplines}" dur="${duration}"`;
+  }
   function transform(content, type, values) {
     const last = values.at(-1);
-    return `<g transform="${type}(${animate ? values[0] : last})">${animate ? `<animateTransform attributeName="transform" type="${type}" values="${values.join(";")}" keyTimes="0;.28;.62;1" dur="3.2s" repeatCount="1" fill="freeze"/>` : ""}${content}</g>`;
+    return `<g transform="${type}(${animate ? values[0] : last})">${animate ? `<animateTransform attributeName="transform" type="${type}" values="${values.join(";")}" ${timing(values)} repeatCount="1" fill="freeze"/>` : ""}${content}</g>`;
   }
   const move = (s, values) => transform(s, "translate", values);
   const rotate = (s, values) => transform(s, "rotate", values);
   function fade(s, values) {
-    return `<g opacity="${animate ? values[0] : values.at(-1)}">${animate ? `<animate attributeName="opacity" values="${values.join(";")}" keyTimes="0;.28;.62;1" dur="3.2s" repeatCount="1" fill="freeze"/>` : ""}${s}</g>`;
+    return `<g opacity="${animate ? values[0] : values.at(-1)}">${animate ? `<animate attributeName="opacity" values="${values.join(";")}" ${timing(values)} repeatCount="1" fill="freeze"/>` : ""}${s}</g>`;
   }
   const hand = (x, y) =>
     `<ellipse cx="${x}" cy="${y}" rx="11" ry="8" fill="${a.skinColor}" ${line}/>`;
@@ -47,12 +59,15 @@ module.exports = function motionArt(input) {
     foreground = "",
     desk = true;
   if (id === "sip") {
-    props = move(mug(300, 193) + hand(296, 215) + hand(346, 215), [
-      "0 0",
-      "0 -32",
-      "0 -32",
-      "0 0",
+    actor = rotate(move(actor, ["0 0", "0 0", "0 -2", "0 -4", "0 -2", "0 0", "0 0"]), [
+      "0 315 205", "0 315 205", "-2 315 205", "-4 315 205", "-2 315 205", "0 315 205", "0 315 205",
     ]);
+    props = move(
+      rotate(mug(300, 193) + hand(296, 215) + hand(346, 215), [
+        "0 323 215", "0 323 215", "-7 323 215", "-12 323 215", "-7 323 215", "0 323 215", "0 323 215",
+      ]),
+      ["0 0", "0 -8", "0 -38", "0 -45", "0 -38", "0 -8", "0 0"],
+    );
   } else if (id === "pour-water") {
     props =
       mug(300, 197) +
@@ -299,5 +314,5 @@ module.exports = function motionArt(input) {
     );
   }
   const window = `<g ${line}><rect x="49" y="30" width="159" height="133" rx="8" fill="${input.night ? "#b9c4cb" : "#dbe8e6"}"/><path d="M128 32V162M51 99H208" stroke="#faf5e9" stroke-width="7"/><path d="M41 166H219" stroke="#d6c4a5" stroke-width="8"/>${input.night ? '<path d="M182 52Q162 66 184 79Q152 83 154 64Q155 49 182 52Z" fill="#fff1bd" stroke="none"/>' : '<circle cx="177" cy="59" r="17" fill="#edd49b" stroke="none"/>'}</g>`;
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320"><title>${def.label}</title><path d="M56 77Q72 23 162 31Q234 4 332 27Q446 7 522 64Q570 115 538 211Q555 274 463 283Q376 310 279 288Q125 312 68 259Q15 210 56 77Z" fill="${input.night ? "#e8e8dc" : "#f5ead5"}"/>${window}${backgroundExtra}${actor}${desk ? `<g ${line}><path d="M109 246H500L492 257H109Z" fill="#e5d0ad"/><path d="M139 259V284M467 259V284" stroke-width="5"/></g>` : ""}${props}${foreground}</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="320" viewBox="0 0 600 320" data-instance="${Number.isInteger(input.instance) ? input.instance : 0}"><title>${def.label}</title><path d="M56 77Q72 23 162 31Q234 4 332 27Q446 7 522 64Q570 115 538 211Q555 274 463 283Q376 310 279 288Q125 312 68 259Q15 210 56 77Z" fill="${input.night ? "#e8e8dc" : "#f5ead5"}"/>${window}${backgroundExtra}${actor}${desk ? `<g ${line}><path d="M109 246H500L492 257H109Z" fill="#e5d0ad"/><path d="M139 259V284M467 259V284" stroke-width="5"/></g>` : ""}${props}${foreground}</svg>`;
 };

@@ -27,6 +27,9 @@ main {
   outline: none;
 }
 #pet:focus-visible {
+  outline: none;
+}
+body.keyboard-nav #pet:focus-visible {
   outline: 2px dashed #879570;
   border-radius: 48%;
 }
@@ -38,6 +41,37 @@ main {
   pointer-events: none;
   filter: drop-shadow(0 4px 7px #4034220b);
 }
+#action-preview {
+  display: block;
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
+  pointer-events: none;
+  filter: drop-shadow(0 7px 9px #30251b24);
+}
+#action-preview[hidden] { display: none; }
+#pet.transparent-preview {
+  width: 250px;
+  height: 250px;
+  left: 45px;
+  bottom: 8px;
+}
+#pet.transparent-preview[data-preview-size="small"],
+#pet.transparent-preview[data-preview-size="small"] #action-preview {
+  width: 190px;
+  height: 190px;
+}
+#pet.transparent-preview[data-preview-size="small"] { left: 75px; }
+#pet.transparent-preview[data-preview-size="large"],
+#pet.transparent-preview[data-preview-size="large"] #action-preview {
+  width: 320px;
+  height: 320px;
+}
+#pet.transparent-preview[data-preview-size="large"] { left: 10px; }
+#generation-status{position:absolute;left:22px;right:22px;bottom:208px;padding:10px 12px;border:1px solid #d7ceba;border-radius:14px;background:rgba(255,252,242,.96);box-shadow:0 4px 14px #4c423014;color:#655c4d;font-size:11px;line-height:1.5;text-align:center;z-index:3}
+#generation-status b,#generation-status span{display:block}
+#generation-status span{margin-top:3px;color:#7d755f;font-size:10px}
+#generation-status[hidden]{display:none}
 #caption {
   display: block;
   text-align: center;
@@ -45,6 +79,10 @@ main {
   letter-spacing: 2px;
   color: #877c68;
   opacity: 0.85;
+}
+#caption[hidden],
+#spark[hidden] {
+  display: none;
 }
 #spark {
   position: absolute;
@@ -195,6 +233,7 @@ body.reduced * {
   height: 165px;
   animation: none;
   filter: none;
+  transition: opacity 180ms ease-out, transform 220ms cubic-bezier(.22, 1, .36, 1);
 }
 #pet.scene #spark {
   display: none;
