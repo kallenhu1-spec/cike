@@ -1,0 +1,55 @@
+{
+  "version": "0.12.3",
+  "date": "2026-09-28",
+  "baseline": "0.12.2",
+  "reviewStatus": "待用户 Mac 实机评审",
+  "releaseStatus": "计划仅推送到 codex/0.12.3-layered-character；不合并 main、不创建 GitHub Release",
+  "target": "macOS arm64",
+  "signed": false,
+  "notarized": false,
+  "verification": {
+    "unitTests": "52/52 passed",
+    "syntaxAndDiff": "passed",
+    "packageVersion": "0.12.3",
+    "packageSourceMatch": "src/pet.* and assets/paper-dango matched extracted app.asar",
+    "electronUiSmoke": "blocked by execution container system-socket restriction; pending on user Mac",
+    "visualPrecheck": "idle, high-five and sip layered composites inspected at 210px character size",
+    "realSeedance": "not run; outside this visual correction round"
+  },
+  "files": [
+    {
+      "path": "source.tar.gz",
+      "bytes": 3280629,
+      "sha256": "1c820e601f141a2043119c76f8435ab7e2a3a5aac63e3417fa6f47fd48c1a591"
+    },
+    {
+      "path": "../../dist/0.12.3/mac-arm64/此刻.app/Contents/Resources/app.asar",
+      "bytes": 13535111,
+      "sha256": "858e8c9fcfee1024ea0c9440d4bc592186472df3c782c58dc8792c4d596af845"
+    },
+    {
+      "path": "../../assets/paper-dango/parts/iris-v1.png",
+      "sha256": "127515e5ed9947d5219d5e5c067eff32f08a5c0da73e3093b0dadd604d078434"
+    },
+    {
+      "path": "../../assets/paper-dango/parts/arm-v1.png",
+      "sha256": "662d1dcdda0db9f84ff9be1113120af49c768cb1d9c951fa187a0e868425206f"
+    },
+    {
+      "path": "../../assets/paper-dango/parts/hand-v1.png",
+      "sha256": "58305ea7914ad71ed3683bbfd78eb4c988dad58ac81137124f0112f1c07e287c"
+    },
+    {
+      "path": "../../assets/paper-dango/parts/cup-v1.png",
+      "sha256": "587e132659d83d573d24b560f7b3cb1d25f63d944607f9fe4b496ec2be77208b"
+    },
+    {
+      "path": "visual-check-v2.png",
+      "sha256": "23826db0b8aa933eb3188d158fb825eea04582ac41818b797f0424c6d9741b3f"
+    },
+    {
+      "path": "high-five-layer-preview.png",
+      "sha256": "ddb97167f867eb67d5df6e196a61477a2b654d58f28fd7f9a8ea87e5f7ad046d"
+    }
+  ]
+}

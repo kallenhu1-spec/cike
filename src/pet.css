@@ -65,29 +65,28 @@ body.keyboard-nav #pet:focus-visible {
 }
 .paper-eye {
   position: absolute;
-  width: 31px;
-  height: 34px;
+  width: 34px;
+  height: 38px;
   z-index: 4;
 }
-.paper-eye-left { left: 62px; top: 104px; }
-.paper-eye-right { left: 126px; top: 102px; }
+.paper-eye-left { left: 60px; top: 101px; }
+.paper-eye-right { left: 124px; top: 99px; }
 .paper-pupil {
   position: absolute;
-  left: 5px;
-  top: 5px;
-  width: 21px;
-  height: 24px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 34% 28%, #fff 0 2px, #6d3c24 3px 8px, #2d1a12 9px 100%);
-  box-shadow: inset -2px -2px 3px #140b0755;
+  left: 2px;
+  top: 2px;
+  width: 30px;
+  height: 34px;
+  object-fit: fill;
+  filter: drop-shadow(0 1px 1px #2511092e);
   transform: translate(var(--gaze-x), var(--gaze-y));
   transition: transform 90ms ease-out, opacity 45ms linear;
 }
 .paper-blink {
   position: absolute;
-  left: 4px;
-  top: 15px;
-  width: 23px;
+  left: 3px;
+  top: 17px;
+  width: 28px;
   height: 8px;
   border-bottom: 3px solid #3b251a;
   border-radius: 50%;
@@ -101,58 +100,42 @@ body.keyboard-nav #pet:focus-visible {
 .paper-arm {
   position: absolute;
   z-index: 1;
-  width: 44px;
-  height: 17px;
-  border-radius: 999px;
-  background: linear-gradient(#74452e, #4b2c20);
-  transform-origin: 8px 50%;
-  box-shadow: inset 0 2px 2px #a46d4a88;
+  width: 52px;
+  height: 16px;
+  transform-origin: 6px 50%;
 }
-.paper-arm i {
-  position: absolute;
-  right: -2px;
-  top: -2px;
-  width: 20px;
-  height: 20px;
-  border-radius: 48% 55% 50% 45%;
-  background: #65402d;
+.paper-arm img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  filter: drop-shadow(0 1px 1px #2d170e24);
 }
-.paper-arm-left { left: 13px; top: 143px; transform-origin: calc(100% - 8px) 50%; transform: rotate(-10deg); }
-.paper-arm-left i { left: -2px; right: auto; }
-.paper-arm-right { right: 10px; top: 142px; transform: rotate(10deg); }
+.paper-arm-left { left: 7px; top: 143px; transform-origin: calc(100% - 6px) 50%; transform: rotate(-8deg); }
+.paper-arm-left img { transform: scaleX(-1); }
+.paper-arm-right { right: 5px; top: 141px; transform: rotate(8deg); }
 .paper-cup {
   display: none;
   position: absolute;
-  left: 82px;
-  top: 137px;
+  left: 78px;
+  top: 152px;
   z-index: 6;
-  width: 45px;
-  height: 39px;
-  border-radius: 7px 7px 13px 13px;
-  background: linear-gradient(100deg, #bd6a5d, #e58c79 48%, #aa584e);
-  border: 2px solid #734236;
-  box-shadow: inset 0 3px #efaa9888, 0 3px 5px #4a2c1b33;
+  width: 56px;
+  height: 42px;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 2px #3e21152b);
 }
-.paper-cup::after {
-  content: "";
+.paper-grip {
+  display: none;
   position: absolute;
-  right: -15px;
-  top: 7px;
-  width: 17px;
-  height: 20px;
-  border: 5px solid #8f4a42;
-  border-left: 0;
-  border-radius: 0 13px 13px 0;
+  z-index: 7;
+  width: 18px;
+  height: 17px;
+  object-fit: fill;
+  filter: drop-shadow(0 1px 1px #2d170e24);
 }
-.paper-cup i {
-  position: absolute;
-  left: 7px;
-  right: 7px;
-  top: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: #603c31;
-}
+.paper-grip-left { left: 69px; top: 160px; }
+.paper-grip-right { right: 68px; top: 160px; transform: scaleX(-1); }
 #pet.life {
   width: 210px;
   height: 218px;
@@ -162,34 +145,40 @@ body.keyboard-nav #pet:focus-visible {
 #pet.life #spark { right: 1px; top: 20px; }
 #pet[data-life-mode="five-ready"] #living-character { transform: rotate(-2deg) translateY(-2px); }
 #pet[data-life-mode="five-ready"] .paper-arm-right {
-  right: 10px;
+  right: 3px;
   top: 132px;
-  transform: rotate(-68deg) scaleX(1.12);
+  transform: rotate(-70deg) scaleX(1.05);
   z-index: 3;
 }
 #pet[data-life-mode="five-done"] #living-character { animation: paper-five-pop 620ms cubic-bezier(.2,.9,.25,1); }
 #pet[data-life-mode="five-done"] .paper-arm-right {
-  right: 9px;
+  right: 2px;
   top: 130px;
-  transform: rotate(-68deg) scaleX(1.18);
+  transform: rotate(-70deg) scaleX(1.1);
   z-index: 3;
 }
-#pet[data-life-mode="sip"] .paper-cup { display: block; }
+#pet[data-life-mode="sip"] .paper-cup,
+#pet[data-life-mode="sip"] .paper-grip { display: block; }
 #pet[data-life-mode="sip"] .paper-arm-left {
-  left: 58px;
-  top: 151px;
-  transform: rotate(-12deg);
-  z-index: 5;
+  left: 46px;
+  top: 159px;
+  transform-origin: 6px 50%;
+  transform: rotate(-14deg);
+  z-index: 1;
 }
+#pet[data-life-mode="sip"] .paper-arm-left img { transform: none; }
 #pet[data-life-mode="sip"] .paper-arm-right {
-  right: 55px;
-  top: 151px;
-  transform: rotate(192deg);
-  z-index: 5;
+  right: 43px;
+  top: 159px;
+  transform-origin: calc(100% - 6px) 50%;
+  transform: rotate(14deg);
+  z-index: 1;
 }
+#pet[data-life-mode="sip"] .paper-arm-right img { transform: scaleX(-1); }
 #pet[data-life-mode="sip"][data-playing="true"] .paper-cup { animation: paper-sip-cup var(--sip-duration) ease-in-out 1 both; }
 #pet[data-life-mode="sip"][data-playing="true"] .paper-arm-left,
-#pet[data-life-mode="sip"][data-playing="true"] .paper-arm-right { animation: paper-sip-arms var(--sip-duration) ease-in-out 1 both; }
+#pet[data-life-mode="sip"][data-playing="true"] .paper-arm-right,
+#pet[data-life-mode="sip"][data-playing="true"] .paper-grip { animation: paper-sip-arms var(--sip-duration) ease-in-out 1 both; }
 #pet[data-life-mode="sip"][data-playing="true"] #living-character { animation: paper-sip-body var(--sip-duration) ease-in-out 1 both; }
 @keyframes paper-five-pop {
   40% { transform: translateY(-10px) rotate(4deg) scale(1.04); }
@@ -197,13 +186,13 @@ body.keyboard-nav #pet:focus-visible {
 }
 @keyframes paper-sip-cup {
   0%, 18%, 88%, 100% { transform: translateY(0) rotate(0); }
-  38%, 66% { transform: translateY(-34px) rotate(-4deg); }
-  48%, 57% { transform: translateY(-36px) rotate(-8deg); }
+  38%, 66% { transform: translateY(-20px) rotate(-3deg); }
+  48%, 57% { transform: translateY(-21px) rotate(-6deg); }
 }
 @keyframes paper-sip-arms {
   0%, 18%, 88%, 100% { translate: 0 0; }
-  38%, 66% { translate: 0 -31px; }
-  48%, 57% { translate: 0 -34px; }
+  38%, 66% { translate: 0 -18px; }
+  48%, 57% { translate: 0 -20px; }
 }
 @keyframes paper-sip-body {
   0%, 28%, 76%, 100% { transform: rotate(0); }

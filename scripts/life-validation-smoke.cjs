@@ -5,11 +5,11 @@ const os = require("node:os");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.2");
+const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.3");
 fs.mkdirSync(output, { recursive: true });
 
 (async () => {
-  const testData = fs.mkdtempSync(path.join(os.tmpdir(), "cike-0122-life-"));
+  const testData = fs.mkdtempSync(path.join(os.tmpdir(), "cike-0123-life-"));
   let app;
   const errors = [];
   const watch = (page) => page.on("pageerror", (error) => errors.push(`${page.url()}: ${error.message}`));
@@ -28,6 +28,10 @@ fs.mkdirSync(output, { recursive: true });
     watch(pet);
     await pet.waitForSelector("#living-character:not([hidden])");
     assert.match(await pet.locator("#paper-body").getAttribute("src"), /paper-dango\/base-v1\.png$/);
+    assert.match(await pet.locator(".paper-pupil").first().getAttribute("src"), /paper-dango\/parts\/iris-v1\.png$/);
+    assert.match(await pet.locator(".paper-arm img").first().getAttribute("src"), /paper-dango\/parts\/arm-v1\.png$/);
+    assert.match(await pet.locator(".paper-grip").first().getAttribute("src"), /paper-dango\/parts\/hand-v1\.png$/);
+    assert.match(await pet.locator(".paper-cup").getAttribute("src"), /paper-dango\/parts\/cup-v1\.png$/);
     assert.equal(await pet.locator("#high-five").isVisible(), false);
     assert.equal(
       await pet.locator("#living-character").evaluate((node) => getComputedStyle(node).getPropertyValue("--sip-duration").trim()),
@@ -69,7 +73,7 @@ fs.mkdirSync(output, { recursive: true });
     assert.match(await laboratory.locator("#character-engine").innerText(), /未配置 ARK_API_KEY/);
     await laboratory.screenshot({ path: path.join(output, "生命感试映台.png") });
     assert.deepEqual(errors, []);
-    console.log("PASS 0.12.2 life validation: paper master, gaze, blink, two-stage high-five, 5.2s one-shot sip, honest missing-key state, no page errors.");
+    console.log("PASS 0.12.3 layered life validation: raster iris/arms/hands/cup, gaze, blink, two-stage high-five, 5.2s one-shot sip, honest missing-key state, no page errors.");
   } finally {
     if (app) await app.close();
     fs.rmSync(testData, { recursive: true, force: true });
