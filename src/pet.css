@@ -42,8 +42,8 @@ body.keyboard-nav #pet:focus-visible {
   filter: drop-shadow(0 4px 7px #4034220b);
 }
 #living-character {
-  --gaze-x: 2px;
-  --gaze-y: -1px;
+  --gaze-x: 1px;
+  --gaze-y: -.5px;
   --sip-duration: 5200ms;
   position: absolute;
   left: 5px;
@@ -66,60 +66,41 @@ body.keyboard-nav #pet:focus-visible {
 }
 .flat-eye {
   position: absolute;
-  width: 24px;
-  height: 27px;
+  width: 18px;
+  height: 20px;
   overflow: hidden;
-  border: 2px solid #827660;
-  border-radius: 48% 48% 46% 46%;
-  background: #fffdf5;
   z-index: 4;
 }
 .flat-eye-left {
-  left: 68px;
-  top: 96px;
+  left: 71px;
+  top: 100px;
   transform: rotate(-2deg);
 }
 .flat-eye-right {
-  left: 118px;
-  top: 94px;
+  left: 121px;
+  top: 98px;
   transform: rotate(2deg);
 }
 .flat-pupil {
   position: absolute;
-  left: 6px;
-  top: 6px;
-  width: 10px;
-  height: 13px;
+  left: 5.5px;
+  top: 5px;
+  width: 7px;
+  height: 9px;
   border-radius: 48%;
-  background: #695844;
+  background: #756a55;
   transform: translate(var(--gaze-x), var(--gaze-y));
   transition: transform 125ms ease-out, opacity 45ms linear;
 }
-.flat-pupil::after {
-  content: "";
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  width: 2.5px;
-  height: 2.5px;
-  border-radius: 50%;
-  background: #fffdf5;
-  opacity: .8;
-}
 .flat-blink {
   position: absolute;
-  left: 3px;
-  top: 10px;
-  width: 15px;
-  height: 7px;
-  border-bottom: 2.3px solid #695844;
+  left: 2px;
+  top: 7px;
+  width: 14px;
+  height: 6px;
+  border-bottom: 2.2px solid #756a55;
   border-radius: 50%;
   opacity: 0;
-}
-#living-character.blinking .flat-eye,
-#pet[data-life-asleep="true"] #living-character .flat-eye {
-  border-color: transparent;
-  background: transparent;
 }
 #living-character.blinking .flat-pupil,
 #pet[data-life-asleep="true"] #living-character .flat-pupil { opacity: 0; }
@@ -128,8 +109,9 @@ body.keyboard-nav #pet:focus-visible {
 .flat-arm {
   position: absolute;
   z-index: 1;
-  width: 64px;
-  height: 27px;
+  width: 52px;
+  height: 22px;
+  opacity: 0;
   transition: transform 260ms cubic-bezier(.22, 1, .36, 1), top 260ms cubic-bezier(.22, 1, .36, 1);
 }
 .flat-arm img {
@@ -139,17 +121,17 @@ body.keyboard-nav #pet:focus-visible {
   object-fit: fill;
 }
 .flat-arm-left {
-  left: 15px;
-  top: 121px;
+  left: 25px;
+  top: 125px;
   transform-origin: calc(100% - 5px) 50%;
-  transform: rotate(-7deg);
+  transform: rotate(-5deg);
 }
 .flat-arm-left img { transform: scaleX(-1); }
 .flat-arm-right {
-  right: 13px;
-  top: 120px;
+  right: 23px;
+  top: 124px;
   transform-origin: 5px 50%;
-  transform: rotate(7deg);
+  transform: rotate(5deg);
 }
 .flat-cup {
   display: none;
@@ -171,31 +153,35 @@ body.keyboard-nav #pet:focus-visible {
 #pet[data-life-mode="idle"] #living-character { animation: flat-breathe 7.6s ease-in-out infinite; }
 #pet[data-life-mode="five-ready"] #living-character { transform: rotate(-1.5deg) translateY(-1px); }
 #pet[data-life-mode="five-ready"] .flat-arm-right {
-  right: 17px;
-  top: 106px;
-  transform: rotate(-82deg);
+  right: 18px;
+  top: 111px;
+  transform: rotate(-56deg);
+  opacity: 1;
   z-index: 3;
 }
 #pet[data-life-mode="five-done"] #living-character { animation: flat-five-pop 620ms cubic-bezier(.2,.9,.25,1); }
 #pet[data-life-mode="five-done"] .flat-arm-right {
-  right: 17px;
-  top: 105px;
-  transform: rotate(-84deg) scaleX(1.03);
+  right: 18px;
+  top: 110px;
+  transform: rotate(-58deg) scaleX(1.03);
+  opacity: 1;
   z-index: 3;
 }
 #pet[data-life-mode="sip"] .flat-cup { display: block; }
 #pet[data-life-mode="sip"] .flat-arm-left {
-  left: 37px;
-  top: 141px;
-  transform: rotate(-10deg);
+  left: 45px;
+  top: 143px;
+  transform: rotate(-8deg);
+  opacity: 1;
   z-index: 5;
 }
 #pet[data-life-mode="sip"] .flat-arm-left img { transform: none; }
 #pet[data-life-mode="sip"] .flat-arm-right {
-  right: 36px;
-  top: 141px;
+  right: 44px;
+  top: 143px;
   transform-origin: calc(100% - 5px) 50%;
   transform: rotate(10deg);
+  opacity: 1;
   z-index: 5;
 }
 #pet[data-life-mode="sip"] .flat-arm-right img { transform: scaleX(-1); }

@@ -39,8 +39,8 @@ test("形象参数拒绝越界、未知轮廓与注入；默认场景升级为�
   });
   const upgraded = Buffer.from(uri.split(",")[1], "base64").toString();
   assert.notEqual(upgraded, fs.readFileSync("assets/scenes/water.svg", "utf8"));
-  assert.match(upgraded, /data-eyes="flat"/);
-  assert.match(upgraded, /rx="9\.8" ry="11\.6"/);
+  assert.match(upgraded, /data-eyes="quiet"/);
+  assert.match(upgraded, /rx="4" ry="5\.2"/);
 });
 test("三个形象能进入全部八种昼夜场景，场景内容不丢失", () => {
   for (const appearance of Object.values(design.presets))

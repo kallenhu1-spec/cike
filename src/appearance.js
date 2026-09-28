@@ -50,9 +50,7 @@
   function inner(input) {
     const a = validate(input),
       y = (a.outfit === "none" ? 111 : 89) + a.face * 5,
-      eye = 4.2 + a.eyes * 1.05,
-      eyeWhite = 9.8 + a.eyes * 1.35,
-      eyeWhiteY = Number((eyeWhite + 1.8).toFixed(2));
+      eye = 4 + a.eyes * 0.8;
     const bodies = {
       paper:
         "M56 155C30 136 42 100 52 84C43 62 58 39 82 44C93 24 121 25 135 42C167 33 189 53 181 82C203 111 193 148 170 159C153 179 74 183 56 155Z",
@@ -86,10 +84,10 @@
     const outfit = `<g data-outfit="${a.outfit}" clip-path="url(#cike-body)" fill="${a.outfitColor}" stroke-width="1.8">${a.outfit === "none" ? "" : `<g transform="translate(0 ${garmentShift}) scale(1 ${garmentScale})">${clothes[a.outfit]}</g>`}</g>`;
     const eyes =
       a.expression === "sleepy"
-        ? `<path d="M${86 - eyeWhite} ${y}q${eyeWhite} 7 ${eyeWhite * 2} 0M${137 - eyeWhite} ${y}q${eyeWhite} 7 ${eyeWhite * 2} 0" fill="none"/>`
+        ? `<path d="M${82 - eye} ${y}q${eye + 4} 6 ${eye * 2 + 8} 0M${129 - eye} ${y - 1}q${eye + 4} 6 ${eye * 2 + 8} 0" fill="none"/>`
         : a.expression === "happy"
-          ? `<path d="M${86 - eyeWhite} ${y + 2}q${eyeWhite} -10 ${eyeWhite * 2} 0M${137 - eyeWhite} ${y + 2}q${eyeWhite} -10 ${eyeWhite * 2} 0" fill="none"/>`
-          : `<g data-eyes="flat"><ellipse cx="86" cy="${y}" rx="${eyeWhite}" ry="${eyeWhiteY}" fill="#fffdf5"/><ellipse cx="137" cy="${y - 1}" rx="${eyeWhite}" ry="${eyeWhiteY}" fill="#fffdf5"/><ellipse cx="87.5" cy="${y - .8}" rx="${eye}" ry="${eye + 1.2}" fill="#695844" stroke="none"/><ellipse cx="138.5" cy="${y - 1.8}" rx="${eye}" ry="${eye + 1.2}" fill="#695844" stroke="none"/><circle cx="86" cy="${y - 2.5}" r="1.3" fill="#fffdf5" stroke="none"/><circle cx="137" cy="${y - 3.5}" r="1.3" fill="#fffdf5" stroke="none"/></g>`;
+          ? `<path d="M${82 - eye} ${y}q${eye + 4} -8 ${eye * 2 + 8} 0M${129 - eye} ${y - 1}q${eye + 4} -8 ${eye * 2 + 8} 0" fill="none"/>`
+          : `<g data-eyes="quiet"><ellipse cx="86" cy="${y}" rx="${eye}" ry="${eye + 1.2}" fill="#756a55" stroke="none"/><ellipse cx="137" cy="${y - 1}" rx="${eye}" ry="${eye + 1.2}" fill="#756a55" stroke="none"/></g>`;
     return `<ellipse cx="110" cy="191" rx="53" ry="7" fill="#645d48" opacity=".09"/><g stroke="#756a55" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="${bodies[a.shape]}" fill="${a.skinColor}"/>${skin}${outfit}${a.shape === "paper" ? '<path d="M66 56L81 64M151 51L145 61M49 123L59 120M169 145L176 148" opacity=".22"/>' : ""}<path d="M72 165Q66 185 83 181M145 168Q152 185 163 176" fill="${a.skinColor}"/><path d="M52 126Q39 118 34 130Q36 136 42 133M180 128Q193 119 196 130Q194 136 188 133" fill="none"/>${eyes}<path d="M105 ${y + 11}Q111 ${y + 17} 117 ${y + 11}" fill="none"/><path data-leaf="true" d="M95 38Q109 17 128 28Q117 44 95 38Z" fill="${a.leafColor}"/><path d="M99 36L116 30" stroke-width="1.3"/></g><ellipse cx="73" cy="${y + 11}" rx="9" ry="4.5" fill="#e7b8aa" opacity=".55"/><ellipse cx="150" cy="${y + 11}" rx="9" ry="4.5" fill="#e7b8aa" opacity=".55"/>`;
   }
   function svg(a) {

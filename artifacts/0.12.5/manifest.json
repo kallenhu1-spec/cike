@@ -14,23 +14,23 @@
     "packageSourceMatch": "src/pet.*, appearance.js, creature.svg and assets/flat-dango matched extracted app.asar",
     "sourceSnapshot": "source, docs, tests and new SVG assets; unchanged 0.12.4 raster assets remain in the branch and packaged app",
     "electronUiSmoke": "blocked by execution container system-socket restriction; pending on user Mac",
-    "visualPrecheck": "flat master plus idle, anchored high-five and cup-holding states rendered and inspected",
+    "visualPrecheck": "rejected large-eye draft replaced; quiet dot-eye master plus hidden-arm idle, single short-arm high-five and cup-obscured sip states rendered and inspected",
     "scopeBoundary": "0.12.6 custom-character and image-to-video user flow not implemented"
   },
   "files": [
     {
       "path": "source.tar.gz",
-      "bytes": 294390,
-      "sha256": "ba6cf09e7cb0947f61c2a673aa6e2550f6d3bd43805b85c14412fce477038b17"
+      "bytes": 295561,
+      "sha256": "b2a0f73dcb0c5eabd0c12ca844dd4766ac795ea836643a437529bac9c6ae263b"
     },
     {
       "path": "../../dist/0.12.5/mac-arm64/此刻.app/Contents/Resources/app.asar",
-      "bytes": 14202391,
-      "sha256": "c53142b204d33bfc95eab7a97d54905c01b095cdcf9ae77a02d85e383b670b9a"
+      "bytes": 14201368,
+      "sha256": "695ab1c41e4b46cf5424cc827cd982aa1841dd0e4b1ff4803b0c79402f551f94"
     },
     {
       "path": "../../assets/creature.svg",
-      "sha256": "03a41d7927c00ba0fe5c4f5d612a7f23474d87b05c2e81c46a147958486675f9"
+      "sha256": "b72430085876d609e13996d5897f629aedac2d9290bb9720b8604bfa72b7fc04"
     },
     {
       "path": "../../assets/flat-dango/body-v1.svg",
@@ -38,7 +38,7 @@
     },
     {
       "path": "../../assets/flat-dango/arm-v1.svg",
-      "sha256": "a0cf36f5581e214b23583c79fd4fe7ad0241ab910b90319f8ed34848f4ed54d1"
+      "sha256": "32a20294a9d5609648674be084b263183cdc2a221e64b0db9ab60fad3b3b6ec8"
     },
     {
       "path": "../../assets/flat-dango/cup-v1.svg",
@@ -46,11 +46,11 @@
     },
     {
       "path": "平面小团子-母版.png",
-      "sha256": "8258ef32428140c2bbc84d34c6c08e84cb3fbcec7ae7034851362fd69fd16cad"
+      "sha256": "89d2ad416687ea9410f76b0f1469d63c2bc57a0394725bb98f33c7940d8d549f"
     },
     {
       "path": "平面小团子-三状态.png",
-      "sha256": "abfe1265bbb9337bce379b0d4efc5bed29edec38bd9de229de4bc2f9de043c3d"
+      "sha256": "fe8d7cf6708187dd95e48c9b88b79040480cca7e1533e80b6e3a9f211d9ba805"
     }
   ]
 }

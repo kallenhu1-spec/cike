@@ -2,33 +2,28 @@
   <rect width="720" height="280" rx="26" fill="#74b8c1"/>
   <defs>
     <g id="face">
-      <rect x="68" y="96" width="24" height="27" rx="11" fill="#fffdf5" stroke="#827660" stroke-width="2"/>
-      <rect x="118" y="94" width="24" height="27" rx="11" fill="#fffdf5" stroke="#827660" stroke-width="2"/>
-      <rect x="76" y="101" width="10" height="13" rx="5" fill="#695844"/>
-      <rect x="126" y="99" width="10" height="13" rx="5" fill="#695844"/>
-      <circle cx="78.5" cy="103.5" r="1.3" fill="#fffdf5"/>
-      <circle cx="128.5" cy="101.5" r="1.3" fill="#fffdf5"/>
+      <ellipse cx="80" cy="109.5" rx="3.5" ry="4.5" fill="#756a55"/>
+      <ellipse cx="130" cy="107.5" rx="3.5" ry="4.5" fill="#756a55"/>
     </g>
     <g id="idle">
-      <image xlink:href="../../assets/flat-dango/arm-v1.svg" x="15" y="121" width="64" height="27" transform="rotate(-7 74 134.5) translate(94 0) scale(-1 1)"/>
-      <image xlink:href="../../assets/flat-dango/arm-v1.svg" x="123" y="120" width="64" height="27" transform="rotate(7 128 133.5)"/>
       <image xlink:href="../../assets/flat-dango/body-v1.svg" width="200" height="200"/>
       <use xlink:href="#face"/>
     </g>
     <g id="highfive">
-      <image xlink:href="../../assets/flat-dango/arm-v1.svg" x="15" y="121" width="64" height="27" transform="rotate(-7 74 134.5) translate(94 0) scale(-1 1)"/>
       <image xlink:href="../../assets/flat-dango/body-v1.svg" width="200" height="200"/>
-      <image xlink:href="../../assets/flat-dango/arm-v1.svg" x="119" y="106" width="64" height="27" transform="rotate(-82 124 119.5)"/>
+      <image xlink:href="../../assets/flat-dango/arm-v1.svg" x="130" y="111" width="52" height="22" transform="rotate(-56 135 122)"/>
       <use xlink:href="#face"/>
     </g>
     <g id="sip">
       <image xlink:href="../../assets/flat-dango/body-v1.svg" width="200" height="200"/>
       <use xlink:href="#face"/>
       <g fill="#fff9e8" stroke="#756a55" stroke-width="2.3" stroke-linecap="round">
-        <path d="M43 151Q59 151 78 160" fill="none"/><circle cx="79" cy="160" r="6"/>
-        <path d="M157 151Q141 151 122 160" fill="none"/><circle cx="121" cy="160" r="6"/>
+        <path d="M54 151Q67 153 79 160" fill="none"/>
+        <path d="M146 151Q133 153 121 160" fill="none"/>
+        <path d="M76 156Q82 153 85 159Q85 165 79 166Q74 163 76 156Z"/>
+        <path d="M124 156Q118 153 115 159Q115 165 121 166Q126 163 124 156Z"/>
       </g>
-      <image xlink:href="../../assets/flat-dango/cup-v1.svg" x="70" y="137" width="60" height="52"/>
+      <image xlink:href="../../assets/flat-dango/cup-v1.svg" x="73" y="140" width="54" height="47"/>
     </g>
   </defs>
   <g transform="translate(38 42) scale(.82)"><use xlink:href="#idle"/></g>

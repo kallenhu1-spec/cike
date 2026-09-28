@@ -21,19 +21,24 @@ test("0.12.5 默认桌面使用平面小团子分层资产", () => {
   assert.match(html, /class="flat-arm flat-arm-right"/);
 });
 
-test("平面眼睛保持克制比例并能在眼白内注视和眨眼", () => {
-  assert.match(css, /\.flat-eye\s*\{[^}]*width:\s*24px;[^}]*height:\s*27px;/s);
-  assert.match(css, /\.flat-pupil\s*\{[^}]*width:\s*10px;[^}]*height:\s*13px;/s);
-  assert.match(css, /--gaze-x:\s*2px;[\s\S]*--gaze-y:\s*-1px;/);
+test("平面点眼只做小范围注视和眨眼，不增加眼白与高光", () => {
+  assert.match(css, /\.flat-eye\s*\{[^}]*width:\s*18px;[^}]*height:\s*20px;/s);
+  assert.match(css, /\.flat-pupil\s*\{[^}]*width:\s*7px;[^}]*height:\s*9px;/s);
+  assert.match(css, /--gaze-x:\s*1px;[\s\S]*--gaze-y:\s*-\.5px;/);
+  assert.doesNotMatch(css, /\.flat-pupil::after/);
   assert.match(css, /#living-character\.blinking \.flat-pupil/);
-  assert.match(js, /dx \* 6/);
-  assert.match(js, /dy \* 4\.5/);
+  assert.match(js, /dx \* 3/);
+  assert.match(js, /dy \* 2/);
   const master = design.inner(design.defaults());
-  assert.match(master, /data-eyes="flat"/);
-  assert.match(master, /rx="9\.8" ry="11\.6"/);
+  assert.match(master, /data-eyes="quiet"/);
+  assert.match(master, /rx="4" ry="5\.2"/);
+  assert.doesNotMatch(master, /fill="#fffdf5"/);
 });
 
 test("固定肩点手臂完成击掌与5.2秒喝水，不使用漂浮手掌", () => {
+  assert.match(css, /\.flat-arm\s*\{[^}]*opacity:\s*0;/s);
+  assert.match(css, /data-life-mode="five-ready"[^}]*\.flat-arm-right\s*\{[^}]*opacity:\s*1;/s);
+  assert.match(css, /data-life-mode="sip"[^}]*\.flat-arm-left\s*\{[^}]*opacity:\s*1;/s);
   assert.match(css, /\.flat-arm-left\s*\{[^}]*transform-origin:\s*calc\(100% - 5px\) 50%/s);
   assert.match(css, /\.flat-arm-right\s*\{[^}]*transform-origin:\s*5px 50%/s);
   assert.match(css, /flat-sip-cup var\(--sip-duration\)/);
