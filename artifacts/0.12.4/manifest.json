@@ -13,19 +13,19 @@
     "packageVersion": "0.12.4",
     "packageSourceMatch": "src/pet.* plus base-v2.png and iris-v2.png matched extracted app.asar",
     "electronUiSmoke": "blocked by execution container system-socket restriction; pending on user Mac",
-    "visualPrecheck": "master, 0.12.3, 0.12.4 default gaze and edge gaze compared at desktop scale",
+    "visualPrecheck": "master, 0.12.3, 0.12.4 default/edge gaze and 210px versus 185px desktop presence compared",
     "realSeedance": "not run; outside this visual correction round"
   },
   "files": [
     {
       "path": "source.tar.gz",
-      "bytes": 3941867,
-      "sha256": "7f8d754d7e55d7efc6adc760ebf7e0976c98e6f88b4be6631f54f7e12d31c508"
+      "bytes": 3946024,
+      "sha256": "03b3cb8fcaca0b5c21c4100bc891c97276b7cd6bb5676e51a6ce428ce1c2f233"
     },
     {
       "path": "../../dist/0.12.4/mac-arm64/此刻.app/Contents/Resources/app.asar",
-      "bytes": 14197602,
-      "sha256": "c3d04811d575aba384688805e7f1a78f76dd747d3c5d17e74fde1a38e2c9a1b2"
+      "bytes": 14197675,
+      "sha256": "53485f7e140286146c2f5a1c1c0889c6ebe0ae2fdd416de6774f5cb1366966dd"
     },
     {
       "path": "../../assets/paper-dango/base-v2.png",
@@ -42,6 +42,10 @@
     {
       "path": "eyes-first-check.png",
       "sha256": "d57e92a0f318fe96b3cdf627652e0cbdaff9a353766539aef2b5be2bee8d5365"
+    },
+    {
+      "path": "desktop-size-comparison.png",
+      "sha256": "df330027575e5a4dce23c1252ea3fd8db34385094714573e9533eb94ebbf8b82"
     }
   ]
 }

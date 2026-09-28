@@ -37,6 +37,7 @@ fs.mkdirSync(output, { recursive: true });
       await pet.locator("#living-character").evaluate((node) => getComputedStyle(node).getPropertyValue("--sip-duration").trim()),
       "5200ms",
     );
+    assert.equal(await pet.locator("#living-character").evaluate((node) => getComputedStyle(node).scale), "0.88");
 
     await pet.mouse.move(78, 455);
     const leftGaze = await pet.locator("#living-character").evaluate((node) => getComputedStyle(node).getPropertyValue("--gaze-x"));

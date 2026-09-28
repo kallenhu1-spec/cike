@@ -35,6 +35,7 @@ test("母版比例眼睛放大、裁在眼白内并能移动到边缘", () => {
   assert.match(css, /\.paper-eye\s*\{[^}]*overflow:\s*hidden/s);
   assert.match(css, /\.paper-pupil\s*\{[^}]*width:\s*38px;[^}]*height:\s*42px/s);
   assert.match(css, /--gaze-x:\s*3px;[\s\S]*--gaze-y:\s*-4px;/);
+  assert.match(css, /#living-character\s*\{[^}]*scale:\s*\.88;/s);
   assert.match(js, /dx \* 8\.5/);
   assert.match(js, /dy \* 6\.5/);
 });

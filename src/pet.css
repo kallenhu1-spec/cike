@@ -50,6 +50,7 @@ body.keyboard-nav #pet:focus-visible {
   bottom: -4px;
   width: 210px;
   height: 210px;
+  scale: .88;
   pointer-events: none;
   filter: drop-shadow(0 8px 9px #3f2b191f);
   transform-origin: 50% 86%;
