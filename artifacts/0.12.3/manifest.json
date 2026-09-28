@@ -3,7 +3,7 @@
   "date": "2026-09-28",
   "baseline": "0.12.2",
   "reviewStatus": "待用户 Mac 实机评审",
-  "releaseStatus": "计划仅推送到 codex/0.12.3-layered-character；不合并 main、不创建 GitHub Release",
+  "releaseStatus": "仅推送到 codex/0.12.3-layered-character；未合并 main、未创建 GitHub Release",
   "target": "macOS arm64",
   "signed": false,
   "notarized": false,
@@ -19,8 +19,8 @@
   "files": [
     {
       "path": "source.tar.gz",
-      "bytes": 3280629,
-      "sha256": "1c820e601f141a2043119c76f8435ab7e2a3a5aac63e3417fa6f47fd48c1a591"
+      "bytes": 3280695,
+      "sha256": "9613a4bc343ecab2a9439fc4b67334cc92c857ee2572814ddd260b582806d5c6"
     },
     {
       "path": "../../dist/0.12.3/mac-arm64/此刻.app/Contents/Resources/app.asar",
