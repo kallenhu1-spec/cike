@@ -25,6 +25,7 @@ const allowed = [
   "transparent-preview-pick",
   "transparent-preview-enable",
   "transparent-preview-size",
+  "life-demo",
 ];
 contextBridge.exposeInMainWorld("cike", {
   call: async (name, value) => {
@@ -34,7 +35,7 @@ contextBridge.exposeInMainWorld("cike", {
     return r.value;
   },
   on: (name, fn) => {
-    if (!["state", "speak", "hide-bubble", "voice-changed", "voice-select", "character-progress", "laboratory-tab", "customizer-tab"].includes(name)) return;
+    if (!["state", "speak", "hide-bubble", "voice-changed", "voice-select", "character-progress", "laboratory-tab", "customizer-tab", "life-demo"].includes(name)) return;
     const listener = (_event, value) => fn(value);
     ipcRenderer.on(name, listener);
     return () => ipcRenderer.removeListener(name, listener);

@@ -1,7 +1,7 @@
 appId: com.cike.companion
 productName: 此刻
 directories:
-  output: /Users/huxiaoyan/Documents/ChatGPT/此刻/dist/0.12.1
+  output: dist/0.12.2
 files:
   - src/**
   - assets/**
@@ -10,6 +10,7 @@ files:
 asarUnpack:
   - skills/**
 mac:
+  icon: assets/icon.icns
   target:
     - target: dir
       arch:

@@ -14,6 +14,72 @@ document.querySelectorAll("[data-lab-tab]").forEach((button) =>
 );
 api.on("laboratory-tab", showTab);
 $("return-to-moments").addEventListener("click", () => api.call("customizer", "actions"));
+const lifeStatus = $("life-status");
+for (const [id, demo] of [["demo-gaze", "gaze"], ["demo-five", "high-five"], ["demo-sip", "sip"]]) {
+  $(id).addEventListener("click", async () => {
+    lifeStatus.textContent = "正在把试映送到桌面…";
+    try { await api.call("life-demo", demo); }
+    catch (error) { lifeStatus.textContent = error.message; }
+  });
+}
+function asDataUrl(blob) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(Error("角色母版读取失败"));
+    reader.readAsDataURL(blob);
+  });
+}
+async function bundledCharacter() {
+  const response = await fetch("../assets/paper-dango/base-v1.png");
+  if (!response.ok) throw Error("角色母版读取失败");
+  return asDataUrl(await response.blob());
+}
+async function refreshCharacterStatus() {
+  try {
+    const [engine, snapshot] = await Promise.all([api.call("character-status"), api.call("get")]);
+    $("character-engine").textContent = engine.ready
+      ? `已连接 ${engine.provider} · ${engine.videoModel}`
+      : "未配置 ARK_API_KEY；实时动作可以体验，付费视频生成保持关闭。";
+    $("generate-sip-video").disabled = !engine.ready;
+    $("replay-sip-video").disabled = !snapshot.transparentPreview?.available;
+  } catch (error) {
+    $("character-engine").textContent = error.message;
+    $("generate-sip-video").disabled = true;
+  }
+}
+$("generate-sip-video").addEventListener("click", async () => {
+  const button = $("generate-sip-video");
+  button.disabled = true;
+  lifeStatus.textContent = "正在准备角色母版…";
+  try {
+    const result = await api.call("character-video", {
+      character: await bundledCharacter(),
+      style: "3D风",
+      label: "喝水",
+      authorizationConfirmed: true,
+    });
+    lifeStatus.textContent = `透明喝水动作已完成：${result.jobId}`;
+    $("replay-sip-video").disabled = false;
+  } catch (error) {
+    lifeStatus.textContent = error.message;
+  } finally {
+    await refreshCharacterStatus();
+  }
+});
+$("replay-sip-video").addEventListener("click", async () => {
+  try {
+    await api.call("transparent-preview-enable", true);
+    window.close();
+  } catch (error) { lifeStatus.textContent = error.message; }
+});
+api.on("character-progress", (progress) => {
+  if (progress?.text) lifeStatus.textContent = progress.text;
+});
+api.on("state", (snapshot) => {
+  $("replay-sip-video").disabled = !snapshot.transparentPreview?.available;
+});
+refreshCharacterStatus();
 let current = design.defaults(),
   baseline = design.defaults(),
   saved = design.defaults(),

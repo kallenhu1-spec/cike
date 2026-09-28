@@ -5,11 +5,11 @@ const path = require("node:path");
 const assert = require("node:assert/strict");
 
 const root = path.resolve(__dirname, "..");
-const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.1");
+const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.2");
 fs.mkdirSync(output, { recursive: true });
 
 (async () => {
-  const testData = fs.mkdtempSync(path.join(os.tmpdir(), "cike-0121-nav-"));
+  const testData = fs.mkdtempSync(path.join(os.tmpdir(), "cike-0122-nav-"));
   let app;
   const errors = [];
   const watch = (page) => page.on("pageerror", (error) => errors.push(`${page.url()}: ${error.message}`));
@@ -51,9 +51,9 @@ fs.mkdirSync(output, { recursive: true });
 
     await customizer.locator("#choose-personal").click();
     await laboratory.waitForFunction(() => document.querySelector("#personal-tab").hidden === false);
-    assert.match(await laboratory.locator("#personal-tab").innerText(), /正在开发中/);
-    assert.match(await laboratory.locator("#personal-tab").innerText(), /继续使用你设置好的团子形象/);
-    await laboratory.screenshot({ path: path.join(output, "定制形象-开发中.png") });
+    assert.match(await laboratory.locator("#personal-tab").innerText(), /先让它有一点生命/);
+    assert.match(await laboratory.locator("#personal-tab").innerText(), /眼睛和手臂由代码实时控制/);
+    await laboratory.screenshot({ path: path.join(output, "生命感试映台.png") });
     await laboratory.locator("#return-to-moments").click();
     await customizer.waitForFunction(() => document.querySelector("#actions").hidden === false);
 
@@ -82,11 +82,11 @@ fs.mkdirSync(output, { recursive: true });
     await preferences.waitForSelector("#form");
 
     await customizer.locator('[data-tab="about"]').click();
-    assert.match(await customizer.locator("#about").innerText(), /桌搭团子 0\.12\.1/);
+    assert.match(await customizer.locator("#about").innerText(), /桌搭团子 0\.12\.2/);
     assert.equal(await customizer.locator('nav button[aria-current="page"]').count(), 1);
     await customizer.screenshot({ path: path.join(output, "关于此刻.png") });
     assert.deepEqual(errors, []);
-    console.log("PASS 0.12 navigation: five entries, dango/personal tabs, personal-asset fallback, return to healing moments, direct voice/preferences windows, no visible AI voice controls, no page errors.");
+    console.log("PASS 0.12.2 navigation: five entries, dango/life-study tabs, return to healing moments, direct voice/preferences windows, no visible AI voice controls, no page errors.");
   } finally {
     if (app) await app.close();
     fs.rmSync(testData, { recursive: true, force: true });

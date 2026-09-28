@@ -32,12 +32,20 @@
         title="点一下：换一个治愈小事 · 拖动：移动 · 右键：设置"
         aria-label="此刻小场景，点击或按回车换一个治愈小事，拖动移动，右键打开菜单"
       >
-        <span id="spark">✧</span
-        ><img
+        <span id="spark">✧</span>
+        <div id="living-character" aria-hidden="true">
+          <span class="paper-arm paper-arm-left"><i></i></span>
+          <span class="paper-arm paper-arm-right"><i></i></span>
+          <img id="paper-body" src="../assets/paper-dango/base-v1.png" alt="" />
+          <span class="paper-eye paper-eye-left"><i class="paper-pupil"></i><i class="paper-blink"></i></span>
+          <span class="paper-eye paper-eye-right"><i class="paper-pupil"></i><i class="paper-blink"></i></span>
+          <span class="paper-cup"><i></i></span>
+        </div>
+        <img
           id="creature"
           src="../assets/creature.svg"
           alt="安静的小纸团"
-        /><video id="action-preview" muted autoplay loop playsinline hidden aria-label="透明动作素材预览"></video>
+        /><video id="action-preview" muted autoplay playsinline hidden aria-label="透明动作素材预览"></video>
       </div>
       <div id="generation-status" hidden role="status" aria-live="polite">
         <b>正在制作桌宠动作</b><span id="generation-step"></span>

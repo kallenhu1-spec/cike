@@ -1,8 +1,20 @@
 {
   "name": "cike-companion",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "description": "此刻 · 安静待在桌面的小生命",
   "author": "此刻",
   "private": true,
-  "main": "src/main.cjs"
+  "main": "src/main.cjs",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.cjs",
+    "test:life": "node scripts/life-validation-smoke.cjs",
+    "test:navigation": "node scripts/settings-navigation-smoke.cjs",
+    "pack:mac": "electron-builder --mac dir --arm64"
+  },
+  "devDependencies": {
+    "electron": "^41.0.0",
+    "electron-builder": "^26.0.12",
+    "playwright": "^1.58.0"
+  }
 }

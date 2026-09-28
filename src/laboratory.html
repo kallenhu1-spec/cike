@@ -17,10 +17,27 @@
         <button type="button" data-lab-tab="personal" aria-pressed="false">定制形象</button>
       </nav>
       <section id="personal-tab" class="personal-tab" hidden>
-        <span class="eyebrow">定制形象 / DEVELOPMENT</span>
-        <h1>自己的定制形象正在开发中。</h1>
-        <p>照片角色资产母版还没有准备好。当前治愈小事继续使用你设置好的团子形象；等角色母版可以确认后，就能带回“安排治愈小事”中使用。</p>
-        <button id="return-to-moments" class="primary" type="button">返回安排治愈小事</button>
+        <div class="life-copy">
+          <span class="eyebrow">小纸团 / LIFE STUDY 0.12.2</span>
+          <h1>先让它有一点生命。</h1>
+          <p>这张角色母版已经进入桌面。眼睛和手臂由代码实时控制；喝水动作先用同一套分层角色验证节奏，再把复杂动作交给图生视频。</p>
+          <div class="life-actions" aria-label="生命感试映">
+            <button id="demo-gaze" class="primary" type="button">看向鼠标</button>
+            <button id="demo-five" type="button">举手击掌</button>
+            <button id="demo-sip" type="button">喝一口水</button>
+          </div>
+          <p class="life-tip">点一个动作后窗口会暂时收起，请直接看桌面右下角的小纸团。击掌需要再点它举起的手。</p>
+          <div class="video-lab">
+            <b>透明视频链路</b>
+            <p id="character-engine">正在检查火山方舟配置…</p>
+            <button id="generate-sip-video" type="button">用 Seedance 生成喝水视频</button>
+            <button id="replay-sip-video" type="button" disabled>重播已生成视频</button>
+            <p>生成会调用你已配置的方舟账号并产生模型费用；没有密钥时按钮保持不可用。视频只播放一次，结束后回到实时角色。</p>
+          </div>
+          <button id="return-to-moments" type="button">返回安排治愈小事</button>
+          <p id="life-status" role="status" aria-live="polite"></p>
+        </div>
+        <img class="life-master" src="../assets/paper-dango/base-v1.png" alt="新版奶油纸团角色母版" />
       </section>
       <div id="dango-tab">
       <header>

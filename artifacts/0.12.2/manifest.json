@@ -1,0 +1,43 @@
+{
+  "version": "0.12.2",
+  "date": "2026-09-28",
+  "baseline": "0.12.1",
+  "reviewStatus": "待用户评审",
+  "releaseStatus": "仅推送到 codex/0.12.2-life-validation；未合并 main、未创建 GitHub Release",
+  "target": "macOS arm64",
+  "signed": false,
+  "notarized": false,
+  "verification": {
+    "unitTests": "51/51 passed",
+    "syntaxAndDiff": "passed",
+    "packageVersion": "0.12.2",
+    "packageSourceMatch": "src and assets/paper-dango matched extracted app.asar",
+    "electronUiSmoke": "blocked by execution container system-socket and display restrictions; pending on user Mac",
+    "realSeedance": "not run; ARK_API_KEY unavailable"
+  },
+  "files": [
+    {
+      "path": "source.tar.gz",
+      "bytes": 2988736,
+      "sha256": "681ddd696389a413803ea9cee6e4ae2b49499b86debe829295b4ec50afb4445b"
+    },
+    {
+      "path": "../../dist/此刻-0.12.2-mac-arm64-本地体验.zip",
+      "bytes": 123968394,
+      "sha256": "84acfea53a67173f244ef66327827cdcdd95ad284470a70558ffb349113bdce4"
+    },
+    {
+      "path": "../../dist/0.12.2/mac-arm64/此刻.app/Contents/Resources/app.asar",
+      "bytes": 13243361,
+      "sha256": "63a2b7862d03d1de146db1da98f47670f88ac6cf508982dfa87c42df5694eb1a"
+    },
+    {
+      "path": "../../assets/paper-dango/base-v1.png",
+      "sha256": "61f687b17253a0558e13bcbd051885f142a2c5cc93d3267d26b184c268b4628a"
+    },
+    {
+      "path": "../../assets/concepts/paper-dango-master-v1.png",
+      "sha256": "2a53877d5602b7a973f29fdf2cbbb6a5a04252481e58e73ebea4fa9b6ff1a16c"
+    }
+  ]
+}

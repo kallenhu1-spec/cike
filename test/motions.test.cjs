@@ -44,7 +44,7 @@ test("动效导入拒绝未知动作、动作场景错配，旧库无动作仍�
   delete legacy.action.motionId;
   assert.equal(core.validateLibrary([legacy])[0].action.motionId, undefined);
 });
-test("每个动作只有一次 3.2 秒时间线，静态输出无动画且与动图不同", () => {
+test("每个动作只有一次自己的配置时长，静态输出无动画且与动图不同", () => {
   const stills = new Set();
   for (const motionId of ids)
     for (const night of [true, false])
@@ -58,7 +58,7 @@ test("每个动作只有一次 3.2 秒时间线，静态输出无动画且与动
         assert(!animated.includes("<script"));
         assert(!animated.includes("http:", 50));
         assert.notEqual(still, animated);
-        assert(animated.includes('dur="3.2s"'));
+        assert(animated.includes(`dur="${definitions[motionId].durationMs / 1000}s"`));
         stills.add(still);
       }
   assert.equal(stills.size, 35 * 2 * 3);

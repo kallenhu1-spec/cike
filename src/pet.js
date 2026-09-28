@@ -10,6 +10,26 @@ let currentMoment;
 let idleStep = 0, fivePhase = "", fiveTimer, fiveRevision = 0;
 const fiveButton = document.querySelector("#high-five");
 const fiveStatus = document.querySelector("#five-status");
+const livingCharacter = document.querySelector("#living-character");
+const actionPreview = document.querySelector("#action-preview");
+let lifeDemo = "", lifeDemoTimer, blinkTimer;
+function clearLifeDemo() {
+  clearTimeout(lifeDemoTimer);
+  lifeDemo = "";
+}
+function triggerBlink() {
+  if (document.hidden || sleeping() || state?.settings.reducedMotion || motionPreference.matches) return;
+  livingCharacter.classList.add("blinking");
+  window.setTimeout(() => livingCharacter.classList.remove("blinking"), 135);
+}
+function scheduleBlink() {
+  clearTimeout(blinkTimer);
+  blinkTimer = setTimeout(() => {
+    triggerBlink();
+    scheduleBlink();
+  }, 3200 + Math.random() * 3800);
+}
+scheduleBlink();
 function resetFive() {
   fiveRevision++;
   clearTimeout(fiveTimer);
@@ -111,12 +131,13 @@ function render(s) {
 }
 function renderTransparentPreview() {
   const preview = state?.transparentPreview;
-  const video = document.querySelector("#action-preview");
+  const video = actionPreview;
   const active = !!(preview?.available && preview.enabled && preview.url);
   pet.classList.toggle("transparent-preview", active);
   if (active) pet.classList.remove("scene");
   pet.dataset.previewSize = preview?.size || "medium";
   document.querySelector("#creature").hidden = active;
+  livingCharacter.hidden = active;
   const caption = document.querySelector("#caption");
   if (caption) caption.hidden = active;
   document.querySelector("#spark").hidden = active;
@@ -131,6 +152,9 @@ function renderTransparentPreview() {
     video.load();
   }
 }
+actionPreview.addEventListener("ended", () => {
+  api.call("transparent-preview-enable", false).catch(() => {});
+});
 api.on("character-progress", (progress) => {
   const status = document.querySelector("#generation-status");
   const step = document.querySelector("#generation-step");
@@ -162,6 +186,7 @@ async function renderArt() {
   const revision = ++artRevision;
   const asleep = sleeping() && !activeItem && !fivePhase;
   pet.dataset.sleeping = String(sleeping());
+  pet.dataset.lifeAsleep = String(asleep);
   clearTimeout(motionTimer);
   pet.dataset.playing = "false";
   const illustration =
@@ -180,9 +205,43 @@ async function renderArt() {
     "music",
   ];
   const customImage = activeItem?.image || state?.image;
+  const motionId = activeItem?.action?.motionId;
+  const lifeMode = fivePhase ? `five-${fivePhase}` : (lifeDemo === "sip" || motionId === "sip") ? "sip" : "idle";
+  const useLivingCharacter = !customImage && (fivePhase || lifeDemo || !activeItem || motionId === "sip");
+  if (useLivingCharacter) {
+    pet.classList.remove("scene", "transparent-preview");
+    pet.classList.add("life");
+    pet.dataset.lifeMode = lifeMode;
+    const img = document.querySelector("#creature");
+    img.hidden = true;
+    livingCharacter.hidden = false;
+    document.querySelector("#spark").hidden = false;
+    const animateSip = lifeMode === "sip" && !motionConsumed &&
+      !state?.settings.reducedMotion && !motionPreference.matches;
+    if (lifeMode === "sip") motionConsumed = true;
+    pet.dataset.motion = lifeMode === "sip" ? "sip" : "";
+    pet.dataset.playing = String(animateSip);
+    if (animateSip) {
+      const duration = window.CikeMotions?.definitions?.sip?.durationMs || 5200;
+      motionTimer = setTimeout(() => {
+        if (revision !== artRevision) return;
+        pet.dataset.playing = "false";
+        if (lifeDemo === "sip") {
+          clearLifeDemo();
+          fiveStatus.textContent = "";
+          renderArt();
+        }
+      }, duration + 20);
+    }
+    return;
+  }
+  pet.classList.remove("life");
+  pet.dataset.lifeMode = "";
+  livingCharacter.hidden = true;
   const scene = !customImage && allowed.includes(illustration);
   pet.classList.toggle("scene", scene);
   const img = document.querySelector("#creature");
+  img.hidden = false;
   img.src =
     customImage ||
     (scene
@@ -199,7 +258,6 @@ async function renderArt() {
       !window.CikeAppearance.isOriginal(state.appearance))
   ) {
     try {
-      const motionId = activeItem?.action?.motionId;
       const animate =
         !!motionId &&
         !motionConsumed &&
@@ -234,6 +292,29 @@ async function renderArt() {
     }
   }
 }
+api.on("life-demo", (kind) => {
+  clearLifeDemo();
+  if (kind === "high-five") {
+    highFive();
+    return;
+  }
+  hideCard();
+  if (kind === "sip") {
+    lifeDemo = "sip";
+    motionConsumed = false;
+    fiveStatus.textContent = "捧好杯子，喝一小口。";
+    renderArt();
+    return;
+  }
+  lifeDemo = "gaze";
+  fiveStatus.textContent = "移动鼠标，我会看向你。";
+  renderArt();
+  lifeDemoTimer = setTimeout(() => {
+    clearLifeDemo();
+    fiveStatus.textContent = "";
+    renderArt();
+  }, 9000);
+});
 function releaseHold() {
   held = false;
   document.querySelector("#hold").setAttribute("aria-pressed", "false");
@@ -360,6 +441,11 @@ pet.addEventListener("pointerup", end);
 pet.addEventListener("pointercancel", end);
 let pass;
 document.addEventListener("mousemove", (e) => {
+  const box = livingCharacter.getBoundingClientRect();
+  const dx = Math.max(-1, Math.min(1, (e.clientX - (box.left + box.width / 2)) / 125));
+  const dy = Math.max(-1, Math.min(1, (e.clientY - (box.top + box.height / 2)) / 125));
+  livingCharacter.style.setProperty("--gaze-x", `${(dx * 4.5).toFixed(2)}px`);
+  livingCharacter.style.setProperty("--gaze-y", `${(dy * 3.5).toFixed(2)}px`);
   const next = !(
     e.target.closest("#pet") || e.target.closest("#high-five") || e.target.closest("#bubble.visible")
   );

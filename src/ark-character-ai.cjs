@@ -48,6 +48,7 @@ class ArkCharacterAI {
     this.userData = options.userData || "";
     this.python = options.python || process.env.CIKE_CHARACTER_PYTHON || "python3";
     this.transparentScript = options.transparentScript || "";
+    this.pollInterval = options.pollInterval === undefined ? 10000 : options.pollInterval;
   }
   status() {
     return { ready: !!this.key || this.fixture, provider: this.fixture ? "本地流程替身" : "火山方舟", imageModel: this.imageModel, videoModel: this.videoModel, mode: this.fixture ? "fixture" : this.key ? "owner-api-key" : "missing-key" };
@@ -59,7 +60,7 @@ class ArkCharacterAI {
   }
   firstFramePrompt(style, label) {
     if (!STYLES[style] || label !== "喝水") throw Error("当前试映只开放喝水动作");
-    return `${STYLES[style]}. Edit the selected character reference into a production first frame for a desktop animation. Preserve exactly the same face, hairstyle, proportions, outfit, palette and accessories. Full body centered and fully visible. The character holds one small plain pink cup steadily with both hands at lower chest level, believable attached hands, preparing to drink. No table, no other prop, no text, no watermark. Use a perfectly flat vivid chroma green background #00FF00 with no texture, gradient, shadow, green reflection or scenery. Keep generous empty green margin around the complete silhouette.`;
+    return `${STYLES[style]}. Edit the selected character reference into a production first frame for a desktop animation. Preserve exactly the same face, hairstyle, proportions, outfit, palette and accessories. Full body centered and fully visible. The character holds one small plain muted coral-red cup steadily with both hands at lower chest level, believable attached hands, preparing to drink. No table, no other prop, no text, no watermark. Use a perfectly flat vivid chroma green background #00FF00 with no texture, gradient, shadow, green reflection or scenery. Keep generous empty green margin around the complete silhouette.`;
   }
   videoPrompt(label) {
     if (label !== "喝水") throw Error("当前试映只开放喝水动作");
@@ -117,19 +118,33 @@ class ArkCharacterAI {
     const firstPath = path.join(dir, `first-frame.${first.format.ext}`);
     fs.writeFileSync(firstPath, first.bytes, { flag: "wx" });
     manifest.steps.push({ id: "first-frame", usage: first.usage, sha256: sha(first.bytes), file: path.basename(firstPath) }); save();
-    progress({ stage: "video", text: "首帧完成，正在生成4秒连续动作，通常需要几分钟…" });
+    progress({ stage: "video", text: "首尾姿态已锁定，正在生成5秒连续动作，通常需要几分钟…" });
     let sourcePath = path.join(dir, this.fixture && path.extname(this.fixtureVideo).toLowerCase() === ".webm" ? "source.webm" : "source.mp4"), videoMeta;
     if (this.fixture) {
       if (!this.fixtureVideo || !fs.existsSync(this.fixtureVideo)) throw Error("缺少本地动作视频替身");
       fs.copyFileSync(this.fixtureVideo, sourcePath); videoMeta = { fixture: true };
     } else {
       const firstUrl = `data:${first.format.mime};base64,${first.bytes.toString("base64")}`;
-      const created = await this.ark(VIDEO_URL, { method: "POST", body: JSON.stringify({ model: this.videoModel, content: [{ type: "text", text: this.videoPrompt(label) }, { type: "image_url", image_url: { url: firstUrl }, role: "first_frame" }], duration: 4, resolution: "720p", ratio: "adaptive", generate_audio: false, watermark: false, return_last_frame: true }) });
+      const created = await this.ark(VIDEO_URL, { method: "POST", body: JSON.stringify({
+        model: this.videoModel,
+        content: [
+          { type: "text", text: this.videoPrompt(label) },
+          { type: "image_url", image_url: { url: firstUrl }, role: "first_frame" },
+          { type: "image_url", image_url: { url: firstUrl }, role: "last_frame" },
+        ],
+        duration: 5,
+        resolution: "720p",
+        ratio: "adaptive",
+        generate_audio: false,
+        camera_fixed: true,
+        watermark: false,
+        return_last_frame: true,
+      }) });
       manifest.taskId = created.id; manifest.status = created.status || "queued"; save();
       const deadline = Date.now() + 20 * 60 * 1000;
       let result;
       while (Date.now() < deadline) {
-        await delay(10000);
+        await delay(this.pollInterval);
         result = await this.ark(`${VIDEO_URL}/${encodeURIComponent(created.id)}`);
         manifest.status = result.status; manifest.updatedAt = new Date().toISOString(); save();
         progress({ stage: "video", text: result.status === "running" ? "正在生成连续动作…" : `动作任务：${result.status}` });

@@ -408,6 +408,7 @@ else {
       if (!input || typeof input.character !== "string") throw Error("请先选定角色母版");
       const progress = value => {
         if (customizer && !customizer.isDestroyed()) customizer.webContents.send("character-progress", value);
+        if (laboratory && !laboratory.isDestroyed()) laboratory.webContents.send("character-progress", value);
         if (pet && !pet.isDestroyed()) pet.webContents.send("character-progress", value);
       };
       try {
@@ -490,6 +491,13 @@ else {
       cardPinned = value;
     });
     handle("laboratory", tabName => showLaboratory(tabName));
+    handle("life-demo", kind => {
+      if (!["gaze", "high-five", "sip"].includes(kind)) throw Error("未知的生命感试映");
+      if (laboratory && !laboratory.isDestroyed()) laboratory.hide();
+      pet.showInactive();
+      pet.webContents.send("life-demo", kind);
+      return true;
+    });
     handle("studio", showStudio);
     handle("motion-library", () => builtin.filter((x) => x.action?.motionId));
     handle("request", requestReminder);
