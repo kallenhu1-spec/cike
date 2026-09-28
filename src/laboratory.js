@@ -31,7 +31,7 @@ function asDataUrl(blob) {
   });
 }
 async function bundledCharacter() {
-  const response = await fetch("../assets/paper-dango/base-v1.png");
+  const response = await fetch("../assets/paper-dango/base-v2.png");
   if (!response.ok) throw Error("角色母版读取失败");
   return asDataUrl(await response.blob());
 }

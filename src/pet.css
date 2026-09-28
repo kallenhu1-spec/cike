@@ -42,8 +42,8 @@ body.keyboard-nav #pet:focus-visible {
   filter: drop-shadow(0 4px 7px #4034220b);
 }
 #living-character {
-  --gaze-x: 0px;
-  --gaze-y: 0px;
+  --gaze-x: 3px;
+  --gaze-y: -4px;
   --sip-duration: 5200ms;
   position: absolute;
   left: -20px;
@@ -65,29 +65,40 @@ body.keyboard-nav #pet:focus-visible {
 }
 .paper-eye {
   position: absolute;
-  width: 34px;
-  height: 38px;
+  width: 56px;
+  height: 56px;
+  overflow: hidden;
+  border-radius: 48%;
   z-index: 4;
 }
-.paper-eye-left { left: 60px; top: 101px; }
-.paper-eye-right { left: 124px; top: 99px; }
+.paper-eye-left {
+  left: 52px;
+  top: 97px;
+  transform: rotate(-2deg);
+}
+.paper-eye-right {
+  left: 114px;
+  top: 92px;
+  width: 55px;
+  height: 55px;
+  transform: rotate(2deg);
+}
 .paper-pupil {
   position: absolute;
-  left: 2px;
-  top: 2px;
-  width: 30px;
-  height: 34px;
-  object-fit: fill;
-  filter: drop-shadow(0 1px 1px #2511092e);
+  left: 9px;
+  top: 7px;
+  width: 38px;
+  height: 42px;
+  object-fit: contain;
   transform: translate(var(--gaze-x), var(--gaze-y));
-  transition: transform 90ms ease-out, opacity 45ms linear;
+  transition: transform 105ms ease-out, opacity 45ms linear;
 }
 .paper-blink {
   position: absolute;
-  left: 3px;
-  top: 17px;
-  width: 28px;
-  height: 8px;
+  left: 5px;
+  top: 25px;
+  width: 46px;
+  height: 10px;
   border-bottom: 3px solid #3b251a;
   border-radius: 50%;
   opacity: 0;

@@ -15,7 +15,7 @@ async function refresh(){
   state=await api.call('get');
   rows=await api.call('content-list');
   $('version').textContent=state.appVersion+' · 桌搭团子';
-  $('dango-choice-image').src="../assets/paper-dango/base-v1.png";
+  $('dango-choice-image').src="../assets/paper-dango/base-v2.png";
   list();
 }
 const artCache=new Map();

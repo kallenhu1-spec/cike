@@ -1,0 +1,47 @@
+{
+  "version": "0.12.4",
+  "date": "2026-09-28",
+  "baseline": "0.12.3",
+  "reviewStatus": "待用户 Mac 实机评审",
+  "releaseStatus": "仅推送到 codex/0.12.4-master-eyes；未合并 main、未创建 GitHub Release",
+  "target": "macOS arm64",
+  "signed": false,
+  "notarized": false,
+  "verification": {
+    "unitTests": "53/53 passed",
+    "syntaxAndDiff": "passed",
+    "packageVersion": "0.12.4",
+    "packageSourceMatch": "src/pet.* plus base-v2.png and iris-v2.png matched extracted app.asar",
+    "electronUiSmoke": "blocked by execution container system-socket restriction; pending on user Mac",
+    "visualPrecheck": "master, 0.12.3, 0.12.4 default gaze and edge gaze compared at desktop scale",
+    "realSeedance": "not run; outside this visual correction round"
+  },
+  "files": [
+    {
+      "path": "source.tar.gz",
+      "bytes": 3941867,
+      "sha256": "7f8d754d7e55d7efc6adc760ebf7e0976c98e6f88b4be6631f54f7e12d31c508"
+    },
+    {
+      "path": "../../dist/0.12.4/mac-arm64/此刻.app/Contents/Resources/app.asar",
+      "bytes": 14197602,
+      "sha256": "c3d04811d575aba384688805e7f1a78f76dd747d3c5d17e74fde1a38e2c9a1b2"
+    },
+    {
+      "path": "../../assets/paper-dango/base-v2.png",
+      "sha256": "0439852a0bb314e8337c26a0759eb1eebacb36a517d813b33bba79d93ec72073"
+    },
+    {
+      "path": "../../assets/paper-dango/parts/iris-v2.png",
+      "sha256": "f1a47a693c1cfbd507f432a49840ef042764722769010a2676862ad1d521ea16"
+    },
+    {
+      "path": "master-comparison.png",
+      "sha256": "0465a991404f06e2fa405df7db02f4f71e473a21351b0874d226dfde5c3e19b8"
+    },
+    {
+      "path": "eyes-first-check.png",
+      "sha256": "d57e92a0f318fe96b3cdf627652e0cbdaff9a353766539aef2b5be2bee8d5365"
+    }
+  ]
+}

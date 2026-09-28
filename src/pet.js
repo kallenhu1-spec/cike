@@ -444,8 +444,8 @@ document.addEventListener("mousemove", (e) => {
   const box = livingCharacter.getBoundingClientRect();
   const dx = Math.max(-1, Math.min(1, (e.clientX - (box.left + box.width / 2)) / 125));
   const dy = Math.max(-1, Math.min(1, (e.clientY - (box.top + box.height / 2)) / 125));
-  livingCharacter.style.setProperty("--gaze-x", `${(dx * 4.5).toFixed(2)}px`);
-  livingCharacter.style.setProperty("--gaze-y", `${(dy * 3.5).toFixed(2)}px`);
+  livingCharacter.style.setProperty("--gaze-x", `${(dx * 8.5).toFixed(2)}px`);
+  livingCharacter.style.setProperty("--gaze-y", `${(dy * 6.5).toFixed(2)}px`);
   const next = !(
     e.target.closest("#pet") || e.target.closest("#high-five") || e.target.closest("#bubble.visible")
   );

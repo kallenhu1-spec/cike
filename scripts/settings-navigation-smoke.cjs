@@ -5,7 +5,7 @@ const path = require("node:path");
 const assert = require("node:assert/strict");
 
 const root = path.resolve(__dirname, "..");
-const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.3");
+const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.4");
 fs.mkdirSync(output, { recursive: true });
 
 (async () => {
@@ -86,7 +86,7 @@ fs.mkdirSync(output, { recursive: true });
     assert.equal(await customizer.locator('nav button[aria-current="page"]').count(), 1);
     await customizer.screenshot({ path: path.join(output, "关于此刻.png") });
     assert.deepEqual(errors, []);
-    console.log("PASS 0.12.3 navigation: five entries, dango/life-study tabs, return to healing moments, direct voice/preferences windows, no visible AI voice controls, no page errors.");
+    console.log("PASS 0.12.4 navigation: five entries, dango/life-study tabs, return to healing moments, direct voice/preferences windows, no visible AI voice controls, no page errors.");
   } finally {
     if (app) await app.close();
     fs.rmSync(testData, { recursive: true, force: true });
