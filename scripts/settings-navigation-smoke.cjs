@@ -5,7 +5,7 @@ const path = require("node:path");
 const assert = require("node:assert/strict");
 
 const root = path.resolve(__dirname, "..");
-const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.4");
+const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.5");
 fs.mkdirSync(output, { recursive: true });
 
 (async () => {
@@ -51,8 +51,8 @@ fs.mkdirSync(output, { recursive: true });
 
     await customizer.locator("#choose-personal").click();
     await laboratory.waitForFunction(() => document.querySelector("#personal-tab").hidden === false);
-    assert.match(await laboratory.locator("#personal-tab").innerText(), /先让它有一点生命/);
-    assert.match(await laboratory.locator("#personal-tab").innerText(), /眼睛和手臂由代码实时控制/);
+    assert.match(await laboratory.locator("#personal-tab").innerText(), /折纸团，留到下一版/);
+    assert.match(await laboratory.locator("#personal-tab").innerText(), /0\.12\.5 先把平面小团子定型/);
     await laboratory.screenshot({ path: path.join(output, "生命感试映台.png") });
     await laboratory.locator("#return-to-moments").click();
     await customizer.waitForFunction(() => document.querySelector("#actions").hidden === false);
@@ -82,11 +82,11 @@ fs.mkdirSync(output, { recursive: true });
     await preferences.waitForSelector("#form");
 
     await customizer.locator('[data-tab="about"]').click();
-    assert.match(await customizer.locator("#about").innerText(), /桌搭团子 0\.12\.2/);
+    assert.match(await customizer.locator("#about").innerText(), /桌搭团子 0\.12\.5/);
     assert.equal(await customizer.locator('nav button[aria-current="page"]').count(), 1);
     await customizer.screenshot({ path: path.join(output, "关于此刻.png") });
     assert.deepEqual(errors, []);
-    console.log("PASS 0.12.4 navigation: five entries, dango/life-study tabs, return to healing moments, direct voice/preferences windows, no visible AI voice controls, no page errors.");
+    console.log("PASS 0.12.5 navigation: five entries, flat-dango/current and 0.12.6-preview boundaries, return to healing moments, direct voice/preferences windows, no visible AI voice controls, no page errors.");
   } finally {
     if (app) await app.close();
     fs.rmSync(testData, { recursive: true, force: true });

@@ -16,7 +16,7 @@ test("七个时段都有常驻场景，夜晚保留夜色", () => {
   );
   assert.equal(result[6].mood, "night");
 });
-test("形象参数拒绝越界、未知轮廓与注入；默认形象不改变旧图", () => {
+test("形象参数拒绝越界、未知轮廓与注入；默认场景升级为精修平面团子", () => {
   assert(design.isOriginal(design.defaults()));
   for (const a of [
     { ...design.defaults(), face: 3 },
@@ -37,10 +37,10 @@ test("形象参数拒绝越界、未知轮廓与注入；默认形象不改变�
     night: false,
     appearance: design.defaults(),
   });
-  assert.equal(
-    Buffer.from(uri.split(",")[1], "base64").toString(),
-    fs.readFileSync("assets/scenes/water.svg", "utf8"),
-  );
+  const upgraded = Buffer.from(uri.split(",")[1], "base64").toString();
+  assert.notEqual(upgraded, fs.readFileSync("assets/scenes/water.svg", "utf8"));
+  assert.match(upgraded, /data-eyes="flat"/);
+  assert.match(upgraded, /rx="9\.8" ry="11\.6"/);
 });
 test("三个形象能进入全部八种昼夜场景，场景内容不丢失", () => {
   for (const appearance of Object.values(design.presets))

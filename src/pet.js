@@ -207,7 +207,9 @@ async function renderArt() {
   const customImage = activeItem?.image || state?.image;
   const motionId = activeItem?.action?.motionId;
   const lifeMode = fivePhase ? `five-${fivePhase}` : (lifeDemo === "sip" || motionId === "sip") ? "sip" : "idle";
-  const useLivingCharacter = !customImage && (fivePhase || lifeDemo || !activeItem || motionId === "sip");
+  const useLivingCharacter = !customImage &&
+    window.CikeAppearance.isOriginal(state?.appearance || window.CikeAppearance.defaults()) &&
+    (fivePhase || lifeDemo || !activeItem || motionId === "sip");
   if (useLivingCharacter) {
     pet.classList.remove("scene", "transparent-preview");
     pet.classList.add("life");
@@ -251,12 +253,7 @@ async function renderArt() {
     ? "小纸团的生活场景：" +
       (activeItem?.action?.title || currentMoment?.label || "桌边")
     : "安静的小纸团";
-  if (
-    scene &&
-    state?.appearance &&
-    (asleep || fivePhase || idleStep || activeItem?.action?.motionId ||
-      !window.CikeAppearance.isOriginal(state.appearance))
-  ) {
+  if (scene && state?.appearance) {
     try {
       const animate =
         !!motionId &&
@@ -444,8 +441,8 @@ document.addEventListener("mousemove", (e) => {
   const box = livingCharacter.getBoundingClientRect();
   const dx = Math.max(-1, Math.min(1, (e.clientX - (box.left + box.width / 2)) / 125));
   const dy = Math.max(-1, Math.min(1, (e.clientY - (box.top + box.height / 2)) / 125));
-  livingCharacter.style.setProperty("--gaze-x", `${(dx * 8.5).toFixed(2)}px`);
-  livingCharacter.style.setProperty("--gaze-y", `${(dy * 6.5).toFixed(2)}px`);
+  livingCharacter.style.setProperty("--gaze-x", `${(dx * 6).toFixed(2)}px`);
+  livingCharacter.style.setProperty("--gaze-y", `${(dy * 4.5).toFixed(2)}px`);
   const next = !(
     e.target.closest("#pet") || e.target.closest("#high-five") || e.target.closest("#bubble.visible")
   );

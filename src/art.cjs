@@ -3,7 +3,7 @@ const fs = require("node:fs"),
 const appearance = require("./appearance.js");
 const { ILLUSTRATIONS } = require("./core.cjs");
 const original = fs
-  .readFileSync(path.join(__dirname, "../assets/creature.svg"), "utf8")
+  .readFileSync(path.join(__dirname, "../assets/legacy/creature-0.12.1.svg"), "utf8")
   .replace(/^<svg[^>]*>/, "")
   .replace(/<\/svg>\s*$/, "");
 const cache = new Map();
@@ -19,7 +19,7 @@ module.exports = function art(input) {
     if (!["ready", "done"].includes(input.gesture)) throw Error("手势无效");
     const done = input.gesture === "done";
     const actor = appearance.inner({ ...a, expression: done ? "happy" : "smile" })
-      .replace('<path d="M51 126Q36 116 34 129M180 128Q195 117 195 130" fill="none"/>', "");
+      .replace('<path d="M52 126Q39 118 34 130Q36 136 42 133M180 128Q193 119 196 130Q194 136 188 133" fill="none"/>', "");
     const animated = input.animate === true;
     const handMotion = animated && !done
       ? '<animateTransform attributeName="transform" type="translate" values="0 35;0 -4;0 0" keyTimes="0;.72;1" calcMode="spline" keySplines=".2 .9 .25 1;.2 .9 .25 1" dur=".55s" repeatCount="1" fill="freeze"/>'
@@ -60,9 +60,6 @@ module.exports = function art(input) {
     );
   const svg = cache
     .get(name)
-    .replace(
-      original,
-      appearance.isOriginal(a) ? original : appearance.inner(a),
-    );
+    .replace(original, appearance.inner(a));
   return "data:image/svg+xml;base64," + Buffer.from(svg).toString("base64");
 };

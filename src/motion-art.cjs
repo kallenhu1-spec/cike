@@ -50,7 +50,7 @@ module.exports = function motionArt(input) {
   let actor = design
     .inner(a)
     .replace(
-      '<path d="M51 126Q36 116 34 129M180 128Q195 117 195 130" fill="none"/>',
+      '<path d="M52 126Q39 118 34 130Q36 136 42 133M180 128Q193 119 196 130Q194 136 188 133" fill="none"/>',
       "",
     );
   actor = `<g transform="translate(212 38) scale(.95)">${actor}</g>`;

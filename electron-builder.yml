@@ -1,7 +1,7 @@
 appId: com.cike.companion
 productName: 此刻
 directories:
-  output: dist/0.12.4
+  output: dist/0.12.5
 files:
   - src/**
   - assets/**

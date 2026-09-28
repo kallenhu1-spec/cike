@@ -1,0 +1,56 @@
+{
+  "version": "0.12.5",
+  "date": "2026-09-29",
+  "baseline": "0.12.4",
+  "reviewStatus": "待用户 Mac 实机动态评审；不标为宣传认可版",
+  "releaseStatus": "仅推送到 codex/0.12.5-flat-dango；未合并 main、未创建 GitHub Release",
+  "target": "macOS arm64",
+  "signed": false,
+  "notarized": false,
+  "verification": {
+    "unitTests": "55/55 passed",
+    "syntaxAndDiff": "passed",
+    "packageVersion": "0.12.5",
+    "packageSourceMatch": "src/pet.*, appearance.js, creature.svg and assets/flat-dango matched extracted app.asar",
+    "sourceSnapshot": "source, docs, tests and new SVG assets; unchanged 0.12.4 raster assets remain in the branch and packaged app",
+    "electronUiSmoke": "blocked by execution container system-socket restriction; pending on user Mac",
+    "visualPrecheck": "flat master plus idle, anchored high-five and cup-holding states rendered and inspected",
+    "scopeBoundary": "0.12.6 custom-character and image-to-video user flow not implemented"
+  },
+  "files": [
+    {
+      "path": "source.tar.gz",
+      "bytes": 294390,
+      "sha256": "ba6cf09e7cb0947f61c2a673aa6e2550f6d3bd43805b85c14412fce477038b17"
+    },
+    {
+      "path": "../../dist/0.12.5/mac-arm64/此刻.app/Contents/Resources/app.asar",
+      "bytes": 14202391,
+      "sha256": "c53142b204d33bfc95eab7a97d54905c01b095cdcf9ae77a02d85e383b670b9a"
+    },
+    {
+      "path": "../../assets/creature.svg",
+      "sha256": "03a41d7927c00ba0fe5c4f5d612a7f23474d87b05c2e81c46a147958486675f9"
+    },
+    {
+      "path": "../../assets/flat-dango/body-v1.svg",
+      "sha256": "8296af6f0f186dfbcc2f88f2e2e054c5da71280f27a8c5d611df3c2877b67275"
+    },
+    {
+      "path": "../../assets/flat-dango/arm-v1.svg",
+      "sha256": "a0cf36f5581e214b23583c79fd4fe7ad0241ab910b90319f8ed34848f4ed54d1"
+    },
+    {
+      "path": "../../assets/flat-dango/cup-v1.svg",
+      "sha256": "c67e9a7ca6f4fed690b0b51f9f3319be4750f468893fe090a51b09c9d90f1601"
+    },
+    {
+      "path": "平面小团子-母版.png",
+      "sha256": "8258ef32428140c2bbc84d34c6c08e84cb3fbcec7ae7034851362fd69fd16cad"
+    },
+    {
+      "path": "平面小团子-三状态.png",
+      "sha256": "abfe1265bbb9337bce379b0d4efc5bed29edec38bd9de229de4bc2f9de043c3d"
+    }
+  ]
+}

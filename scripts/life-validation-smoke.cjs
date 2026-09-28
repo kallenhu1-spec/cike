@@ -5,7 +5,7 @@ const os = require("node:os");
 const path = require("node:path");
 
 const root = path.resolve(__dirname, "..");
-const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.4");
+const output = path.resolve(process.env.CIKE_ARTIFACT_DIR || "artifacts/0.12.5");
 fs.mkdirSync(output, { recursive: true });
 
 (async () => {
@@ -27,25 +27,24 @@ fs.mkdirSync(output, { recursive: true });
     const pet = await app.firstWindow();
     watch(pet);
     await pet.waitForSelector("#living-character:not([hidden])");
-    assert.match(await pet.locator("#paper-body").getAttribute("src"), /paper-dango\/base-v2\.png$/);
-    assert.match(await pet.locator(".paper-pupil").first().getAttribute("src"), /paper-dango\/parts\/iris-v2\.png$/);
-    assert.match(await pet.locator(".paper-arm img").first().getAttribute("src"), /paper-dango\/parts\/arm-v1\.png$/);
-    assert.match(await pet.locator(".paper-grip").first().getAttribute("src"), /paper-dango\/parts\/hand-v1\.png$/);
-    assert.match(await pet.locator(".paper-cup").getAttribute("src"), /paper-dango\/parts\/cup-v1\.png$/);
+    assert.match(await pet.locator("#flat-body").getAttribute("src"), /flat-dango\/body-v1\.svg$/);
+    assert.match(await pet.locator(".flat-arm img").first().getAttribute("src"), /flat-dango\/arm-v1\.svg$/);
+    assert.match(await pet.locator(".flat-cup").getAttribute("src"), /flat-dango\/cup-v1\.svg$/);
+    assert.equal(await pet.locator(".flat-eye").count(), 2);
     assert.equal(await pet.locator("#high-five").isVisible(), false);
     assert.equal(
       await pet.locator("#living-character").evaluate((node) => getComputedStyle(node).getPropertyValue("--sip-duration").trim()),
       "5200ms",
     );
-    assert.equal(await pet.locator("#living-character").evaluate((node) => getComputedStyle(node).scale), "0.88");
+    assert.equal(await pet.locator("#living-character").evaluate((node) => getComputedStyle(node).scale), "0.82");
 
     await pet.mouse.move(78, 455);
     const leftGaze = await pet.locator("#living-character").evaluate((node) => getComputedStyle(node).getPropertyValue("--gaze-x"));
     await pet.mouse.move(288, 390);
     const rightGaze = await pet.locator("#living-character").evaluate((node) => getComputedStyle(node).getPropertyValue("--gaze-x"));
     assert.ok(parseFloat(leftGaze) < 0);
-    assert.ok(parseFloat(rightGaze) >= 8, "眼珠应能移动到眼白内缘");
-    assert.ok(parseFloat(rightGaze) - parseFloat(leftGaze) >= 12, "眼珠横向视线范围不能退回 0.12.3 的中央小幅移动");
+    assert.ok(parseFloat(rightGaze) >= 5, "眼珠应能移动到眼白内缘");
+    assert.ok(parseFloat(rightGaze) - parseFloat(leftGaze) >= 9, "眼珠横向视线范围应在桌面尺寸下清楚可见");
     await pet.evaluate(() => triggerBlink());
     await pet.waitForSelector("#living-character.blinking");
     await pet.waitForSelector("#living-character:not(.blinking)");
@@ -76,7 +75,7 @@ fs.mkdirSync(output, { recursive: true });
     assert.match(await laboratory.locator("#character-engine").innerText(), /未配置 ARK_API_KEY/);
     await laboratory.screenshot({ path: path.join(output, "生命感试映台.png") });
     assert.deepEqual(errors, []);
-    console.log("PASS 0.12.4 master-eye validation: larger clipped matte eyes, edge-reaching gaze, raster arms/hands/cup, blink, two-stage high-five, 5.2s one-shot sip, honest missing-key state, no page errors.");
+    console.log("PASS 0.12.5 flat-dango validation: quiet flat master, edge-reaching gaze, anchored vector arms, blink, two-stage high-five, 5.2s one-shot sip, honest 0.12.6 preview boundary, no page errors.");
   } finally {
     if (app) await app.close();
     fs.rmSync(testData, { recursive: true, force: true });

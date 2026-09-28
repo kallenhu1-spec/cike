@@ -15,7 +15,7 @@ async function refresh(){
   state=await api.call('get');
   rows=await api.call('content-list');
   $('version').textContent=state.appVersion+' · 桌搭团子';
-  $('dango-choice-image').src="../assets/paper-dango/base-v2.png";
+  $('dango-choice-image').src="../assets/creature.svg";
   list();
 }
 const artCache=new Map();
@@ -68,8 +68,8 @@ $('editor').onsubmit=e=>{e.preventDefault();run(async()=>{if(await save())$('edi
 $('preview-action').onclick=()=>run(async()=>{if((!dirty&&rows.some(r=>r.id===selectedId))||await save()){await api.call('content-preview',selectedId);message('已在桌面显示这条小动作；这次预览不占提醒次数。');}});
 $('voice-action').onclick=()=>run(async()=>{if((!dirty&&rows.some(r=>r.id===selectedId))||await save())await api.call('voice-room',$('text').value.trim());});
 $('remove-action').onclick=()=>run(async()=>{if(await api.call('content-remove',selectedId)){dirty=false;await refresh();select(rows.find(r=>r.id===selectedId)||rows[0]);message('已经更新，原配音仍保留在本机。');}});
-$('choose-dango').onclick=()=>{ $('choose-dango').classList.add('selected');$('choose-dango').setAttribute('aria-pressed','true');$('choose-personal').classList.remove('selected');$('choose-personal').setAttribute('aria-pressed','false');message('治愈小事正在使用新版小纸团。'); };
-$('choose-personal').onclick=()=>{message('新版小纸团已可试映：看向鼠标、两阶段击掌和喝水动作。');run(()=>api.call('laboratory','personal'));};
+$('choose-dango').onclick=()=>{ $('choose-dango').classList.add('selected');$('choose-dango').setAttribute('aria-pressed','true');$('choose-personal').classList.remove('selected');$('choose-personal').setAttribute('aria-pressed','false');message('治愈小事正在使用精修平面小团子。'); };
+$('choose-personal').onclick=()=>{message('0.12.6 将以折纸团跑通定制链路；这一版先检查平面小团子的动作。');run(()=>api.call('laboratory','personal'));};
 api.on('state',()=>run(refresh));api.on('voice-changed',()=>run(refresh));
 window.onbeforeunload=e=>{if(dirty&&!confirm('有尚未保存的小动作修改，确定关闭？')){e.preventDefault();e.returnValue=false;}};
 run(async()=>{motions=Object.fromEntries((await api.call('motion-library')).filter(r=>r.action?.motionId).map(r=>[r.action.motionId,{id:r.action.motionId,label:r.action.title,illustration:r.action.illustration}]));await refresh();select(rows[0]);});
